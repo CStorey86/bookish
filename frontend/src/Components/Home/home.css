@@ -1,0 +1,33 @@
+.Home{
+    width: 100%;
+    justify-items: center;
+}
+
+.MainContent{
+    width: 96%;
+    height: 500px;
+    background-color: #f1f1f1;
+    color: black;
+    float: left;
+    justify-content: center;
+    margin: 25px;
+}
+
+.LeftPanel{
+    background-color: #c4c4c4;
+    margin: 10px;
+    padding: 20px;
+    width: 63%;
+    height: 440px;
+    float: left;
+}
+
+.RightPanel{
+    background-color: #c4c4c4;
+    margin: 10px;
+    padding: 20px;
+    width: 350px;
+    height: 440px;
+    float: right;
+}
+

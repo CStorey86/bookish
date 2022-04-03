@@ -1,0 +1,124 @@
+.Requests{
+    background-color: #c4c4c4;
+    margin: 10px;
+    padding: 20px;
+    width: 63%;
+    height: 440px;
+    float: left;
+}
+
+.SearchBar{
+    width: 95%;
+    color: white;
+    margin: 10px;
+    margin-left: 12px;
+    padding: 5px 10px;
+    background-color: #282c34;
+    float: left;
+    font-size: 16px;
+}
+
+.Sort{
+    width: 33%;
+    height: 44px;
+    float: left;
+}
+
+.Search{
+    width: 65%;
+    float: right;
+    height: 44px;
+}
+
+.SearchBar input {
+    height: 20px;
+    width: 350px;
+    float: left;
+    margin: 10px;
+}
+
+.SearchBar p {
+    height: 30px;
+    float: left;
+    margin: 10px;
+    font-size: 18px;
+}
+
+.RequestList{
+    width: 96%;
+    height: 260px;
+    color: white;
+    margin: 10px;
+    margin-left: 12px;
+    padding: 5px;
+    background-color: #282c34;
+    float: left;
+    font-size: 16px;
+    overflow-y: scroll;
+    
+}
+
+.Requests h2, .SingleRequest h2{
+    font-size: 30px;
+    padding: 5px 5px 20px 5px;
+    border-bottom: solid 2px #1d3b31;
+    width: 96%;
+    color: #1d3b31;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.requestItem{
+    background-color: #7bcfb3;
+    color: black;
+    margin: 10px 0;
+    width: 100%;
+    height: 40px;
+}
+
+.requestItem:hover{
+    background-color: #d3fff0;
+    font-weight: bold;
+}
+
+.SingleRequest{
+    background-color: #c4c4c4;
+    margin: 10px;
+    padding: 20px;
+    width: 27%;
+    height: 440px;
+    float: left;
+}
+
+.ActionBtn{
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+    background-color: #7bcfb3;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.ActionBtn:Hover{
+    background-color: #d3fff0;
+}
+
+.card{
+    background-color: #282c34;
+    color: white;
+    height: 320px;
+    margin: 10px 4px 5px;
+    text-align: left;
+    padding: 5px;
+}
+
+.card p{
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.status{
+    border-top: 2px solid #7bcfb3;
+    padding: 5px;
+}
