@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt, faUser, faBookOpen, faPlus} from '@fortawesome/free-solid-svg-icons';
 import logo from '../../BookishLogo.PNG';
@@ -9,14 +10,53 @@ class NavBar extends Component {
   render(){
     return (
       <div className="NavBar">
-          <img id="Logo" src={logo} alt="Logo" />
-          <p id="Logout"><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
-          <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
-          <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> My Requests</p>
-          <p className="NavBarItem"><FontAwesomeIcon icon={faPlus} /> New Request</p>
+          <Link to="/Home">
+            <img id="Logo" src={logo} alt="Logo" />
+          </Link>
+          <Link to="/Login">
+            <p id="Logout"><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
+          </Link>
+          {/* Standard User */}
+            <Link to="/Profile">
+              <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
+            </Link>
+            <Link to="/Requests">
+              <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> My Requests</p>
+            </Link>
+            <Link to="/NewRequest">
+              <p className="NavBarItem"><FontAwesomeIcon icon={faPlus} /> New Request</p>
+            </Link>
+          {/* Employee */}
+            {/*             
+            <Link to="/Profile">
+              <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
+            </Link>
+
+            <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> Allocations</p>
+
+            <Link to="/Requests">
+              <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> My Requests</p>
+            </Link>
+            
+            <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> All Requests</p>
+           */}
+
+          {/* Authoriser */}
+                       
+          {/* <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
+            <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> Authorisations</p>
+            <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Users</p>
+            <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> All Requests</p>
+           */}
+          
+
+
       </div>
     );
   }
 }
 
 export default NavBar;
+
+
+//<Link to="/about">About</Link>

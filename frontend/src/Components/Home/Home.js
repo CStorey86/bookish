@@ -3,16 +3,20 @@ import './home.css';
 
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
-import MainContent from './MainContent';
+import Dashboard from './Dashboard';
+
 
 class Home extends Component {
   render(){
     return (
       <div className="Home">
             <NavBar/>
-            <MainContent/>
-            <Footer />
 
+            {/* Dashboard = landing page: shows summary of requests, and notifications */}
+            <Dashboard />
+            {/*  */}
+
+            <Footer />
       </div>
     );
   }

@@ -1,0 +1,129 @@
+.NavBar{
+    width: 100%;
+    background-color: #4fb695;
+    float: left;
+    Font-style: Arial;
+    font-size: 18px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#Logo{
+    width: 160px;
+    margin: 5px 20px;
+    float: left;
+    margin-left: 30px;
+}
+
+.Login {
+    width: 400px;
+    background-color: #c4c4c4;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.568);
+    margin: 40px;
+    float: left;
+    border-radius: 8px;
+    
+}
+  
+.Login h1 {
+    text-align: center;
+    font-size: 30px;
+    padding: 20px 0 20px 0;
+    border-bottom: 2px solid #dee0e4;
+    color: #0b4935;
+    margin: 10px;
+}
+
+.Login form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.formRow{
+    float: left;
+    margin: 4px;
+    width: 98%;
+}
+
+.formItem{
+    float: left;
+    width: 300px;
+    margin: 10px 20px;
+}
+
+.formItem2{
+    float: left;
+    width: 774px;
+    margin: 10px 20px;
+}
+
+.Login form label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    color: #23755b;
+    float: left;
+}
+
+.Login form input[type="password"], .Login form input[type="text"], .Login form input[type="email"] {
+    width: 270px;
+    height: 48px;
+    border: 1px solid #dee0e4;
+    padding: 0 15px;
+    float: left;
+    color: black;
+    background-color: #f1f1f1;
+}
+
+::placeholder{
+    color: #353434;
+}
+
+.Login form input[type="submit"] {
+    width: 90%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    color:  #23755b;
+    transition: background-color 0.2s;
+    border-radius: 8px;
+}
+
+.Login form input[type="submit"]:hover {
+    background-color: #318369;
+    color: white;
+    transition: background-color 0.2s;
+  }
+
+.errMsg{
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      color: #353434;
+      font-weight: bolder;
+      background-color: #ffec83e1;
+      margin: 8px 0;
+
+  }
+
+  .formFooter, .formFooter p{
+    text-align: left;
+    font-size: 16px;
+    color: #353434;
+    margin: 20px;
+    font-weight: bold;
+  }
+
+
+
+
+  

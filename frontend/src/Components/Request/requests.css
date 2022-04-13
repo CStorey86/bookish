@@ -1,10 +1,6 @@
 .Requests{
-    background-color: #c4c4c4;
-    margin: 10px;
-    padding: 20px;
-    width: 63%;
-    height: 440px;
-    float: left;
+    width: 100%;
+    justify-items: center;
 }
 
 .SearchBar{
@@ -58,7 +54,25 @@
     
 }
 
-.Requests h2, .SingleRequest h2{
+.LeftPanel{
+    background-color: #c4c4c4;
+    margin: 10px;
+    padding: 20px;
+    width: 63%;
+    height: 440px;
+    float: left;
+}
+
+.RightPanel{
+    background-color: #c4c4c4;
+    margin: 10px;
+    padding: 20px;
+    width: 350px;
+    height: 440px;
+    float: right;
+}
+
+.LeftPanel h2, .RightPanel h2{
     font-size: 30px;
     padding: 5px 5px 20px 5px;
     border-bottom: solid 2px #1d3b31;
@@ -116,9 +130,16 @@
 .card p{
     font-size: 20px;
     padding-left: 20px;
+    color: #d3fff0;
 }
 
 .status{
     border-top: 2px solid #7bcfb3;
     padding: 5px;
+}
+
+.NewRequestForm{
+    height: 400px;
+    margin: 10px 20px;
+    background-color: #c4c4c4;
 }

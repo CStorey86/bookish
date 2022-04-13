@@ -1,0 +1,15 @@
+.Profile{
+    width:100%;
+    float: left;
+    position: fixed;
+    top: 70px;
+}
+
+.LeftProfilePanel{
+    width: 350px;
+
+}
+
+.RightProfilePanel{
+    width: 63%;
+}
