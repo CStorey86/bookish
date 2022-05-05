@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 export const requestSchema = new Schema({
     title:{
         type:String,
-        required: true
+        required: [true, 'A Title is required']
     },
     author:{
         type: String
@@ -20,15 +20,16 @@ export const requestSchema = new Schema({
     format:{
         type: String,
         enum: ["Book","Audiobook","Braille"],        //allows for more types to be added e.g. braille or large print.
-        required: true
+        required: [true, 'The Format is required']
     },
     price:{
         type: Number,
-        required: true
+        required: [true, 'A Price is required']
     },
     status:{
         type:String,
         enum: ["Awaiting Allocation, Allocated, Requires further information, Awaiting authorisation, Complete"],
-        required: true
+        required: true,
+        default: "Awaiting Allocation"
     }
 });

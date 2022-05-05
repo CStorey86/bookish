@@ -1,7 +1,8 @@
-.Requests{
+.Requests, .AllRequests{
     width: 100%;
     justify-items: center;
 }
+
 
 .SearchBar{
     width: 95%;
@@ -138,8 +139,20 @@
     padding: 5px;
 }
 
-.NewRequestForm{
-    height: 400px;
-    margin: 10px 20px;
-    background-color: #c4c4c4;
+.NewRequest{
+    width: 100%;
+    float: left;
 }
+
+#newRequestForm{
+    width: 80%;
+    height: 400px;
+    background-color: #c4c4c4;
+    margin: 10px;
+    padding: 20px;
+    width: 63%;
+    height: 440px;
+    float: left;
+}
+
+

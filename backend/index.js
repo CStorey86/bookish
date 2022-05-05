@@ -4,7 +4,7 @@ import bodyparser from 'body-parser';
 import cors from 'cors';
 import routes from './routes/bookishRoutes';
 
-
+//details to be put in .env file later
 const app = express();
 const PORT = 4000;
 const uri = 'mongodb+srv://claire:llamas@cluster0.ilicq.mongodb.net/bookish?retryWrites=true&w=majority';

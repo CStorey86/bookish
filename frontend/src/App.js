@@ -7,8 +7,11 @@ import Register from './Components/Register/Register';
 import Home from './Components/Home/Home';
 import Requests from './Components/Request/Requests';
 import Profile from './Components/Profile/Profile';
-import NewRequest from './Components/Request/NewRequest';
-
+import NewRequest from './Components/Request/NewRequests/NewRequest';
+import Allocations from './Components/Request/Allocations/Allocations';
+import Authorisations from './Components/Request/Authorisations/Authorisations';
+import Users from './Components/Profile/Users';
+import AllRequests from './Components/Request/AllRequests';
 
 
 class App extends Component {
@@ -23,10 +26,22 @@ class App extends Component {
 
               {/* Routes below are only accessible with valid login */}
               <Route path="/Home" element={<Home />} />
-              {/* route for each link on navbar */}
               <Route path="/Requests" element={<Requests />} />
               <Route path="Profile" element={<Profile />} />
               <Route path="NewRequest" element={<NewRequest />} />
+              
+
+              {/* Employee */}
+              <Route path="Allocations" element={<Allocations />} />
+              
+              {/* Employee  & Authoriser*/}
+              <Route path="/AllRequests" element={<AllRequests />} />
+
+              {/* Authoriser */}
+              <Route path="Authorisations" element={<Authorisations />} /> 
+              <Route path="Users" element={<Users />} />
+
+
             </Routes>
           </BrowserRouter>
 

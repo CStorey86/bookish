@@ -5,11 +5,110 @@
     top: 70px;
 }
 
-.LeftProfilePanel{
-    width: 350px;
+.profileCard {
+    background-color: #c4c4c4;
+    margin: 10px 10px 10px 30px;
+    padding: 5px;
+    width: 35%;
+    height: 470px;
+    float: left;
+    border: white 5px solid;
+}
+
+.profileCard h2, .profileEditPanel h2 {
+    font-size: 30px;
+    padding: 5px 5px 20px 5px;
+    border-bottom: solid 2px #1d3b31;
+    width: 96%;
+    color: #1d3b31;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profileRow{
+    background-color: #282c34;
+    width: 96%;
+    height: 40px;
+    padding: 5px;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.profileRowleft{
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    width: 150px;
+    float: left;
+    padding: 10px 5px 5px 20px;
 
 }
 
-.RightProfilePanel{
-    width: 63%;
+.profileRowRight{
+    color: #7bcfb3;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    float: left;
+    padding: 10px 5px 5px 5px;
+    margin-left: 9px;
 }
+
+
+.ActionBtn-wide{
+    width: 250px;
+    height: 30px;
+    margin: 10px;
+    background-color: #7bcfb3;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.ActionBtn-wide:Hover{
+    background-color: #d3fff0;
+}
+
+.profileEditPanel{
+    background-color: #c4c4c4;
+    margin: 10px 30px 10px 10px;
+    padding: 5px;
+    width: 50%;
+    float: right;
+    border: white 5px solid;
+    display: none;
+}
+
+.editUserFormRow{
+    width: 94%;
+    margin: 10px;
+    float: left;
+    padding: 10px;
+    border: solid black 1px;
+}
+
+.profileEditPanel form label{
+    padding: 10px;
+    text-align: left;
+    float: left;
+    width: 120px;
+    font-size: 18px;
+    color: #1d3b31;
+    font-weight: bold;
+}
+
+.profileEditPanel input[type="text"] {
+    width: 440px;
+    border: solid rgb(204, 203, 203) 1px;
+    height: 30px;
+    padding: 4px 8px;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    margin: 5px;
+    margin-left: 30px;
+    font-size: 18px;
+    float: left;
+    color: black;
+}
+

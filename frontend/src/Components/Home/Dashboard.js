@@ -7,7 +7,7 @@ class Dashboard extends Component {
       <div>
         <div className="Dashboard">
           <div className="LeftPanel">
-            <h2>Welcome (username)</h2>
+            <h2>Welcome (Username)</h2>
             {/* Summary Panel */}
             <div className="PanelItem">
               <p>You have X open requests</p>

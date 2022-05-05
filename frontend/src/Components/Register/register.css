@@ -22,7 +22,6 @@
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.568);
     margin: 40px;
     float: right;
-    border-radius: 8px;
     
 }
   
@@ -90,18 +89,18 @@
     width: 680px;
     padding: 15px;
     margin-top: 20px;
-    background-color: #ffffff;
+    background-color: #0c704f;
     border: 0;
     cursor: pointer;
     font-weight: bold;
     font-size: 20px;
-    color:  #318369;
+    color:  #FFFFFF;
     transition: background-color 0.2s;
     border-radius: 8px;
   }
   .Register form input[type="submit"]:hover {
-    background-color: #318369;
-    color: white;
+    background-color: #d3fff0;
+    color: #0b4935;
     transition: background-color 0.2s;
   }
 
@@ -117,7 +116,7 @@
   }
 
   .formFooter, .formFooter p{
-    text-align: left;
+    text-align: center;
     font-size: 16px;
     color: #353434;
     margin: 20px;

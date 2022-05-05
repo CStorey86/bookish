@@ -6,7 +6,7 @@ import { faSearch, faSort} from '@fortawesome/free-solid-svg-icons';
 function RequestDashboard(){
     return (
         <div>
-            {/* Standard User dashboard*/}
+            {/* Standard User dashboard */}
             <div className="LeftPanel">
                 <h2>MY REQUESTS </h2>
                 <div className="SearchBar">

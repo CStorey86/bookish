@@ -1,0 +1,41 @@
+.Allocations{
+    width: 100%;
+}
+
+
+.AwaitingAllocationList, .myAllocations {
+    width: 45%;
+    height: 440px;    
+    float: left;
+    border: white 5px solid;
+    background-color: #c4c4c4;
+    margin: 20px;
+}
+
+.MyAllocations{
+    float: right;
+}
+
+.allocationRow{
+    background-color: #282c34;
+    width: 95%;
+    margin: 10px;
+    padding: 5px;
+    text-align: left;
+}
+
+.allocationRow:hover{
+    background-color: #7bcfb3;
+}
+
+
+.AwaitingAllocationList h2, .myAllocations h2{
+    font-size: 30px;
+    padding: 5px 5px 20px 5px;
+    border-bottom: solid 2px #1d3b31;
+    width: 96%;
+    color: #1d3b31;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
