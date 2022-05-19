@@ -9,6 +9,13 @@ import Footer from '../Footer/Footer';
 import jwt_decode from "jwt-decode";
  
 
+function checkFirstName(firstName){
+  if(!(firstName > 0))
+  {
+    //empty firstName field
+  }
+}
+
 function Register () {
 
     const [isAuthenticated ,userHasAuthenticated ] = useState(false);
@@ -43,10 +50,11 @@ function Register () {
           }
         }
       }, [isAuthenticated]);
+      
       async function handleSubmit(event) {
           event.preventDefault();
           try{
-            axios.post(`http://localhost:4000/api/register`,
+            axios.post(`http://localhost:4000/users`,
             {
               firstName:firstName,
               lastName:lastName,
@@ -76,6 +84,7 @@ function Register () {
           }
         }
 
+    //Check Email and Password are not empty, and that the password and confirm password fields ar ethe same
     function validateForm() {
         return email.length > 0 && password.length > 0 && (password === confirmPassword);
       }

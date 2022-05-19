@@ -27,18 +27,15 @@ const UserSchema = mongoose.Schema({
     },
     createdDate:{
         type: Date,
-        required: true,
         default: Date.now
           
     },
     isAdmin: {
         type: Boolean,
-        required: true,
         default: false,
     },
     isEmployee: {
         type: Boolean,
-        required: true,
         default: false,
     },
 
