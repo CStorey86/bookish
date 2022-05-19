@@ -1,22 +1,28 @@
-import { addNewUser, getUsers, getUserWithID, updateUser, deleteUser} 
-            from '../controllers/userControllers';
-import { addNewRequest, getRequests, getRequestsWithUserID} 
-            from '../controllers/requestControllers';
+const express = require("express");
+const auth = require("../auth/auth");
+const admin = require("../auth/admin");
 
-const routes = (app) => {
-    app.route('/users')      
-        .get(getUsers)      
-        .post(addNewUser);
+//Initialise router
+const router = express.Router();
 
-    app.route('users/:UserID')          
-        .get(getUserWithID)
-        .put(updateUser)
-        .delete(deleteUser);
+//import controller functions
+    const {
+        
+        registerUser,
 
-    app.route('/requests')
-        .get(getRequests)
-        .get(getRequestsWithUserID)
-        .post(addNewRequest);   
-}
+    } = require('../controllers/userControllers')
 
-export default routes;
+
+//ROUTES
+
+    //Login Routes
+        // router.post("/register", register);
+        // router.post("/login", login);
+
+    //User routes
+
+
+
+//Export router
+module.export = router;
+

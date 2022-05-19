@@ -1,34 +1,47 @@
-import express from 'express'
-import mongoose from 'mongoose';
-import bodyparser from 'body-parser';
-import cors from 'cors';
-import routes from './routes/bookishRoutes';
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const morgan = require('morgan');
+const helmet = require('helmet');
+const routes = require('./routes/bookishRoutes');
 
-//details to be put in .env file later
+//Linking external .env file
+const dotenv = require('dotenv')
+dotenv.config();
+
+//Definining Express application
 const app = express();
-const PORT = 4000;
-const uri = 'mongodb+srv://claire:llamas@cluster0.ilicq.mongodb.net/bookish?retryWrites=true&w=majority';
+// adding Helmet to enhance my API's security
+    app.use(helmet());
 
-// Mongo connection
-mongoose.Promise = global.Promise;
-mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+//Using bodyParser to parse JSON bodies into JS objects
+app.use(bodyParser.json());
 
-// bodyparser setup
-app.use(bodyparser.urlencoded({ extended: true }));
-app.use(bodyparser.json());
+const http = require('http');
+const server = http.createServer(app);
 
-//CORS setup
+mongoose
+	.connect(process.env.MONGO_URI,
+		{ 
+			useNewUrlParser: true,
+		})
+	.then(() => {
+	})
+	.catch((error) => {
+		console.log("Database connection failed. Exiting now...");
+		console.error(error);
+		process.exit(1);
+	  });
+
+app.use(express.json())
 app.use(cors());
+app.use(morgan('combined'));
+app.use('/api', routes);
 
-routes(app);
+const api = server.listen(process.env.API_PORT, () => {
+	console.log("Bookish Server has started on port: " + process.env.API_PORT)
+})
 
-app.get('/',(req,res) =>
-    res.send(`Your Bookish application is running on port ${PORT}`)
-);
+module.exports = api;
 
-app.listen(PORT,() =>           
-    console.log(`Your Bookish server is running on port ${PORT}`)
-);
