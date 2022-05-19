@@ -27,25 +27,20 @@ const UserSchema = mongoose.Schema({
     },
     createdDate:{
         type: Date,
+        required: true,
         default: Date.now
           
     },
     isAdmin: {
         type: Boolean,
-        required: false,
+        required: true,
         default: false,
     },
     isEmployee: {
         type: Boolean,
-        required: false,
+        required: true,
         default: false,
     },
-    requests: {
-        type: Array,
-        required: false,
-        minlength: 0,
-        default: []
-    } 
 
 
 });
