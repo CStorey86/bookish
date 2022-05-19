@@ -1,4 +1,4 @@
-import { registerNewUser, viewAllUsers } from '../controllers/userControllers';
+import { addNewUser, viewAllUsers, registerUser } from '../controllers/userControllers';
 
 
 const routes = (app) => {
@@ -6,7 +6,9 @@ const routes = (app) => {
     // GET endpoint
         .get(viewAllUsers)
     // POST endpoint
-        .post(registerNewUser);
+        .post(addNewUser)       //basic aadd user - not secure
+                
+        .post(registerUser);
 
 
 }

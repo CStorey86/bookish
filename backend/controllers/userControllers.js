@@ -2,41 +2,13 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import { UserSchema} from '../models/userModel';
 
+const jwt = require('jsonwebtoken');
 const User = mongoose.model('User', UserSchema);
 
 
 //REGISTER//
-export const registerNewUser = (req, res) => {
-    // try{
-        let newUser = new User(req.body);
-
-    //     //Get valid inputs
-    //         if(!(req.body.username && req.body.password && req.body.firstName && req.body.lastName)){
-    //             return res.status(400).send("Missing fields from request");
-    //         }
-    //     //Check if user exists
-    //         const existUser = await User.findOne({email: req.body.email});
-    //         if(existUser){
-    //             return res.status(409).send("User already exists - Please Login");
-    //         }
-
-    //     //Encrpyt password
-    //         encryptedPassword = await bcrypt.hash(req.body.password,10);
-            
-    //     //add to database
-    //         const User = new user({
-    //             firstName: req.body.firstName,
-    //             lastName: req.body.lastName,
-    //             email: req.body.email,
-    //             password: req.body.password
-    //         })
-    //         await user.save();
-    //     //confirm user has been added    
-    //         return res.status(201).send("User Successfully created")
-    // }
-
-
-
+export const addNewUser = (req, res) => {
+    let newUser = new User(req.body);
     newUser.save((err, User) => {
         if (err) {
             res.send(err);
@@ -45,6 +17,46 @@ export const registerNewUser = (req, res) => {
     });
 };
 
+export const registerUser =(async (req,res) =>{
+    //Get User Inputs
+        const {firstName, lastName, email, password} = req.body;
+    //Validate inputs
+        if (!(email && password && firstName && lastName)) {
+            return res.status(400).send("Missing fields from request");
+        }
+    //Check if user already exists
+        const oldUser = await User.findOne({ email });
+        if (oldUser) {
+        return res.status(409).send("User Already Exists. Please Login");
+        }
+
+    //Encrypt password
+        encryptedPassword = await bcrypt.hash(password, 10);
+
+    //Create new user in mongoDB
+        const user = await User.create({
+            firstName,
+            lastName,
+            email: email.toLowerCase(),         // sanitisation: convert email to lowercase
+            password: encryptedPassword,
+        });
+
+    //Create Token
+		const token = jwt.sign(
+            { user_id: user._id, email },
+            process.env.TOKEN_KEY,
+            {
+              expiresIn: "2h",
+            }
+          );
+          // save user token
+          user.token = token;
+          user.password = undefined;
+          // return new user
+          return res.status(201).send(user);
+
+})
+
 // LOGIN //
 
 export const login =(req,res) =>{
@@ -52,7 +64,6 @@ export const login =(req,res) =>{
     //check if exists
     //check password
     //create token
-
 
 
 };
