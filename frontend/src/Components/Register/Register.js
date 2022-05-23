@@ -20,30 +20,7 @@ function Register () {
 
     const [errMsg, setErrMsg] = useState("");
 
-    useEffect(()=>{
-        onLoad();
-        async function onLoad() {
-          try {
-            const token = JSON.parse(localStorage.getItem('token')).token;
-    
-            const date = new Date();
-            const decodedToken = jwt_decode(token);
-            
-            if ((date.getTime()/1000) > decodedToken.exp ){
-              await userHasAuthenticated(false);
-              localStorage.removeItem('token');
-              if (window.location.pathname !== '/'){
-                window.location = '/Login';
-              }
-            }else {
-              window.location = "/Home";
-            }
-          }
-          catch(e) {
-          }
-        }
-      }, [isAuthenticated]);
-      
+     
       async function handleSubmit(event) {
           event.preventDefault();
           try{

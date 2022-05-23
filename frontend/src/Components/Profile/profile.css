@@ -12,7 +12,6 @@
     width: 35%;
     height: 470px;
     float: left;
-    border: white 5px solid;
 }
 
 .profileCard h2, .profileEditPanel h2 {
@@ -58,26 +57,12 @@
 }
 
 
-.ActionBtn-wide{
-    width: 250px;
-    height: 30px;
-    margin: 10px;
-    background-color: #7bcfb3;
-    border-radius: 8px;
-    font-size: 18px;
-}
-
-.ActionBtn-wide:Hover{
-    background-color: #d3fff0;
-}
-
 .profileEditPanel{
     background-color: #c4c4c4;
     margin: 10px 30px 10px 10px;
     padding: 5px;
     width: 50%;
     float: right;
-    border: white 5px solid;
     display: none;
 }
 

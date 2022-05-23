@@ -43,7 +43,7 @@ class NavBar extends Component {
             <Link to="/Allocations">
               <p className="NavBarItem"><FontAwesomeIcon icon={faBookmark} /> Allocations</p>
             </Link>
-            <Link to="/AllRequests">
+            <Link to="/Requests">
               <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> All Requests</p>
             </Link> */}
 
@@ -60,14 +60,14 @@ class NavBar extends Component {
               <p className="NavBarItem"><FontAwesomeIcon icon={faBookmark} /> Authorisations</p>
             </Link>
             <Link to="/Requests">
-              <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> My Requests</p>
+              <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> MyRequests</p>
             </Link>
 
             <Link to="/Users">
               <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Users</p>
             </Link>
 
-            <Link to="/AllRequests">
+            <Link to="/Requests">
               <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> All Requests</p>
             </Link> */}
           

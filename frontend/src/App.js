@@ -11,8 +11,12 @@ import NewRequest from './Components/Request/NewRequests/NewRequest';
 import Allocations from './Components/Request/Allocations/Allocations';
 import Authorisations from './Components/Request/Authorisations/Authorisations';
 import Users from './Components/Profile/Users';
-import AllRequests from './Components/Request/AllRequests';
 
+
+//DEV PROCESS - REMOVE AFTER LOGIN CONFIRMED
+let thisUser = {
+  userID: "62860fe823c9c0ba976b9ba7"
+}
 
 class App extends Component {
   render(){
@@ -25,20 +29,18 @@ class App extends Component {
               <Route path="/Register" element={<Register />} />
 
               {/* Routes below are only accessible with valid login */}
-              <Route path="/Home" element={<Home />} />
-              <Route path="/Requests" element={<Requests />} />
-              <Route path="Profile" element={<Profile />} />
-              <Route path="NewRequest" element={<NewRequest />} />
+              <Route path="/Home" element={<Home />} userID={thisUser.userID}/>
+              <Route path="/Requests" element={<Requests />} userID={thisUser.userID}/>
+              <Route path="Profile" element={<Profile />} userID={thisUser.userID}/>
+              <Route path="NewRequest" element={<NewRequest />} userID={thisUser.userID}/>
               
 
               {/* Employee */}
-              <Route path="Allocations" element={<Allocations />} />
+              <Route path="Allocations" element={<Allocations />} userID={thisUser.userID}/>
               
-              {/* Employee  & Authoriser*/}
-              <Route path="/AllRequests" element={<AllRequests />} />
 
               {/* Authoriser */}
-              <Route path="Authorisations" element={<Authorisations />} /> 
+              <Route path="Authorisations" element={<Authorisations userID={thisUser.userID}/>} /> 
               <Route path="Users" element={<Users />} />
 
 

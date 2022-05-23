@@ -20,7 +20,6 @@
     width: 63%;
     height: 440px;
     float: left;
-    border: 5px white solid;
 }
 
 .RightPanel{
@@ -30,7 +29,6 @@
     width: 350px;
     height: 440px;
     float: right;
-    border: 5px white solid;
 }
 
 .LeftPanel h2, .RightPanel h2{

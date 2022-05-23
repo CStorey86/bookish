@@ -12,7 +12,7 @@ export const requestSchema = new Schema({
         //may need to be adapted for multiple authors
     },
     year:{
-        type: Number
+        type: Number  
     },
     publisher:{
         type: String
@@ -31,5 +31,10 @@ export const requestSchema = new Schema({
         enum: ["Awaiting Allocation, Allocated, Requires further information, Awaiting authorisation, Complete"],
         required: true,
         default: "Awaiting Allocation"
+    },
+    dateStatusChange:{
+        type: Date,
+        required: true,
+        default: Date.now
     }
 });
