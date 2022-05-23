@@ -47,7 +47,6 @@ class RequestDashboard extends React.Component{
     
         return (
             <div>
-                {/* Standard User dashboard */}
                 <div className="LeftPanel">
                     <h2>MY REQUESTS </h2>
                     <RequestList requests={this.state.requests} updateCurrentRequest={this.updateCurrentRequest} />

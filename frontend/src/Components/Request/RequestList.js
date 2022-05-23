@@ -19,15 +19,15 @@ const RequestList = (props) => {
                 </div>
             </div>
             <div className="RequestList" >
-            {/* TO DO: LOOK AT DIFFERENT COLOUR CSS BASED ON STATUS (E.G. COMPLETE = GREYED OUT) */}
-                <table className="RequestListTable">
-                    {props.requests.map((item) => (
-                        <tr className="requestItem">
-                            <td><a onClick={props.updateCurrentRequest.bind(this,item)}>{item.title} - {item.author}</a></td>
-                            <td className="statusCol">{item.status}</td>
-                        </tr>
-                    ))}
-                </table>
+                {props.requests.map((item) => (
+                    <div className ="requestItemRow" key={item._id}>
+                    
+                            <a  onClick={props.updateCurrentRequest.bind(this,item)}>
+                                {item.title} - {item.author}
+                            </a>
+                    
+                  </div>
+                ))}
                 
             </div>
             

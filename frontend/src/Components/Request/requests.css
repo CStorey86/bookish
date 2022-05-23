@@ -85,28 +85,17 @@
     justify-content: center;
 }
 
-.RequestListTable{
+.requestItemRow{
     width: 96%;
-    float: left;    
-}
-
-.requestItem{
+    margin: 5px;
+    float: left;   
     background-color: #7bcfb3;
     color: black;
     height: 30px;
 }
 
-.requestItem td{
-    text-align: left;
-    padding-left: 20px;
-}
 
-.statusCol{
-    width: 170px;
-    text-align: center;
-}
-
-.requestItem:hover{
+.requestItemRow:hover{
     background-color: #d3fff0;
     font-weight: bold;
 }
