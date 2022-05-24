@@ -8,7 +8,7 @@ const routes = (app) => {
         .get(viewAllUsers)
         .post(addNewUser)       //basic aadd user - not secure
           
-    app.route('/users/:userID')    
+    app.route('/users/:UserId')    
         .get(getUserWithID)
         .delete(deleteUser)
         .put(updateUser)
@@ -18,10 +18,10 @@ const routes = (app) => {
         .get(getRequests)
         .post(addNewRequest)
 
-    app.route('/requests/:userID')
+    app.route('/requests/UserId/:UserId')
         .get(getRequestsWithUserID)
 
-    app.route('/requests/:requestID')
+    app.route('/requests/:RequestId')
         .get(getRequestWithID)
         .put(updateRequest)
         .delete(deleteRequest)

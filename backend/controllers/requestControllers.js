@@ -27,7 +27,7 @@ export const getRequests =(req,res) =>{
 
 // GET REQUESTS FOR ONE USER ONLY
 export const getRequestsWithUserID =(req,res) =>{
-    Request.find({userID: userID},(err, Request)=>{
+    Request.find({UserId: userID},(err, Request)=>{
         if(err){
             res.send(err);
         }
@@ -37,7 +37,7 @@ export const getRequestsWithUserID =(req,res) =>{
 
 // VIEW SINGLE REQUEST
 export const getRequestWithID = (req, res) => {
-    Request.findById(req.params.RequestId,(err, User) => {
+    Request.findById(req.params.RequestId,(err, Request) => {
         if (err) {
             res.send(err);
         }
