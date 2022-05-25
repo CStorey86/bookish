@@ -21,11 +21,11 @@ const RequestList = (props) => {
             <div className="RequestList" >
                 {props.requests.map((item) => (
                     <div className ="requestItemRow" key={item._id}>
-                    
-                            <a  onClick={props.updateCurrentRequest.bind(this,item)}>
+                        <a  onClick={props.updateCurrentRequest.bind(this,item)}>
+                            <div>
                                 {item.title} - {item.author}
-                            </a>
-                    
+                            </div>
+                        </a>
                   </div>
                 ))}
                 
