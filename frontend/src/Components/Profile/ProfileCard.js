@@ -1,16 +1,15 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './profile.css';
 
 
-class ProfileCard extends Component {
-  render(){
-    return (
+const ProfileCard = (props) =>{
+        return (
             <div className="profileCard">
                 <h2>USER PROFILE</h2>
                 
                 <div className="profileRow">
                     <div className="profileRowleft">
-                        FIRST NAME:
+                        FIRST NAME: 
                     </div>
                     <div className="profileRowRight">
                         thisName
@@ -58,6 +57,5 @@ class ProfileCard extends Component {
             </div>
     );
   }
-}
 
 export default ProfileCard;
