@@ -1,9 +1,10 @@
 
 .newRequestForm{
     background-color: #c4c4c4;
-    margin: 10px;
+    margin: 10px 20px;
     padding: 20px;
-    height: 440px;
+    height: 445px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 .newRequestForm h2 {
@@ -47,9 +48,10 @@
 
 
 .formSection label, .formSectionA label,.formSectionB label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     float: left;
     padding: 10px;
-    font-size: 20px;
+    font-size: 18px;
     color: #f1f1f1;
     font-weight: bold;
     position: apsolute;
@@ -58,20 +60,26 @@
     float: left;
 }
 
+.formSection-wide #audiobook{
+    width: 130px;
+}
+
 .formSectionA label, .formSectionB label {
     width: 92px;
 }
 
 .formSection input[type="text"], .formSectionA input[type="number"], .formSectionB input[type="number"] {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     width: 400px;
     border: solid rgb(204, 203, 203) 1px;
-    height: 30px;
+    height: 25px;
     padding: 4px 8px;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
     margin: 5px;
     font-size: 18px;
     float: left;
     color: black;
+    border-radius: 4px;
 }
 
 #year, #price{
@@ -84,23 +92,24 @@
 }
 
 #submitFormBtn {
-    width: 100%;
+    width: 60%;
+    height: 50px;
     padding: 15px;
     margin-top: 24px;
-    background-color: #7bcfb3;
-    color: #282c34;
+    background-color: #0c704f;
+    color: #ffffff;
     border: 0;
     cursor: pointer;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     transition: background-color 0.2s;
     border-radius: 8px;
-  }
+}
 
-  #submitFormBtn:hover {
+#submitFormBtn:hover {
     background-color: #d3fff0;
+    color: #0c704f;
   }
-
 
 
   #format{
@@ -108,6 +117,6 @@
     width: 256px;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
     margin-left: 8px;
-    font-size: 20px;
+    font-size: 18px;
     color: black;
 }

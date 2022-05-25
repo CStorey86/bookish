@@ -21,7 +21,7 @@ function Register () {
     const [errMsg, setErrMsg] = useState("");
 
      
-      async function handleSubmit(event) {
+    async function handleSubmit(event) {
           event.preventDefault();
           try{
             axios.post(`http://localhost:4000/users`,
@@ -58,6 +58,7 @@ function Register () {
     function validateForm() {
         return email.length > 0 && password.length > 0 && (password === confirmPassword);
       }
+      
     
     return (
         <div>

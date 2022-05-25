@@ -37,4 +37,8 @@ export const requestSchema = new Schema({
         required: true,
         default: Date.now
     }
+
+    //add changeLogID ?
+    //add boolean complete?
+
 });
