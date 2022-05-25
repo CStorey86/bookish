@@ -7,10 +7,8 @@ import ProfileCard from './ProfileCard';
 import ProfileEditPanel from './ProfileEditPanel';
 import axios from 'axios';
 
-
-let user={
-  id: "62860fe823c9c0ba976b9ba7",
-  isEmp: true
+const user={
+  id: '62860fe823c9c0ba976b9ba7'
 }
 
 class Profile extends Component {
@@ -19,43 +17,33 @@ class Profile extends Component {
     super(props);
 
     this.state={
-        currentUser: {
-            firstName:{},
-            lastName:{},
-            email:{},
-            date_created:{},
-            isAdmin: {},
-            isEmployee:{}
-        },
-    }  
+        currentUser: {},
+    }}
+
+  componentDidMount(){
+
+    const url =`http://localhost:4000/users/${user.id}`;
+
+    axios.get(url)
+      .then(res =>{
+          this.setState({
+            currentUser: res.data
+            //change to only pull needed data (not everything e.g.password)
+          })
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
   }
-
-  // componentDidMount(){
-
-  //   axios.get(`http://localhost:4000/users/:${user.id}`)
-  //     .then(response =>{
-  //         this.setState({
-  //           firstName: response.data.firstName,
-  //           lastName: response.data.lastName,
-  //           email: response.data.email,
-  //           date_created: response.data.date_created,
-  //           isAdmin: response.data.isAdmin ,
-  //           isEmployee: response.data.isEmployee 
-  //         })
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     })
-
-  // }
 
   render(){
     return (
       <div className="Profile">
             <NavBar />
 
-            <ProfileCard user={this.state.currentUser}/>
-            {/* <ProfileEditPanel user={this.state.currentUser}/> */}
+            <ProfileCard thisUser={this.state.currentUser} />
+
+            {/* <ProfileEditPanel /> */}
 
             <Footer />
       </div>
