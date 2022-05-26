@@ -30,7 +30,6 @@ class Dashboard extends Component {
   }
 
 
-
   render(){
 
     var completeCount = this.getCompleteRequestCounts(user.id);
@@ -44,10 +43,11 @@ class Dashboard extends Component {
             {/* Summary Panel */}
             <div className="PanelItem">
               <p>You have X open requests</p>
-
+              {/* /on click - open my requests page -filtering to show only open requests */}
             </div>
             <div className="PanelItem">
               <p>You have Y complete requests</p>
+              {/* /on click - open my requests page -filtering to show only closed requests */}
             </div>
           </div>
           {/* Notifictaion Panel */}

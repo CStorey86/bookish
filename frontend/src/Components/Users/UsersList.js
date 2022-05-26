@@ -2,9 +2,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faSort} from '@fortawesome/free-solid-svg-icons';
 
-const RequestList = (props) => {
+const UsersList = (props) => {
     return ( 
-        <div>
+        <div>            
             <div className="SearchBar">
                 <div className="Sort">
                     <p>Sort <FontAwesomeIcon icon={faSort} /></p>
@@ -19,9 +19,9 @@ const RequestList = (props) => {
             <div className="RequestList" >
                 {props.requests.map((item) => (
                     <div className ="requestItemRow" key={item._id}>
-                        <a  onClick={props.updateCurrentRequest.bind(this,item)}>
+                        <a  onClick={props.updateCurrentUser.bind(this,item)}>
                             <div>
-                                {item.title} - {item.author}
+                                {item.fistName} {item.lastName}
                             </div>
                         </a>
                   </div>
@@ -34,5 +34,5 @@ const RequestList = (props) => {
 }
  
 
-export default RequestList;
+export default UsersList;
 

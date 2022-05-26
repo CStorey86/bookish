@@ -10,7 +10,7 @@ import Profile from './Components/Profile/Profile';
 import NewRequest from './Components/Request/NewRequests/NewRequest';
 import Allocations from './Components/Request/Allocations/Allocations';
 import Authorisations from './Components/Request/Authorisations/Authorisations';
-import Users from './Components/Profile/Users';
+import Users from './Components/Users/Users';
 
 
 //DEV PROCESS - REMOVE AFTER LOGIN CONFIRMED

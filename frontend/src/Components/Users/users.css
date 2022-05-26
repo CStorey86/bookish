@@ -1,0 +1,176 @@
+.Requests, .AllRequests{
+    width: 100%;
+    justify-items: center;
+}
+
+
+.SearchBar{
+    width: 95%;
+    color: white;
+    margin: 10px;
+    margin-left: 12px;
+    padding: 5px 10px;
+    background-color: #282c34;
+    float: left;
+    font-size: 16px;
+}
+
+.Sort{
+    width: 33%;
+    height: 44px;
+    float: left;
+}
+
+.Search{
+    width: 65%;
+    float: right;
+    height: 44px;
+}
+
+.SearchBar input {
+    height: 20px;
+    width: 350px;
+    float: left;
+    margin: 10px;
+}
+
+.SearchBar p {
+    height: 30px;
+    float: left;
+    margin: 10px;
+    font-size: 18px;
+}
+
+.RequestList{
+    width: 96%;
+    heighT: 270px;
+    color: white;
+    margin: 10px;
+    margin-left: 12px;
+    padding: 5px;
+    background-color: #282c34;
+    float: left;
+    font-size: 16px;
+    overflow-y: scroll;
+    
+}
+
+.LeftPanel{
+    background-color: #c4c4c4;
+    margin: 10px;
+    padding: 20px;
+    width: 60%;
+    height: 440px;
+    float: left;
+}
+
+.RightPanel{
+    background-color: #c4c4c4;
+    margin: 10px;
+    margin-right: 20px;
+    padding: 20px;
+    width: 400px;
+    height: 440px;
+    float: right;
+}
+
+.LeftPanel h2, .RightPanel h2{
+    font-size: 30px;
+    padding: 5px 5px 20px 5px;
+    border-bottom: solid 2px #1d3b31;
+    width: 96%;
+    color: #1d3b31;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.requestItemRow{
+    width: 96%;
+    margin: 5px;
+    float: left;   
+    background-color: #7bcfb3;
+    color: black;
+    height: 30px;
+}
+
+
+.requestItemRow:hover{
+    background-color: #d3fff0;
+    font-weight: bold;
+}
+
+.SingleRequest{
+    background-color: #c4c4c4;
+    margin: 10px;
+    padding: 20px;
+    width: 27%;
+    height: 440px;
+    float: left;
+}
+
+.ActionBtn, .ActionBtn-wide{
+    width: 120px;
+    height: 30px;
+    margin: 15px;
+    background-color: #0c704f;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+}
+.ActionBtn-wide{
+    width: 200px;
+}
+
+.ActionBtn:Hover, .ActionBtn-wide:hover{
+    background-color: #d3fff0;
+    color: #0b4935;
+    transition: background-color 0.2s;
+}
+
+.card{
+    background-color: #282c34;
+    color: white;
+    margin: 10px 5px;
+    text-align: left;
+    padding: 20px 5px;
+    width: 98%;
+    overflow-y: scroll;
+}
+
+.card tr{
+    border: white 1px solid;
+    padding: 5px 0px;
+    margin:0;
+}
+
+.cardHeader{
+    margin-right: 20px;
+    color: #7bcfb3;
+    font-size: 18px;
+}
+
+.cardDetails{
+    width: 200px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.NewRequest{
+    width: 100%;
+    float: left;
+}
+
+#newRequestForm{
+    width: 80%;
+    height: 400px;
+    background-color: #c4c4c4;
+    margin: 10px;
+    padding: 20px;
+    width: 63%;
+    height: 440px;
+    float: left;
+}
+
+
