@@ -60,6 +60,11 @@
     float: left;
 }
 
+.radioLabel{
+    font-size: 14px;
+    font-weight:normal;
+}
+
 .formSection-wide #audiobook{
     width: 130px;
 }
