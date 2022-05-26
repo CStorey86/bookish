@@ -35,9 +35,20 @@ function NewRequest () {
     })
     .then (res =>{
         console.log("New Request Added");
-        alert("New Request Added")
+        // clear form and reset useState hooks to ""
     })
   }
+  
+  //////////////////////////////////     DATA VALIDATION   ////////////////////////////////////////
+
+  // TITLE: check not empty, and is string
+  // AUTHOR: check not empty, and is string
+  // PUBLISHER: check is string
+  // YEAR: check is whole number between 1900 and current year
+  // PRICE: check not empty, and is number with 2 decimal places
+
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (  
       <div className="newRequestForm">
