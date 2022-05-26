@@ -42,7 +42,6 @@ const SingleRequest =(props) => {
               <td className="cardHeader">Last Status Update:</td>
               <td className="cardDetails">{props.request.dateStatusChange}</td>
                                                                                 {/* TO DO: CSS TO CHANGE FORMAT OF DATE */}
-                                                                                {/* TO DO: ON CLICK, OVERLAY SHOWING STATUS HISTORY*/}
             </tr>
           </table>
 
