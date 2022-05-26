@@ -2,11 +2,6 @@ import React,{Component,useState} from 'react';
 import './newRequests.css';
 import axios from 'axios';
 
-// const options=[
-//   { value: 'Book', label: 'Book'},
-//   { value: 'Audiobook', label: 'Audio Book'},
-//   { value: 'Braille', label: 'Braille'},
-// ];
 
 // If currency option added, extra function will be needed for currency conversion.
 
@@ -18,7 +13,6 @@ function NewRequest () {
   const [publisherChoice, setPublisher] = useState("");
   const [yearChoice, setYear] = useState("");
   const [priceChoice, setPrice] = useState("");
-
 
   //Error Message
     // const [errMsg, setErrMsg] = useState("");
@@ -35,11 +29,13 @@ function NewRequest () {
       year: yearChoice,
       price: priceChoice,
       format: formatChoice,
+      userID: "62860fe823c9c0ba976b9ba7",
       status: "Awaiting Allocation",
       dateStatusChange: Date.now()
     })
     .then (res =>{
         console.log("New Request Added");
+        alert("New Request Added")
     })
   }
 
@@ -95,7 +91,6 @@ function NewRequest () {
 
                 <div className ="formRow">
                     <input type="submit" value="SUBMIT REQUEST" id="submitFormBtn"/>
-                    {/* <button id="submitFormBtn" type="submit">SUBMIT REQUEST</button> */}
                 </div>
             </div>
           </form>
