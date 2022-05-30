@@ -33,7 +33,6 @@ class App extends Component {
               <Route path="/Requests" element={<Requests />} userID={thisUser.userID}/>
               <Route path="Profile" element={<Profile />} userID={thisUser.userID}/>
               <Route path="NewRequest" element={<NewRequest />} userID={thisUser.userID}/>
-              
 
               {/* Employee */}
               <Route path="Allocations" element={<Allocations />} userID={thisUser.userID}/>

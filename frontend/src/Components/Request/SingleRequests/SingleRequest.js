@@ -45,7 +45,7 @@ const SingleRequest =(props) => {
             </tr>
           </table>
 
-          <Buttons status={props.request.status} />
+          <Buttons status={props.request.status}/>
 
           
 
