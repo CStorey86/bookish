@@ -23,7 +23,7 @@ class RequestDashboard extends React.Component{
     }
 
     componentDidMount(){
-        const url='http://localhost:4000/requests'; 
+        const url=`http://localhost:4000/requests/?userID=${user.id}`; 
 
         axios.get(url)
         .then((Response) => {

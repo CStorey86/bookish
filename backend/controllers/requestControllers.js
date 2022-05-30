@@ -17,7 +17,18 @@ export const addNewRequest =(req,res) =>{
 
 // GET ALL REQUESTS
 export const getRequests =(req,res) =>{
-    Request.find({},(err, Request)=>{
+
+    //Query strings in API call
+    let query;
+    const reqQuery ={...req.query};     
+    const removeFields = ["sort"];
+    removeFields.forEach(val => delete reqQuery[val]);
+
+    let queryStr =JSON.stringify(reqQuery);
+    queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g,(match)=> `$${match}`);
+
+
+    Request.find(JSON.parse(queryStr),(err, Request)=>{
         if(err){
             res.send(err);
         }
@@ -25,15 +36,6 @@ export const getRequests =(req,res) =>{
     });
 };
 
-// GET REQUESTS FOR ONE USER ONLY
-export const getRequestsWithUserID =(req,res) =>{
-    Request.find({UserId: userID},(err, Request)=>{
-        if(err){
-            res.send(err);
-        }
-        res.json(Request);
-    });
-};
 
 // VIEW SINGLE REQUEST
 export const getRequestWithID = (req, res) => {
@@ -62,5 +64,16 @@ export const deleteRequest = (req, res) => {
             res.send(err);
         }
         res.json({message: "Successfully deleted Request"});
+    });
+};
+
+
+// GET REQUESTS FOR ONE USER ONLY
+export const getRequestsWithUserID =(req,res) =>{
+    Request.find({userID: UserId },(err, Request)=>{
+        if(err){
+            res.send(err);
+        }
+        res.json(Request);
     });
 };
