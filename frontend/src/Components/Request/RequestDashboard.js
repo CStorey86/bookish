@@ -8,8 +8,8 @@ import SingleRequest from './SingleRequests/SingleRequest';
 //to be passed from token
 let user={
     id: "62860fe823c9c0ba976b9ba7",
-    isEmp: true
 }
+
 
 class RequestDashboard extends React.Component{
 
@@ -17,7 +17,7 @@ class RequestDashboard extends React.Component{
         super(props);
         this.state={
             requests: [],
-            currentRequest: {},
+            currentRequest: {},            
         }
         this.updateCurrentRequest = this.updateCurrentRequest.bind(this);
     }
@@ -42,6 +42,7 @@ class RequestDashboard extends React.Component{
             currentRequest: item,
         })
     }
+
 
     render(){
     

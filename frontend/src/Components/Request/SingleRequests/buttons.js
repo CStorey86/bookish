@@ -4,23 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
-
-function deleteOn(){
-    document.getElementById("deleteRequest").style.display = "block";     
-}
-function deleteOff(){
-    document.getElementById("deleteRequest").style.display = "none";     
-}
-
-function deleteRequest(){
-    //delete Request
-    const x = {}
-    //close window;
-    deleteOff();
-
-    
-
-}
+import {
+    deleteOn, deleteOff, editOn, editOff, deleteRequest,
+} from './buttonFunctions';
 
 
 const Buttons =(props) => {
@@ -32,14 +18,17 @@ const Buttons =(props) => {
     }
     else if(props.status == "Awaiting Allocation")             // any stage after allocation
     {
+        const reqId=props.reqId;
+
         return(
             <>
-                <button className="ActionBtn">Edit</button>
+                <button className="ActionBtn" onClick={editOn}>Edit</button>
                 {/* on click, show overlay showing form for editing request */}
 
                 <button className="ActionBtn" onClick={deleteOn}> Delete</button>
-                {/* on click, show overlay with delete confirmation (y/n buttons)*/}
-                
+                {/* on click, show overlay with delete confirmation (y/n buttons)*/}          
+
+
                 <div id="deleteRequest">
                     <div className="message">
                         <div className="topClose">
@@ -47,11 +36,22 @@ const Buttons =(props) => {
                         </div>
                         <h3>Are you sure you wish to delete this Request?</h3>
                         <button className="ActionBtn" onClick={deleteRequest}>Yes</button>
+                         
                         <button className="ActionBtn" onClick={deleteOff}>No</button>
-                    </div>
-                                            
-
+                    </div>                                            
                 </div>
+
+                <div id="editRequest">
+                    <div className="message2">
+                        <div className="topClose">
+                            <FontAwesomeIcon icon={faWindowClose} onClick={editOff}/> 
+                        </div>
+                        <h2>Edit Request</h2>
+                        <button className="ActionBtn-wide" onClick={deleteRequest}>Save Changes</button>
+
+                    </div>                                            
+                </div>
+
             </>
         );
     }

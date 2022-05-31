@@ -1,5 +1,6 @@
 import { addNewUser, viewAllUsers, getUserWithID, updateUser, deleteUser } from '../controllers/userControllers';
 import { addNewRequest, getRequests, getRequestWithID, updateRequest, deleteRequest} from '../controllers/requestControllers';
+import {getChangeLogs, addNewChangeLog} from '../controllers/changeLogControllers';
 
 const routes = (app) => {
     
@@ -13,7 +14,7 @@ const routes = (app) => {
         .delete(deleteUser)
         .put(updateUser)
 
-    //REQUEST API END POINTS
+    // REQUEST API END POINTS
     app.route('/requests')
         .get(getRequests)
         .post(addNewRequest)
@@ -23,7 +24,10 @@ const routes = (app) => {
         .put(updateRequest)
         .delete(deleteRequest)
     
-
+    //  CHANGE-LOG API END POINTS
+    app.route('/changeLogs')
+        .get(getChangeLogs)
+        .post(addNewChangeLog)
 }
 
 export default routes;

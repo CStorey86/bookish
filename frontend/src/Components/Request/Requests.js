@@ -5,7 +5,10 @@ import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import RequestDashboard from './RequestDashboard';
 
-function Requests(){
+const test="testing"
+
+
+function Requests(props){
     return (
         <div className="Requests">
             <NavBar/>

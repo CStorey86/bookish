@@ -59,21 +59,11 @@ export const updateRequest = (req, res) => {
 
 // DELETE SINGLE REQUEST 
 export const deleteRequest = (req, res) => {
-    Request.remove(req.params.RequestId,(err, User) => {
-        if (err) {
-            res.send(err);
-        }
-        res.json({message: "Successfully deleted Request"});
-    });
-};
 
-
-// GET REQUESTS FOR ONE USER ONLY
-export const getRequestsWithUserID =(req,res) =>{
-    Request.find({userID: UserId },(err, Request)=>{
-        if(err){
-            res.send(err);
-        }
-        res.json(Request);
-    });
+    Request.findOneAndDelete({ _id: req.params.RequestId}, (err, Request) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json({message: "Successfully deleted Request"});
+        });
 };

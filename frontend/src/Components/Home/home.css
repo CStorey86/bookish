@@ -48,7 +48,7 @@
 }
 
 
-.PanelItem{
+.PanelItem {
     background-color: #282c34;
     font-size: 18px;
     color: white;
@@ -57,7 +57,6 @@
     width: 92.5%;
     text-align: left;
     padding: 2px 20px;
-
 }
 
 .PanelItem:hover{

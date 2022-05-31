@@ -40,9 +40,14 @@ export const requestSchema = new Schema({
         type: Date,
         required: true,
         default: Date.now
+    },
+    
+    isComplete:{
+        type: Boolean,
+        required: true,
+        default: false
     }
 
-    //add changeLogID ?
     //add boolean complete?
 
 });

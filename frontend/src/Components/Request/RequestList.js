@@ -20,8 +20,8 @@ const RequestList = (props) => {
                 {props.requests.map((item) => (
                     <div className ="requestItemRow" key={item._id}>
                         <a  onClick={props.updateCurrentRequest.bind(this,item)}>
-                            <div>
-                                {item.title} - {item.author}
+                            <div className="singleReq">
+                                {item.title} - {item.author} - {item.year}
                             </div>
                         </a>
                   </div>
