@@ -54,7 +54,7 @@ class RequestDashboard extends React.Component{
                 </div>
 
                 <div className="RightPanel">
-                    <SingleRequest request={this.state.currentRequest}/>
+                    <SingleRequest request={this.state.currentRequest} />
                 </div>
                     
 

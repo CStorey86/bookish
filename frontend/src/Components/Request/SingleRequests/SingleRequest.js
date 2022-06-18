@@ -49,7 +49,7 @@ const SingleRequest =(props) => {
             </tbody>
           </table>
 
-          <Buttons status={props.request.status} reqId={props.request._id}/>
+          <Buttons status={props.request.status} id={props.request._id} request={props.request}/>
 
           
 

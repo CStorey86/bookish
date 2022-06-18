@@ -227,16 +227,84 @@
 
 .message2{
     position: fixed;
-    width: 80%;
-    height: 400px;
+    width: 85%;
+    height: 420px;
     top: 100px ;
-    left: 150px;
+    left: 120px;
     color: #0b4935;
     background-color: #7bcfb3;
 }
 
+.message2 h3{
+    text-align: center;
+    color: #0b4935;
+    font-size: 30px;
+    padding: 8px 0 16px 0;
+    border-bottom: 2px solid #0b4935;
+    margin: 10px;
+}
 
 .singleReq{
     width:100%;
     height:100%;
+}
+
+.editRequestForm{
+    width: 100%;
+    float: left;
+}
+
+.formRow{
+    float: left;
+    margin: 4px;
+    width: 95%;
+}
+
+.formItem{
+    float: left;
+    width: 550px;
+    margin: 10px;
+}
+
+
+.editRequestForm form label{
+    width: 120px;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 2px 15px;
+    text-align: left;
+}
+
+.editRequestForm select {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    width: 200px;
+    border: solid rgb(204, 203, 203) 1px;
+    height: 35px;
+    padding: 4px 8px;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    margin: 5px;
+    font-size: 16px;
+    float: left;
+    color: black;
+    border-radius: 4px;
+}
+
+.editRequestForm form input[type="text"] {
+    width: 65%;
+    height: 30px;
+    border: 1px solid #dee0e4;
+    padding: 2px 15px;
+    float: left;
+    color: black;
+    background-color: #f1f1f1;
+    font-size: 18px;
+}
+
+#Year, #Price {
+    width: 150px;
+}
+
+#Format{
+    width: 200px;
 }
