@@ -25,8 +25,7 @@ const RequestList = (props) => {
                             </div>
                         </a>
                   </div>
-                ))}
-                
+                ))}                
             </div>
             
         </div>

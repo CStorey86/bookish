@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
+
 function editOn(){
     document.getElementById("editRequest").style.display = "block";     
 }
@@ -14,6 +15,7 @@ function editOff(){
 
 const EditBtn =(props) => {
 
+    // Request attributes
     const [formatChoice, setFormat] = useState(props.req.format);
     const [titleChoice, setTitle] = useState(props.req.title);
     const [authorChoice, setAuthor] = useState(props.req.author);
@@ -44,6 +46,16 @@ const EditBtn =(props) => {
                 console.log(error);
             });
         console.log()
+
+        //add changeLogEntry
+        const log_url= `http://localhost:4000/changelogs`
+            axios.post(log_url,
+                {
+                    requestID: props.req._id,
+                    newStatus: "Updated",
+                    dateOfChange: Date.now(),
+                    userID: props.userID
+                })
 
         editOff();                                  // Closes panel
         window.location.reload(false);              // Refresh page

@@ -10,20 +10,21 @@ let user={
     id: "62860fe823c9c0ba976b9ba7",
 }
 
-
 class RequestDashboard extends React.Component{
 
     constructor(props){
         super(props);
         this.state={
             requests: [],
-            currentRequest: {},            
+            currentRequest: {},
+            currentRequestID:"",
+            logs: []            
         }
         this.updateCurrentRequest = this.updateCurrentRequest.bind(this);
     }
 
     componentDidMount(){
-        const url=`http://localhost:4000/requests/?userID=${user.id}`; 
+        const url= `http://localhost:4000/requests/?userID=${user.id}`; 
 
         axios.get(url)
         .then((Response) => {
@@ -35,11 +36,25 @@ class RequestDashboard extends React.Component{
         .catch((error) => {
           console.log(error);
         });
+
+        const logUrl=`http://localhost:4000/changelogs`;
+
+        axios.get(logUrl)
+        .then((Response) => {
+            //set statusHistory[] as data recieved from api call
+            this.setState({
+                logs: Response.data     
+            })
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     };
 
     updateCurrentRequest(item){
         this.setState({
             currentRequest: item,
+            currentRequestID: item._id
         })
     }
 
@@ -54,7 +69,7 @@ class RequestDashboard extends React.Component{
                 </div>
 
                 <div className="RightPanel">
-                    <SingleRequest request={this.state.currentRequest} />
+                    <SingleRequest request={this.state.currentRequest} logs={this.state.logs}/>
                 </div>
                     
 

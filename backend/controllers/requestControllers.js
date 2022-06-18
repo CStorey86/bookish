@@ -27,7 +27,6 @@ export const getRequests =(req,res) =>{
     let queryStr =JSON.stringify(reqQuery);
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g,(match)=> `$${match}`);
 
-
     Request.find(JSON.parse(queryStr),(err, Request)=>{
         if(err){
             res.send(err);

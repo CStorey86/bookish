@@ -6,7 +6,7 @@ const ChangeLog = mongoose.model('ChangeLog', changeLogSchema);
 // ADD CHANGE LOG
 export const addNewChangeLog =(req,res) =>{
     let newChangeLog = new ChangeLog(req.body)
-    
+
     newChangeLog.save((err,ChangeLog)=>{
         if(err){
             res.send(err);
@@ -27,11 +27,11 @@ export const getChangeLogs =(req,res) =>{
     let queryStr =JSON.stringify(reqQuery);
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g,(match)=> `$${match}`);
 
-    ChangeLog.find(JSON.parse(queryStr),(err, ChangeLog)=>{
+    ChangeLog.find(JSON.parse(queryStr),(err, changeLogs)=>{
         if(err){
             res.send(err);
         }
-        res.json(ChangeLog);
+        res.json(changeLogs);
     });
 };
 

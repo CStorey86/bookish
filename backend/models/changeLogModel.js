@@ -1,3 +1,4 @@
+import { faThermometerQuarter } from '@fortawesome/free-solid-svg-icons';
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
@@ -5,21 +6,26 @@ const Schema = mongoose.Schema;
 export const changeLogSchema = new Schema({
 
     requestID:{
-        type:String,
+        type: String,
         required: true
     },
 
     newStatus:{
         type:String,
-        enum: ["Awaiting Allocation", "Allocated", "Requires further information", "Awaiting authorisation", "Complete"],
-        required: true,
-        default: "Awaiting Allocation"
+        enum: ["Created", "Updated", "Allocated", "Requires further information", "Awaiting authorisation", "Complete"],
+        default: "Awaiting Allocation",
+        required: true
     },
 
     dateChange:{
         type: Date,
-        required: true,
-        default: Date.now
+        default: Date.now,
+        required: true
+    },
+
+    userID:{
+        type: String,
+        required: true
     }
     
 });
