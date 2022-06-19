@@ -28,6 +28,25 @@ export const viewAllUsers = (req, res) => {
     });
 };
 
+export const getRequests =(req,res) =>{
+
+    //Query strings in API call
+    let query;
+    const reqQuery ={...req.query};     
+    const removeFields = ["sort"];
+    removeFields.forEach(val => delete reqQuery[val]);
+
+    let queryStr =JSON.stringify(reqQuery);
+    queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g,(match)=> `$${match}`);
+
+    Request.find(JSON.parse(queryStr),(err, Request)=>{
+        if(err){
+            res.send(err);
+        }
+        res.json(Request);
+    });
+};
+
 // VIEW SINGLE USER
 export const getUserWithID = (req, res) => {
     User.findById(req.params.UserId,(err, User) => {

@@ -4,21 +4,6 @@ import './home.css';
 import axios from 'axios';
 
 
-let user={
-  id: "62860fe823c9c0ba976b9ba7",
-}
-
-// function getCompleteRequestCounts(closedArray){
-//   var completeCount = closedArray.length();
-//   return {completeCount};
-// }
-
-// function getOpenRequestCounts(allArray, closedArray){
-//     var openCount = (allArray.length) -(closedArray.length);  
-//     return {openCount};
-// }
-
-
 class Dashboard extends Component{
   
   constructor(props){
@@ -26,12 +11,14 @@ class Dashboard extends Component{
     this.state={
         requests: [],
         closedRequests: [],
+        user: props.currentUser,
+        userID: props.currentUser.id
     }
   }
 
   componentDidMount(){
-    const closedUrl=`http://localhost:4000/requests/?userID=${user.id}&status=Complete`; 
-    const allUrl =`http://localhost:4000/requests/?userID=${user.id}`; 
+    const closedUrl=`http://localhost:4000/requests/?userID=${this.state.userID}&status=Complete`; 
+    const allUrl =`http://localhost:4000/requests/?userID=${this.state.userID}`; 
     
     axios.get(closedUrl)
     .then((Response) => {

@@ -2,11 +2,6 @@ import React,{Component} from 'react';
 import '../requests.css';
 import Buttons from './buttons';
 
-//DEV PROCESS - REMOVE AFTER LOGIN CONFIRMED
-let thisUser = {
-  userID: "62860fe823c9c0ba976b9ba7"
-}
-
 const SingleRequest =(props) => {
     return (
       <div>
@@ -53,7 +48,7 @@ const SingleRequest =(props) => {
             </tbody>
           </table>
 
-          <Buttons request={props.request} userID= {thisUser.id} logs={props.logs}/>
+          <Buttons request={props.request} userID= {props.userID} logs={props.logs}/>
 
           
 

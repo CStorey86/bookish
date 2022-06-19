@@ -2,10 +2,9 @@ import React,{Component,useState} from 'react';
 import './newRequests.css';
 import axios from 'axios';
 
-
 // If currency option added, extra function will be needed for currency conversion.
 
-function NewRequest () {
+function NewRequest (props) {
 
   const [formatChoice, setFormat] = useState("");
   const [titleChoice, setTitle] = useState("");
@@ -13,9 +12,6 @@ function NewRequest () {
   const [publisherChoice, setPublisher] = useState("");
   const [yearChoice, setYear] = useState("");
   const [priceChoice, setPrice] = useState("");
-
-  //Error Message
-    // const [errMsg, setErrMsg] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -29,13 +25,14 @@ function NewRequest () {
       year: yearChoice,
       price: priceChoice,
       format: formatChoice,
-      userID: "62860fe823c9c0ba976b9ba7",
+      userID: props.currentUser.id,
       status: "Awaiting Allocation",
       dateStatusChange: Date.now()
     })
     .then (res =>{
         console.log("New Request Added");
         // clear form and reset useState hooks to ""
+        //add new log to changelogs
     })
   }
   

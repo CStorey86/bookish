@@ -7,22 +7,19 @@ import ProfileCard from './ProfileCard';
 import ProfileEditPanel from './ProfileEditPanel';
 import axios from 'axios';
 
-const user={
-  id: '62860fe823c9c0ba976b9ba7'
-}
-
 class Profile extends Component {
 
   constructor(props){
     super(props);
 
     this.state={
-        currentUser: {},
+        currentUser: props.user,
+        userID: props.user.id,
     }}
 
   componentDidMount(){
 
-    const url =`http://localhost:4000/users/${user.id}`;
+    const url =`http://localhost:4000/users/${this.state.userID}`;
 
     axios.get(url)
       .then(res =>{

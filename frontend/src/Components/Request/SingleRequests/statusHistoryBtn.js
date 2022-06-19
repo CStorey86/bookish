@@ -1,4 +1,4 @@
-import React,{Component, useState} from 'react';
+import React,{useState} from 'react';
 import '../requests.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
@@ -15,9 +15,9 @@ function statusHistoryOff(){
 
 const statusHistoryBtn = (props) => {
 
-        const statusLogs = props.logs;
+    const statusLogs = props.logs;
 
-                return(
+    return(
             <>
                 <button className="ActionBtn-wide" onClick={statusHistoryOn}>View Request History</button>
                 {/* on click, show overlay with edit form inputs*/}          
@@ -43,8 +43,11 @@ const statusHistoryBtn = (props) => {
                                     {props.logs.map((item) => (
                                     <tbody key={item._id}>
                                         <tr>
+                                            {/* TO DO: CHANGE DATE FORMAT */}
                                             <td>{item.dateChange}</td>
+
                                             <td>{item.newStatus}</td>
+                                            {/* TO DO: SHOW USER NAME - NOT ID */}
                                             <td>{item.userID}</td>
                                         </tr>
                                     </tbody>

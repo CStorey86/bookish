@@ -6,16 +6,15 @@ import Footer from '../../Footer/Footer';
 import NewRequestForm from './newRequestForm';
 
 
-class NewRequest extends Component {
-  render(){
+function NewRequest (props){
     return (
       <div className="NewRequest">
             <NavBar />
-            <NewRequestForm/>
+            <NewRequestForm currentUser={props.user}/>
             <Footer />
       </div>
     );
-  }
 }
+
 
 export default NewRequest;

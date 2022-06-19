@@ -15,8 +15,31 @@ import Users from './Components/Users/Users';
 
 //DEV PROCESS - REMOVE AFTER LOGIN CONFIRMED
 let thisUser = {
-  userID: "62860fe823c9c0ba976b9ba7"
+
+  //STANDARD USER
+    id: "62860fe823c9c0ba976b9ba7",
+    firstName: "Claire",
+    lastName: "Storey",
+    isAdmin: false,
+    isEmployee: false,
+
+  //EMPLOYEE
+    // id: "62860fe823c9c0ba976b9ba6",
+    // firstName: "Basil",
+    // lastName: "Bush",
+    // isAdmin: false,
+    // isEmployee: true,
+
+  //AUTHORISOR
+    // id: "62860fe823c9c0ba976b9ba5",
+    // firstName: "Angela",
+    // lastName: "Jones",
+    // isAdmin: true,
+    // isEmployee: false,
+
 }
+
+
 
 class App extends Component {
   render(){
@@ -29,18 +52,18 @@ class App extends Component {
               <Route path="/Register" element={<Register />} />
 
               {/* Routes below are only accessible with valid login */}
-              <Route path="/Home" element={<Home />}/>
-              <Route path="/Requests" element={<Requests />}/>
-              <Route path="Profile" element={<Profile />} />
-              <Route path="NewRequest" element={<NewRequest />} />
+              <Route path="/Home" element={<Home user={thisUser}/>}/>
+              <Route path="/Requests" element={<Requests user={thisUser}/>}/>
+              <Route path="/Profile" element={<Profile user={thisUser}/>} />
+              <Route path="/NewRequest" element={<NewRequest user={thisUser}/>} />
 
               {/* Employee */}
-              <Route path="Allocations" element={<Allocations />} />
+              <Route path="/Allocations" element={<Allocations user={thisUser}/>} />
               
 
               {/* Authoriser */}
-              <Route path="Authorisations" element={<Authorisations/>} /> 
-              <Route path="Users" element={<Users />} />
+              <Route path="/Authorisations" element={<Authorisations/>} user={thisUser}/> 
+              <Route path="/Users" element={<Users />} user={thisUser}/>
 
 
             </Routes>
