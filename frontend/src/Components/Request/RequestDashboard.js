@@ -14,24 +14,41 @@ class RequestDashboard extends React.Component{
             currentRequest: {},
             currentRequestID:"",
             userID: props.currentUser.id,
+            isEmp: props.currentUser.isEmployee,
             logs: []            
         }
         this.updateCurrentRequest = this.updateCurrentRequest.bind(this);
     }
 
     componentDidMount(){
-        const url= `http://localhost:4000/requests/?userID=${this.state.userID}`; 
 
-        axios.get(url)
-        .then((Response) => {
-          //set requests[] as data recieved from api call
-          this.setState({
-            requests: Response.data     
-          })
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        if(this.state.isEmp === true)
+        {
+            const url= `http://localhost:4000/requests/?allocatedTo=${this.state.userID}`;
+            axios.get(url)
+            .then((Response) => {
+              //set requests[] as data recieved from api call
+              this.setState({
+                requests: Response.data     
+              })
+            })
+            .catch((error) => {
+              console.log(error);
+            }); 
+        }
+        else{
+            const url= `http://localhost:4000/requests/?userID=${this.state.userID}`; 
+            axios.get(url)
+            .then((Response) => {
+              //set requests[] as data recieved from api call
+              this.setState({
+                requests: Response.data     
+              })
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
 
         const logUrl=`http://localhost:4000/changelogs`;
 

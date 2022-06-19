@@ -12,6 +12,7 @@ function removeAllocation(userID, reqID){
   const updateURL=`http://localhost:4000/requests/${reqID}`;
   const addNewURL=`http://localhost:4000/changelogs`;
 
+  //change details in request db
   axios.put(updateURL,
       {
           allocatedTo: "",
@@ -19,7 +20,6 @@ function removeAllocation(userID, reqID){
           dateStatusChange: date,
       })
       .then(
-          alert(`Request ID: ${reqID}, has been removed from your requests`),
           //log allocation & status change in changelogs
           axios.post(addNewURL,
               {
@@ -33,7 +33,9 @@ function removeAllocation(userID, reqID){
               )
               .catch((error) => {
                   console.log(error);
-              })
+              }),
+          
+          alert(`Request ID: ${reqID}, has been removed from your requests - ${newStatus}`),
       )
       .catch((error) => {
           console.log(error);
