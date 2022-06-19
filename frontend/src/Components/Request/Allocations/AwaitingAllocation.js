@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './allocations.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare, faPlus} from '@fortawesome/free-solid-svg-icons';
+import { faPlus} from '@fortawesome/free-solid-svg-icons';
 
 function allocateRequest(userID, reqID){
 
@@ -61,8 +61,6 @@ function AwaitingAllocation (props) {
                     }>
                     <FontAwesomeIcon icon={faPlus} size="2x"/>
                 </button>
-                
-            
             </div>
           </div>
         ))}
