@@ -30,7 +30,7 @@ function NavBar (props) {
         <Link to="/Users">
           <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Users</p>
         </Link>
-        <Link to="/Requests">
+        <Link to="/AllRequests">
           <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> All Requests</p>
         </Link> 
       </div>
@@ -56,7 +56,7 @@ function NavBar (props) {
         <Link to="/Allocations">
           <p className="NavBarItem"><FontAwesomeIcon icon={faBookmark} /> Allocations</p>
         </Link>
-        <Link to="/Requests">
+        <Link to="/AllRequests">
           <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> All Requests</p>
         </Link> 
       </div>

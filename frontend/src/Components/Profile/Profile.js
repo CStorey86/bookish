@@ -36,7 +36,7 @@ class Profile extends Component {
   render(props){
     return (
       <div className="Profile">
-            <NavBar isAuth={this.state.currentUser.isAuth} isEmp={this.state.currentUser.isEmp}/>
+            <NavBar isAuth={this.state.currentUser.isAdmin} isEmp={this.state.currentUser.isEmployee}/>
 
             <ProfileCard thisUser={this.state.currentUser} />
 

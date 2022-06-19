@@ -11,6 +11,7 @@ import NewRequest from './Components/Request/NewRequests/NewRequest';
 import Allocations from './Components/Request/Allocations/Allocations';
 import Authorisations from './Components/Request/Authorisations/Authorisations';
 import Users from './Components/Users/Users';
+import AllRequests from './Components/Request/AllRequests';
 
 
 //DEV PROCESS - REMOVE AFTER LOGIN CONFIRMED
@@ -57,6 +58,7 @@ class App extends Component {
 
               {/* Employee */}
               <Route path="/Allocations" element={<Allocations user={thisUser}/>} />
+              <Route path="/AllRequests" element={<AllRequests user={thisUser}/>} />
               
 
               {/* Authoriser */}

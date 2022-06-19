@@ -8,10 +8,10 @@ import MyAllocations from './MyAllocations';
 
 
 class Allocations extends Component {
-  render(){
+  render(props){
     return (
       <div className="Allocations">
-            <NavBar />
+            <NavBar isAuth={props.user.isAdmin} isEmp={props.user.isEmployee}/>
 
             <AwaitingAllocation />
             
