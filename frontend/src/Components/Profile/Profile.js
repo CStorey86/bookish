@@ -33,10 +33,10 @@ class Profile extends Component {
       })
   }
 
-  render(){
+  render(props){
     return (
       <div className="Profile">
-            <NavBar />
+            <NavBar isAuth={this.state.currentUser.isAuth} isEmp={this.state.currentUser.isEmp}/>
 
             <ProfileCard thisUser={this.state.currentUser} />
 

@@ -9,7 +9,7 @@ import NewRequestForm from './newRequestForm';
 function NewRequest (props){
     return (
       <div className="NewRequest">
-            <NavBar />
+            <NavBar isAuth={props.user.isAuth} isEmp={props.user.isEmp} />
             <NewRequestForm currentUser={props.user}/>
             <Footer />
       </div>

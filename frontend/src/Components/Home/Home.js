@@ -9,7 +9,7 @@ const Home = (props) =>{
 
     return (
       <div className="Home">
-            <NavBar/>
+            <NavBar isAuth={props.user.isAuth} isEmp={props.user.isEmp}/>
 
             <Dashboard currentUser={props.user}/>
             {/* Dashboard = landing page: shows summary of requests, and notifications */}

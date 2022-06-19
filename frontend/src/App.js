@@ -17,18 +17,18 @@ import Users from './Components/Users/Users';
 let thisUser = {
 
   //STANDARD USER
-    id: "62860fe823c9c0ba976b9ba7",
-    firstName: "Claire",
-    lastName: "Storey",
-    isAdmin: false,
-    isEmployee: false,
-
-  //EMPLOYEE
-    // id: "62860fe823c9c0ba976b9ba6",
-    // firstName: "Basil",
-    // lastName: "Bush",
+    // id: "62860fe823c9c0ba976b9ba7",
+    // firstName: "Claire",
+    // lastName: "Storey",
     // isAdmin: false,
-    // isEmployee: true,
+    // isEmployee: false,
+
+  // EMPLOYEE
+    id: "62860fe823c9c0ba976b9ba6",
+    firstName: "Basil",
+    lastName: "Bush",
+    isAdmin: false,
+    isEmployee: true,
 
   //AUTHORISOR
     // id: "62860fe823c9c0ba976b9ba5",
@@ -38,8 +38,6 @@ let thisUser = {
     // isEmployee: false,
 
 }
-
-
 
 class App extends Component {
   render(){

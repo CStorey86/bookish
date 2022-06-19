@@ -9,7 +9,7 @@ import RequestDashboard from './RequestDashboard';
 function Requests(props){
     return (
         <div className="Requests">
-            <NavBar/>
+            <NavBar isAuth={props.user.isAdmin} isEmp={props.user.isEmployee}/>
             <RequestDashboard currentUser={props.user}/>
             <Footer />
       </div>

@@ -5,11 +5,6 @@ import './requests.css';
 import RequestList from './RequestList';
 import SingleRequest from './SingleRequests/SingleRequest';
 
-//to be passed from token
-let user={
-    id: "62860fe823c9c0ba976b9ba7",
-}
-
 class RequestDashboard extends React.Component{
 
     constructor(props){
@@ -25,7 +20,7 @@ class RequestDashboard extends React.Component{
     }
 
     componentDidMount(){
-        const url= `http://localhost:4000/requests/?userID=${user.id}`; 
+        const url= `http://localhost:4000/requests/?userID=${this.state.userID}`; 
 
         axios.get(url)
         .then((Response) => {
