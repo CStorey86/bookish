@@ -7,8 +7,7 @@ import AwaitingAllocation from './AwaitingAllocation';
 import MyAllocations from './MyAllocations';
 
 
-class Allocations extends Component {
-  render(props){
+function Allocations (props) {
     return (
       <div className="Allocations">
             <NavBar isAuth={props.user.isAdmin} isEmp={props.user.isEmployee}/>
@@ -20,7 +19,6 @@ class Allocations extends Component {
             <Footer />
       </div>
     );
-  }
 }
 
 export default Allocations;
