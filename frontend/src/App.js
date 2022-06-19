@@ -30,6 +30,7 @@ let thisUser = {
     lastName: "Bush",
     isAdmin: false,
     isEmployee: true,
+    authLimit: 50.00,
 
   //AUTHORISOR
     // id: "62860fe823c9c0ba976b9ba5",

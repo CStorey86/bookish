@@ -1,3 +1,4 @@
+import { faMarsDouble } from '@fortawesome/free-solid-svg-icons';
 import mongoose from 'mongoose';
 
 const UserSchema = mongoose.Schema({
@@ -38,6 +39,11 @@ const UserSchema = mongoose.Schema({
         type: Boolean,
         default: false,
     },
+
+    authLimit: {
+        type: Number,
+        default: 50.00,
+    }
 
 
 });

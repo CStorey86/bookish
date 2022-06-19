@@ -3,18 +3,15 @@ import './authorisations.css';
 
 import NavBar from '../../NavBar/NavBar';
 import Footer from '../../Footer/Footer';
-import AwaitingAuthorisation from './AwaitingAuthorisation';
-import MyAuthorisations from './MyAuthorisations';
+import AuthorisationsDashboard from './AuthorisationsDashboard';
 
 class Authorisations extends Component {
-  render(){
+  render(props){
     return (
       <div className="Authorisations">
-            <NavBar />
+            <NavBar isAuth={props.user.isAdmin} isEmp={props.user.isEmployee}/>
 
-            <AwaitingAuthorisation/>
-            
-            <MyAuthorisations />
+            <AuthorisationsDashboard />
 
             <Footer />
       </div>

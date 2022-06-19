@@ -48,7 +48,7 @@ const SingleRequest =(props) => {
             </tbody>
           </table>
 
-          <Buttons request={props.request} userID= {props.userID} logs={props.logs}/>
+          <Buttons request={props.request} currentUser={props.user} logs={props.logs}/>
 
           
 

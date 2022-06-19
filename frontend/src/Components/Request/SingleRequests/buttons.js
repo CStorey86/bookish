@@ -1,46 +1,41 @@
 import React from 'react';
-import '../requests.css';
-import DeleteBtn from './DeleteBtn';
-import EditBtn from './EditBtn';
-import StatusHistoryBtn from './statusHistoryBtn';
+import '../requests.css'
 
+import AuthBtns from './Buttons/AuthBtns';
+import UserBtns from './Buttons/UserBtns';
+import EmployeeBtns from './Buttons/EmployeeBtns';
 
+const Buttons =(props) => { 
 
-const Buttons =(props) => {
-
-    if(props.request.status === undefined){
-        return(
-            <></>
-        )
-    }
-    else if(props.request.status === "Awaiting Allocation")             // any stage after allocation
+    if(props.request.status === undefined)
     {
         return(
-            <>
-                <EditBtn req={props.request} userID= {props.userID}/>
-                <DeleteBtn reqID = {props.request._id}/>
-            </>
-        );
-    }
-    else if(props.request.status === "Requires further information"){
-        return(
-            <>
-                <button className="ActionBtn-wide" >Add further Information</button>
-                {/* on click, show overlay form to add more details */}
-            </>
+            <div className="btnPanel">
+            </div>
         )
     }
-    else {
+    // User is an Authorisor
+    else if(props.currentUser.isAdmin ===  true){
         return(
-            <>
-                <StatusHistoryBtn reqID={props.request._id} logs={props.logs}/>             
-            </>
-        );
+            <AuthBtns user={props.currentUser} req={props.request} logs={props.logs}/>
+        )
     }
+
+    // User is an Employee
+    else if(props.currentUser.isEmployee ===  true){
+        return(
+            <EmployeeBtns user={props.currentUser} req={props.request} logs={props.logs} />
+    )}
+
+    // User is a standard User
+    else{
+        return(
+            <UserBtns user={props.currentUser} req={props.request} logs={props.logs}/>
+        )
+    }
+
 
 
 }
 
 export default Buttons;
-
-//Requires further information

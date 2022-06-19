@@ -13,6 +13,7 @@ class RequestDashboard extends React.Component{
             requests: [],
             currentRequest: {},
             currentRequestID:"",
+            user: props.currentUser,
             userID: props.currentUser.id,
             isEmp: props.currentUser.isEmployee,
             logs: []            
@@ -82,11 +83,8 @@ class RequestDashboard extends React.Component{
                 </div>
 
                 <div className="RightPanel">
-                    <SingleRequest request={this.state.currentRequest} logs={this.state.logs} userID={this.state.userID}/>
-                </div>
-                    
-
-                    
+                    <SingleRequest request={this.state.currentRequest} logs={this.state.logs} user={this.state.user}/>
+                </div>                    
             </div>
             
         );
