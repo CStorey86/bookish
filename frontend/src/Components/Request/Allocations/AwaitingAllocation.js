@@ -1,32 +1,23 @@
-import React,{Component} from 'react';
+import React from 'react';
+import axios from 'axios';
 import './allocations.css';
 
-class AwaitingAllocation extends Component {
-  render(){
+function AwaitingAllocation (props) {
     return (
       <div className="AwaitingAllocationList">
-        <h2>Awaiting Allocation</h2>
-
         {/* Search bar ? */}
 
       {/* table listing awaiting allocation */}
-        <div className="allocationRow">
-            TEST
-        </div>
-        <div className="allocationRow">
-            TEST
-        </div>
-        <div className="allocationRow">
-            TEST
-        </div>
-
-
-
-
-
+        {props.available.map((item) => ( 
+          <div className="allocationRow" key={item._id}>
+              <div className="mainDetails">{item.title} - {item.author} - {item.year}</div>
+              <div className="dateCreated">Date Created: {item.dateStatusChange}</div>
+              <div className="UserName">User: {item.userID}</div>
+          </div>
+        ))}
       </div>
     );
-  }
 }
+
 
 export default AwaitingAllocation;

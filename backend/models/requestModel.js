@@ -41,6 +41,14 @@ export const requestSchema = new Schema({
         required: true,
         default: Date.now
     },
+
+    allocatedTo:{
+        type: String,        
+    },
+
+    authorisedBy:{
+        type: String,
+    },
     
     isComplete:{
         type: Boolean,

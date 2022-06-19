@@ -2,23 +2,20 @@ import React,{Component} from 'react';
 import './allocations.css';
 
 
-class MyAllocation extends Component {
-  render(){
-    return (
-      <div className="myAllocations">
-          <h2>My Allocations</h2>
+function MyAllocation (props) {
+  return (
+    <div className="myAllocations">
+      {/* Search bar ? */}
 
-          {/* table listing chosen allocation */}
-          <div className="allocationRow">
-            TEST - chosen 1
-        </div>
-        <div className="allocationRow">
-            TEST - chosen 2
-        </div>
+      {/* table listing awaiting allocation */}
+          <div className="allocationRow2">
+              <div className="mainDetails">words</div>
+          </div>
 
-      </div>
+    </div>
+  
     );
-  }
 }
+
 
 export default MyAllocation;

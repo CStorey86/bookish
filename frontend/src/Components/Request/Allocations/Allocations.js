@@ -3,8 +3,7 @@ import './allocations.css';
 
 import NavBar from '../../NavBar/NavBar';
 import Footer from '../../Footer/Footer';
-import AwaitingAllocation from './AwaitingAllocation';
-import MyAllocations from './MyAllocations';
+import AllocationDashboard from './AllocationDashboard';
 
 
 function Allocations (props) {
@@ -12,10 +11,8 @@ function Allocations (props) {
       <div className="Allocations">
             <NavBar isAuth={props.user.isAdmin} isEmp={props.user.isEmployee}/>
 
-            <AwaitingAllocation />
+            <AllocationDashboard user={props.user}/>
             
-            <MyAllocations />
-
             <Footer />
       </div>
     );

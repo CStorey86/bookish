@@ -4,28 +4,42 @@
 
 
 .AwaitingAllocationList, .myAllocations {
-    width: 45%;
-    height: 440px;    
+    width: 98%;
+    height: 360px;    
     float: left;
-    border: white 5px solid;
-    background-color: #c4c4c4;
-    margin: 20px;
+    background-color: #282c34;
+    margin: 10px;
 }
 
-.MyAllocations{
+.myAllocations{
     float: right;
+    margin: 5px;
 }
 
 .allocationRow{
-    background-color: #282c34;
-    width: 95%;
+    background-color: #7bcfb3;
+    width: 95.7%;
     margin: 10px;
     padding: 5px;
     text-align: left;
+    height: 55px;
+    color: #1d3b31;
+}
+
+.allocationRow2{
+    background-color: #7bcfb3;
+    width: 92%;
+    margin: 10px;
+    padding: 5px;
+    text-align: left;
+    height: 30px;
+    color: #1d3b31;
+    font-size: 20px;
 }
 
 .allocationRow:hover{
-    background-color: #7bcfb3;
+    background-color: #1d3b31;
+    color: #f1f1f1;
 }
 
 
@@ -38,4 +52,26 @@
     margin: auto;
     text-align: center;
     justify-content: center;
+}
+
+
+.mainDetails{
+    float: left;
+    width: 98%;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 2px;
+}
+.dateCreated {
+    float: left;
+    width: 45%;
+    font-size: 16px;
+    padding: 2px;
+}
+
+.UserName{
+    float: right;
+    width: 300px;
+    font-size: 16px;
+    padding: 2px;
 }
