@@ -1,8 +1,7 @@
-import React,{useState} from 'react';
+import React from 'react';
 import '../../requests.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
 
 
 function statusHistoryOn(){
@@ -19,7 +18,7 @@ const statusHistoryBtn = (props) => {
 
     return(
             <>
-                <button className="ActionBtn-wide" onClick={statusHistoryOn}>View Request History</button>
+                <button className="ActionBtn-med" onClick={statusHistoryOn}>View Request History</button>
                 {/* on click, show overlay with edit form inputs*/}          
 
                 <div id="statusHistory">
@@ -30,7 +29,7 @@ const statusHistoryBtn = (props) => {
                         </div>
 
                         <div className="statusHistoryList">
-                            <h3>Status History</h3>
+                            <h3>Status History - ID: {props.reqID}</h3>
                             <div className="RequestList" >
                                 <table id="changeLogTable">
                                     <thead>

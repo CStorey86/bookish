@@ -7,17 +7,17 @@ import StatusHistoryBtn from './statusHistoryBtn';
 
 const UserBtns =(props) => {
 
-    const userID = props.currentUser.id;
-    const limit =  props.currentUser.authLimit;
-    const reqStatus = props.request.status;     
-
+    const userID = props.user.id;
+    const limit =  props.user.authLimit;
+    const reqStatus = props.req.status;   
+    
     if(reqStatus === "Awaiting Allocation" || reqStatus === "Updated"){
         return(
             <div className="btnPanel">
                 {/* Edit */}
-                    <EditBtn req={props.request} userID = {userID}/>
+                    <EditBtn req={props.req} userID = {userID}/>
                 {/* Delete */}
-                <DeleteBtn reqID = {props.request._id}/>
+                    <DeleteBtn reqID = {props.req._id}/>
             </div>
         );
     }
@@ -26,8 +26,12 @@ const UserBtns =(props) => {
         //requires more information.
         return(
             <div className="btnPanel">
+
+            
                 {/*  TO DO: More Info */}
                         <button className="ActionBtn-wide" >Add further Information</button>
+
+                        
             </div>
         );
     }
@@ -35,7 +39,7 @@ const UserBtns =(props) => {
         return(
             <div className="btnPanel">
                 {/* View Status History */}
-                    <StatusHistoryBtn reqID={props.request._id} logs={props.logs}/>  
+                    <StatusHistoryBtn reqID={props.req._id} logs={props.logs}/>  
             </div>
         )           
     }

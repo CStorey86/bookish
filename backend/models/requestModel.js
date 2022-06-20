@@ -32,7 +32,7 @@ export const requestSchema = new Schema({
     },
     status:{
         type:String,
-        enum: ["Awaiting Allocation", "Updated", "Allocated", "Requires further information", "Awaiting authorisation", "Complete"],
+        enum: ["Awaiting Allocation", "Updated", "Allocated", "Requires further information", "Awaiting authorisation", "Authorisor Assigned", "Complete"],
         required: true,
         default: "Awaiting Allocation"
     },

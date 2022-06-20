@@ -52,7 +52,7 @@ class AllocationDashboard extends React.Component {
       <div>
         <div className="LeftPanel">
             <h2>Awaiting Allocation</h2>
-            <AwaitingAllocations available={this.state.available} userID={this.props.user.id}/>
+            <AwaitingAllocations available={this.state.available} userID={this.state.currentUserID}/>
         </div>
 
         <div className="RightPanel">

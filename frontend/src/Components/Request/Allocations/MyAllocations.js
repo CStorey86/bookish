@@ -35,7 +35,7 @@ function removeAllocation(userID, reqID){
                   console.log(error);
               }),
           
-          alert(`Request ID: ${reqID}, has been removed from your requests - ${newStatus}`),
+          alert(`Request ID: ${reqID}, has been removed from your requests`),
       )
       .catch((error) => {
           console.log(error);
@@ -47,7 +47,7 @@ function MyAllocation (props) {
   return (
     <div className="myAllocations">
 
-      {/* table listing requests already allocated to me */}
+      {/* table listing requests already allocated to this user */}
         {props.myAllocations.map((item) => (
           <div className="allocationRow2" key={item._id}>
             <div className="rowLeft2">

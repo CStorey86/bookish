@@ -12,6 +12,7 @@ function allocateRequest(userID, reqID){
     const updateURL=`http://localhost:4000/requests/${reqID}`;
     const addNewURL=`http://localhost:4000/changelogs`;
 
+    //Update request parameters
     axios.put(updateURL,
         {
             allocatedTo: userID,

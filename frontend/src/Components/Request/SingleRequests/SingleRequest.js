@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React from 'react';
 import '../requests.css';
 import Buttons from './buttons';
 
@@ -49,11 +49,7 @@ const SingleRequest =(props) => {
           </table>
 
           <Buttons request={props.request} currentUser={props.user} logs={props.logs}/>
-
-          
-
         </div>
-
     );
   }
 

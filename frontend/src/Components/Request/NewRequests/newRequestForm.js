@@ -4,6 +4,72 @@ import axios from 'axios';
 
 // If currency option added, extra function will be needed for currency conversion.
 
+//////////////////////////////////     DATA VALIDATION   ////////////////////////////////////////
+function dataValidation(title, author, publisher, year, price){
+  const validEntry = false;
+
+    // TITLE: check not empty, and is string
+      const validTitle = isValidTitleOrAuthor(title);
+    // AUTHOR: check not empty, and is string
+      const validAuthor = isValidTitleOrAuthor(author);
+    // PUBLISHER: check is string
+      const validPub = isValidPublisher(publisher);
+    // YEAR: check is whole number between 1900 and current year
+      const validYr = isValidYear(year);
+    // PRICE: check not empty, and is number with 2 decimal places
+      const validPrice = isValidPrice(price);
+
+    
+
+  return {validEntry};
+}
+
+function isValidTitleOrAuthor(input){
+  const valid= false;
+
+  if(typeof input ==='string' || input instanceof String && input.length > 0)
+  {
+    //is a string
+    valid = true;      
+  }
+  return valid;
+}
+
+function isValidPublisher(input){
+  const valid= false;
+
+  if(typeof input ==='string' || input instanceof String)
+  {
+    //is a string
+    valid = true;      
+  }
+  return valid;
+}
+
+function isValidYear(input){
+  const thisYear = Date().getFullYear();
+  const validYear = false;
+
+  if(input % 1 !=0 && input >= 1900 && input <= thisYear){
+      // is whole number and is between 1900 and current year
+      validYear = true;
+  }
+  return validYear;
+}
+
+function isValidPrice(input){
+  const validPrice = false;
+
+  if(input > 0)
+  {
+    validPrice = true;
+  }
+  return validPrice;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 function NewRequest (props) {
 
   const [formatChoice, setFormat] = useState("");
@@ -14,39 +80,37 @@ function NewRequest (props) {
   const [priceChoice, setPrice] = useState("");
 
   async function handleSubmit(event) {
-    event.preventDefault();
+      event.preventDefault();
+      //if data = valid....
 
-    const url='http://localhost:4000/requests'; 
+          const url='http://localhost:4000/requests'; 
 
-    axios.post(url,{
-      title: titleChoice,
-      author: authorChoice,
-      publisher: publisherChoice,
-      year: yearChoice,
-      price: priceChoice,
-      format: formatChoice,
-      userID: props.currentUser.id,
-      status: "Awaiting Allocation",
-      dateStatusChange: Date.now()
-    })
-    .then (res =>{
-        console.log("New Request Added");
-        // clear form and reset useState hooks to ""
-        //add new log to changelogs
-    })
+          axios.post(url,{
+            title: titleChoice,
+            author: authorChoice,
+            publisher: publisherChoice,
+            year: yearChoice,
+            price: parseFloat(priceChoice).toFixed(2),  // stes as number (from string, and sets to 2 dp
+            format: formatChoice,
+            userID: props.currentUser.id,
+            status: "Awaiting Allocation",
+            dateStatusChange: Date.now(),
+            allocatedTo: "",
+            authorisedBy: "",
+
+          })
+          .then (res =>{
+              console.log("New Request Added");
+              alert(`New Request Added`);
+              window.location.reload(false) 
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+
+      // else show error message 
   }
   
-  //////////////////////////////////     DATA VALIDATION   ////////////////////////////////////////
-
-  // TITLE: check not empty, and is string
-  // AUTHOR: check not empty, and is string
-  // PUBLISHER: check is string
-  // YEAR: check is whole number between 1900 and current year
-  // PRICE: check not empty, and is number with 2 decimal places
-
-
-  /////////////////////////////////////////////////////////////////////////////////////////////////
-
   return (  
       <div className="newRequestForm">
         <h2>NEW REQUEST </h2>

@@ -17,24 +17,30 @@ const Buttons =(props) => {
     // User is an Authorisor
     else if(props.currentUser.isAdmin ===  true){
         return(
-            <AuthBtns user={props.currentUser} req={props.request} logs={props.logs}/>
+            <div>
+                <AuthBtns user={props.currentUser} req={props.request} logs={props.logs}/>
+            </div>
+            
         )
     }
 
     // User is an Employee
     else if(props.currentUser.isEmployee ===  true){
         return(
-            <EmployeeBtns user={props.currentUser} req={props.request} logs={props.logs} />
+            
+            <div>
+                <EmployeeBtns user={props.currentUser} req={props.request} logs={props.logs} />
+            </div>
     )}
 
     // User is a standard User
     else{
         return(
-            <UserBtns user={props.currentUser} req={props.request} logs={props.logs}/>
+            <div>
+                <UserBtns user={props.currentUser} req={props.request} logs={props.logs}/>
+            </div>
         )
     }
-
-
 
 }
 

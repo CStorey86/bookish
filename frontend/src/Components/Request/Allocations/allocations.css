@@ -37,19 +37,6 @@
     font-size: 20px;
 }
 
-
-.AwaitingAllocationList h2, .myAllocations h2{
-    font-size: 30px;
-    padding: 5px 5px 20px 5px;
-    border-bottom: solid 2px #1d3b31;
-    width: 96%;
-    color: #1d3b31;
-    margin: auto;
-    text-align: center;
-    justify-content: center;
-}
-
-
 .mainDetails{
     float: left;
     width: 98%;
