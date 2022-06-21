@@ -1,14 +1,14 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './users.css';
 
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import UsersDashboard from './UsersDashboard';
 
-function Users () {
+function Users (props) {
     return (
       <div className="User">
-            <NavBar/>
+            <NavBar isAuth={props.user.isAdmin} isEmp={props.user.isEmployee}/>
             <UsersDashboard />
             <Footer />
       </div>

@@ -1,8 +1,58 @@
-.Requests, .AllRequests{
+.User{
     width: 100%;
     justify-items: center;
 }
 
+.UserDashboard{
+    width: 100%;
+    position: fixed;
+    top: 60px;
+}
+
+.LeftPanel{
+    background-color: #c4c4c4;
+    margin: 10px;
+    padding: 20px;
+    width: 59%;
+    height: 450px;
+    float: left;
+}
+
+.RightPanel{
+    background-color: #c4c4c4;
+    margin: 10px 20px 10px 0;
+    padding: 20px;
+    width: 430px;
+    height: 450px;
+    float: right;
+}
+
+.LeftPanel h2, .RightPanel h2{
+    font-size: 30px;
+    padding: 5px 5px 20px 5px;
+    border-bottom: solid 2px #1d3b31;
+    width: 96%;
+    color: #1d3b31;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.UserList{
+    width: 96%;
+    height: 270px;
+    color: white;
+    margin: 10px;
+    margin-left: 12px;
+    padding: 5px;
+    background-color: #282c34;
+    float: left;
+    font-size: 16px;
+    overflow-y: scroll;
+}
+
+
+/*  ///////////////////////////////////     SEARCH AND SORT BAR   ////////////////////////////////////////// */
 
 .SearchBar{
     width: 95%;
@@ -41,93 +91,51 @@
     font-size: 18px;
 }
 
-.RequestList{
-    width: 96%;
-    heighT: 270px;
-    color: white;
-    margin: 10px;
-    margin-left: 12px;
-    padding: 5px;
-    background-color: #282c34;
-    float: left;
-    font-size: 16px;
-    overflow-y: scroll;
-    
-}
 
-.LeftPanel{
-    background-color: #c4c4c4;
-    margin: 10px;
-    padding: 20px;
-    width: 60%;
-    height: 440px;
-    float: left;
-}
+/* /////////////////////////////////////    USERS LIST PANEL    ///////////////////////////////////////// */
 
-.RightPanel{
-    background-color: #c4c4c4;
-    margin: 10px;
-    margin-right: 20px;
-    padding: 20px;
-    width: 400px;
-    height: 440px;
-    float: right;
-}
-
-.LeftPanel h2, .RightPanel h2{
-    font-size: 30px;
-    padding: 5px 5px 20px 5px;
-    border-bottom: solid 2px #1d3b31;
-    width: 96%;
-    color: #1d3b31;
-    margin: auto;
-    text-align: center;
-    justify-content: center;
-}
-
-.requestItemRow{
+.userItemRow{
     width: 96%;
     margin: 5px;
     float: left;   
     background-color: #7bcfb3;
     color: black;
-    height: 30px;
+    height: 40px;
+    text-align: left;
+    padding-left: 20px;
 }
 
-
-.requestItemRow:hover{
+.userItemRow:hover{
     background-color: #d3fff0;
     font-weight: bold;
 }
 
-.SingleRequest{
-    background-color: #c4c4c4;
-    margin: 10px;
-    padding: 20px;
-    width: 27%;
-    height: 440px;
+.singleUser{
+    width:98%;
+}
+
+.userName{
+    font-size: 19px;
+    width: 50%;
+    font-weight: bold;
+    color: #1d3b31;
+    text-align: left;
     float: left;
+    padding: 5px;
 }
 
-.ActionBtn, .ActionBtn-wide{
-    width: 120px;
-    height: 30px;
-    margin: 15px;
-    background-color: #0c704f;
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-}
-.ActionBtn-wide{
-    width: 200px;
+.userDate{
+    width: 40%;
+    float: right;
+    font-size: 19px;
+    font-weight: bold;
+    color: #1d3b31;
+    text-align: right;
+    margin-left: 30px;
+    margin-right: 10px;
+    padding: 5px;
 }
 
-.ActionBtn:Hover, .ActionBtn-wide:hover{
-    background-color: #d3fff0;
-    color: #0b4935;
-    transition: background-color 0.2s;
-}
 
 .card{
     background-color: #282c34;
@@ -149,6 +157,7 @@
     margin-right: 20px;
     color: #7bcfb3;
     font-size: 18px;
+    vertical-align: top;
 }
 
 .cardDetails{
@@ -157,20 +166,59 @@
     font-size: 16px;
 }
 
-.NewRequest{
-    width: 100%;
-    float: left;
+#editUser{
+    position: fixed;
+    display: none; 
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #282c34c0;
+    z-index: 2; 
+    cursor: pointer; 
 }
 
-#newRequestForm{
-    width: 80%;
-    height: 400px;
-    background-color: #c4c4c4;
+#deleteUser, #resetPasswords  {
+    position: fixed;
+    display: none; 
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #282c34c0;
+    z-index: 2; 
+    cursor: pointer; 
+}
+
+
+.ActionBtn3, .ActionBtn-3wide {
+    width: 80px;
+    height: 30px;
     margin: 10px;
-    padding: 20px;
-    width: 63%;
-    height: 440px;
+    background-color: #0c704f;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
     float: left;
+}
+.ActionBtn-3wide{
+    width: 170px;
 }
 
 
+.ActionBtn3:Hover, .ActionBtn-3wide:hover{
+    background-color: #d3fff0;
+    color: #0b4935;
+    transition: background-color 0.2s;
+}
+
+.overlayBtnPanel{
+    height: 55px;
+    margin: auto;
+    padding-left: 400px;
+}

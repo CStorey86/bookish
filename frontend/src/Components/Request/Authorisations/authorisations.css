@@ -16,6 +16,10 @@
     margin: 10px 5px;
 }
 
+.myAuthorisations a{
+    color: #1d3b31;
+}
+
 .authorisationsRow{
     background-color: #7bcfb3;
     width: 95.7%;

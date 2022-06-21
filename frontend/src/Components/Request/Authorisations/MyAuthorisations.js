@@ -1,8 +1,9 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './authorisations.css';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus} from '@fortawesome/free-solid-svg-icons';
+import {Link} from "react-router-dom";
 
 
 
@@ -54,15 +55,17 @@ function MyAuthorisations (props) {
           {props.myAuthorisations.map((item) => (
             <div className="authorisationsRow2" key={item._id}>
 
+            {/* LINK TAKING USER BACK TO MY REQUESTS WHEN CLICKED */}
+            <Link to="/Requests">       
               <div className="rowLeft2">
                 <div className="mainDetails">{item.title} - {item.author} - {item.year}</div>
               </div>
+            </Link>
 
               <div className="rowRight2">
                 <button className="removeAllocateBtn" 
-                    //  onClick={
-                    //      () => removeAllocation(props.userID, item._id,)}
-                         >
+                    onClick={
+                    () => removeAllocation(props.userID, item._id,)}>
                     <FontAwesomeIcon icon={faMinus}/>
                 </button>
               </div>

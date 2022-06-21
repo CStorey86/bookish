@@ -70,8 +70,6 @@ class RequestDashboard extends React.Component{
         // GET CHANGE LOGS FOR THE SELECTED REQUEST - REGARDLESS OF USER
         const logUrl=`http://localhost:4000/changelogs?requestID=${this.state.currentRequestID}`;
 
-        // ?requestID=62af4a82aea678e8b9f650a2
-
         axios.get(logUrl)
         .then((Response) => {
             //set statusHistory[] as data recieved from api call
@@ -95,7 +93,7 @@ class RequestDashboard extends React.Component{
     render(){
     
         return (
-            <div>
+            <div className="RequestDashboard">
                 <div className="LeftPanel">
                     <h2>MY REQUESTS </h2>
                     <RequestList requests={this.state.requests} updateCurrentRequest={this.updateCurrentRequest} />

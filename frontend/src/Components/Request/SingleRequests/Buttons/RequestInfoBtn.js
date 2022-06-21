@@ -19,14 +19,18 @@ const RequestInfo =(props) => {
                         <FontAwesomeIcon icon={faWindowClose} /> 
                     </div>
                     <h3>Are you sure you wish to Request Authorisation?</h3>
-                    <button className="ActionBtn"  
-                        // onClick={() => requestAuthorisation(props.userID, props.reqID)}
-                    >
-                            Yes
-                    </button>
-                        
-                    <button className="ActionBtn" >No</button>
-                </div>                                            
+
+                    <div className="overlayBtnPanel">
+
+                        <button className="ActionBtn"  
+                            // onClick={() => requestAuthorisation(props.userID, props.reqID)}
+                        >
+                                Yes
+                        </button>
+                            
+                        <button className="ActionBtn" >No</button>
+                    </div>            
+                </div>                                      
             </div>
 
         </>

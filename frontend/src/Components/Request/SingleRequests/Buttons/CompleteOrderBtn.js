@@ -55,10 +55,11 @@ const CompleteBtn =(props) => {
             });
     }
     
-
     return(
         <>
-            <button className="ActionBtn-med" onClick={completeOn}> Complete Order</button>
+
+            <button className="ActionBtn-med" onClick={completeOn}>Complete Order</button>
+        
             {/* on click, show overlay with delete confirmation (y/n buttons)*/}          
 
             <div id="completeRequest">
@@ -67,12 +68,17 @@ const CompleteBtn =(props) => {
                         <FontAwesomeIcon icon={faWindowClose} onClick={completeOff}/> 
                     </div>
                     <h3>Are you sure you wish to complete this Request?</h3>
-                    <button className="ActionBtn"  
-                        onClick={() => completeThisRequest(props.userID, props.reqID)}>
-                        Yes
-                    </button>
-                        
-                    <button className="ActionBtn" onClick={completeOff}>No</button>
+                    
+                    <div className="overlayBtnPanel">            
+                        <button className="ActionBtn"  
+                            onClick={() => completeThisRequest(props.userID, props.reqID)}>
+                            Yes
+                        </button>
+                            
+                        <button className="ActionBtn" onClick={completeOff}>No</button>
+                    </div>
+
+
                 </div>                                            
             </div>
         </>

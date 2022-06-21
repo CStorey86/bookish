@@ -46,9 +46,11 @@ const DeleteBtn =(props) => {
                         <FontAwesomeIcon icon={faWindowClose} onClick={deleteOff}/> 
                     </div>
                     <h3>Are you sure you wish to delete this Request?</h3>
-                    <button className="ActionBtn"  onClick={deleteRequest}>Yes</button>
-                        
-                    <button className="ActionBtn" onClick={deleteOff}>No</button>
+                    <div className="overlayBtnPanel">
+                        <button className="ActionBtn"  onClick={deleteRequest}>Yes</button>  
+                        <button className="ActionBtn" onClick={deleteOff}>No</button>
+                    </div>
+
                 </div>                                            
             </div>
         </>

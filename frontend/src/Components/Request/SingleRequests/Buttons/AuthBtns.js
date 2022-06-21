@@ -3,7 +3,7 @@ import '../../requests.css'
 
 import RequestInfo from './RequestInfoBtn';
 import StatusHistoryBtn from './statusHistoryBtn';
-import CompleteOrder from './CompleteOrderBtn';
+import AuthoriseOrderBtn from './AuthoriseOrderBtn';
 
 const AuthBtns =(props) => {
 
@@ -15,7 +15,7 @@ const AuthBtns =(props) => {
             {/* View Status History */}
                 <StatusHistoryBtn reqID={props.req._id} logs={props.logs}/>  
             {/* Complete */}
-                <CompleteOrder reqID={props.req._id} userID={props.user.id}/>                    
+                <AuthoriseOrderBtn  reqID={props.req._id} userID={props.user.id} isAdmin={props.user.isAdmin}/>                    
         </div>
     )
 }

@@ -3,6 +3,12 @@
     justify-items: center;
 }
 
+.RequestDashboard{
+    width: 100%;
+    position: fixed;
+    top: 60px;
+}
+
 
 .SearchBar{
     width: 95%;
@@ -43,7 +49,7 @@
 
 .RequestList{
     width: 96%;
-    heighT: 270px;
+    height: 270px;
     color: white;
     margin: 10px;
     margin-left: 12px;
@@ -59,8 +65,8 @@
     background-color: #c4c4c4;
     margin: 10px;
     padding: 20px;
-    width: 60%;
-    height: 480px;
+    width: 65%;
+    height: 450px;
     float: left;
 }
 
@@ -70,7 +76,7 @@
     margin-right: 20px;
     padding: 20px;
     width: 420px;
-    height: 480px;
+    height: 450px;
     float: right;
 }
 
@@ -112,7 +118,7 @@
 }
 
 .ActionBtn, .ActionBtn-wide, .ActionBtn-med{
-    width: 120px;
+    width: 80px;
     height: 30px;
     margin: 15px;
     background-color: #0c704f;
@@ -157,6 +163,7 @@
     margin-right: 20px;
     color: #7bcfb3;
     font-size: 18px;
+    vertical-align: top;
 }
 
 .cardDetails{
@@ -278,6 +285,7 @@
     left: 150px;
     color: #0b4935;
     background-color: #7bcfb3;
+    padding: 10px 10px 20px 10px;
 }
 
 .message2{
@@ -297,6 +305,12 @@
     padding: 8px 0 16px 0;
     border-bottom: 2px solid #0b4935;
     margin: 2px 10px;
+}
+
+.overlayBtnPanel{
+    height: 55px;
+    margin: auto;
+    padding-left: 400px;
 }
 
 .singleReq{

@@ -1,41 +1,54 @@
 import React from 'react';
 import './users.css';
-// import Buttons from './buttons';
+import BottomCard from './BottomCard';
+import Buttons from './Buttons';
+
+function formatDate(inputDate){
+  const newDate = new Date(inputDate);
+  return String(newDate);
+}
 
 
 const SingleUser =(props) => {
+
+    var userType='';
+    var date = (formatDate(props.user.createdDate))
+
+    if((props.user.isAdmin) === true){
+        userType = 'Authoriser';
+    }
+    else if((props.user.isEmployee) === true){
+        userType = 'Employee';
+    }
+    else{
+        userType = 'Standard User';
+    }
+
     return (
       <div>
-        <h2>USER </h2>
           <table className="card">
-            <tr>
-              <td className="cardHeader">First Name:</td>
-              <td className="cardDetails">{}</td>
-            </tr>
-            <tr>
-              <td className="cardHeader">Last Name:</td>
-              <td className="cardDetails">{}</td>
-            </tr>
-            <tr>
-              <td className="cardHeader">Email:</td>
-              <td className="cardDetails">{}</td>
-            </tr>
-            <tr>
-              <td className="cardHeader">Date Created</td>
-              <td className="cardDetails">{}</td>
-            </tr>
-          </table>
-          
-          <table className="card">
-            <tr>
-              <td className="cardHeader">User Type:</td>
-              <td className="cardDetails">{}</td>
-                                                                                {/* TO DO: CSS TO CHANGE COLOR OF TEXT BASED ON STATUS*/}
-            </tr>
-
+            <tbody>
+              <tr>
+                <td className="cardHeader">First Name:</td>
+                <td className="cardDetails">{props.user.firstName}</td>
+              </tr>
+              <tr>
+                <td className="cardHeader">Last Name:</td>
+                <td className="cardDetails">{props.user.lastName}</td>
+              </tr>
+              <tr>
+                <td className="cardHeader">Email:</td>
+                <td className="cardDetails">{props.user.email}</td>
+              </tr>
+              <tr>
+                <td className="cardHeader">Date Created</td>
+                <td className="cardDetails">{date}</td>
+              </tr>
+            </tbody>
           </table>
 
-          {/* <Buttons status={props.request.status} /> */}
+          <BottomCard userType={userType} limit={props.user.authLimit}/>
+          <Buttons userID={props.user._id}/>
 
           
 

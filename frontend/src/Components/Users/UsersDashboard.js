@@ -2,8 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import './users.css';
 
-import UsersList from './Users';
+
+
 import SingleUser from './SingleUser';
+import UsersList from './UsersList';
+
 
 
 class UsersDashboard extends React.Component{
@@ -41,13 +44,14 @@ class UsersDashboard extends React.Component{
     render(){
     
         return (
-            <div>
+            <div className="UserDashboard">
                 <div className="LeftPanel">
-                    <h2>USERS </h2>
-                    <UsersList users={this.state.users} updateCurrentUser={this.updateCurrentRequest} />
+                    <h2>ALL USERS </h2>
+                    <UsersList users={this.state.users} updateCurrentUser={this.updateCurrentUser}/>                            
                 </div>
 
                 <div className="RightPanel">
+                    <h2>USER </h2>
                     <SingleUser user={this.state.currentUser}/>
                 </div>                    
             </div>

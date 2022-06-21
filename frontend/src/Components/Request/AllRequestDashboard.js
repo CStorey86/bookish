@@ -3,7 +3,7 @@ import axios from 'axios';
 import './requests.css';
 
 import RequestList from './RequestList';
-import SingleRequest from './SingleRequests/SingleRequest';
+import SingleRequestAll from './SingleRequests/SingleRequest-All';
 
 class AllRequestDashboard extends React.Component{
 
@@ -52,11 +52,9 @@ class AllRequestDashboard extends React.Component{
                 </div>
 
                 <div className="RightPanel">
-                    <SingleRequest request={this.state.currentRequest} logs={this.state.logs} userID={this.state.userID}/>
+                    <SingleRequestAll request={this.state.currentRequest} logs={this.state.logs} />
                 </div>
-                    
 
-                    
             </div>
             
         );
