@@ -2,6 +2,8 @@ import React from 'react';
 import './profile.css';
 import {formatDate} from '../Utils';
 import AuthLimitRow from './AuthLimitRow';
+import EditUserBtn from './EditUserBtn';
+import ChangePassword from './ChangePasswordBtn';
 
 
 const ProfileCard =(props)=> {
@@ -18,9 +20,7 @@ const ProfileCard =(props)=> {
     }
     else{
         userType = 'Standard User';
-    }
-
-    
+    }    
         return (
             <div className="profileCard">
                 <h2>MY PROFILE</h2>
@@ -72,8 +72,8 @@ const ProfileCard =(props)=> {
                 <AuthLimitRow isEmp ={props.user.isEmployee} aLimit={props.user.authLimit}/>
                 
                 <div className="overlayBtnPanel-wide">
-                    <button className="ActionBtn-wide">Change Password</button>
-                    <button className="ActionBtn-wide">Edit User Profile</button>
+                    <ChangePassword />
+                    <EditUserBtn user={props.user}/>
                 </div>
             </div>
         );
