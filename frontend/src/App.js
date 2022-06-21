@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
+import {GetUserFromID} from './Components/Utils'
 
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
@@ -14,15 +15,23 @@ import Users from './Components/Users/Users';
 import AllRequests from './Components/Request/AllRequests';
 
 
+
+
 //DEV PROCESS - REMOVE AFTER LOGIN CONFIRMED
-let thisUser = {
+let userID = "62860fe823c9c0ba976b9ba7"; // STANDARD
+
+const user = GetUserFromID(userID);
+// let userID= "62860fe823c9c0ba976b9ba6"; // EMPLOYEE
+
+// let userID= "62860fe823c9c0ba976b9ba5"; // AUTHORISER
+
 
   //STANDARD USER
-    id: "62860fe823c9c0ba976b9ba7",
-    firstName: "Claire",
-    lastName: "Storey",
-    isAdmin: false,
-    isEmployee: false,
+    // id: "62860fe823c9c0ba976b9ba7",
+    // firstName: "Claire",
+    // lastName: "Storey",
+    // isAdmin: false,
+    // isEmployee: false,
 
   // EMPLOYEE
     // id: "62860fe823c9c0ba976b9ba6",
@@ -38,10 +47,11 @@ let thisUser = {
     // lastName: "Jones",
     // isAdmin: true,
     // isEmployee: false,
+//}
 
-}
 
 class App extends Component {
+
   render(){
     return (
       <div className="App">
@@ -52,19 +62,19 @@ class App extends Component {
               <Route path="/Register" element={<Register />} />
 
               {/* Routes below are only accessible with valid login */}
-              <Route path="/Home" element={<Home user={thisUser}/>}/>
-              <Route path="/Requests" element={<Requests user={thisUser}/>}/>
-              <Route path="/Profile" element={<Profile user={thisUser}/>} />
-              <Route path="/NewRequest" element={<NewRequest user={thisUser}/>} />
+              <Route path="/Home" element={<Home user={user}/>}/>
+              <Route path="/Requests" element={<Requests user={user}/>}/>
+              <Route path="/Profile" element={<Profile user={user}/>} />
+              <Route path="/NewRequest" element={<NewRequest user={user}/>} />
 
               {/* Employee */}
-              <Route path="/Allocations" element={<Allocations user={thisUser}/>} />
-              <Route path="/AllRequests" element={<AllRequests user={thisUser}/>} />
+              <Route path="/Allocations" element={<Allocations user={user}/>} />
+              <Route path="/AllRequests" element={<AllRequests user={user}/>} />
               
 
               {/* Authoriser */}
-              <Route path="/Authorisations" element={<Authorisations user={thisUser}/>} />
-              <Route path="/Users" element={<Users user={thisUser}/>} />
+              <Route path="/Authorisations" element={<Authorisations user={user}/>} />
+              <Route path="/Users" element={<Users user={user}/>} />
 
 
             </Routes>

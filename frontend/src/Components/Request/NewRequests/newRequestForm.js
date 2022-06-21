@@ -1,4 +1,4 @@
-import React,{Component,useState} from 'react';
+import React,{useState} from 'react';
 import './newRequests.css';
 import axios from 'axios';
 
