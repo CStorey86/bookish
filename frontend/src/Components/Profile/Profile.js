@@ -4,7 +4,7 @@ import './profile.css';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import ProfileCard from './ProfileCard';
-import ProfileEditPanel from './ProfileEditPanel';
+// import ProfileEditPanel from './ProfileEditPanel';
 import axios from 'axios';
 
 class Profile extends Component {
@@ -15,7 +15,11 @@ class Profile extends Component {
     this.state={
         currentUser: props.user,
         userID: props.user.id,
-    }}
+        isAdmin: props.user.isAdmin,
+        isEmp: props.user.isEmployee,
+
+    }
+  }
 
   componentDidMount(){
 
@@ -36,11 +40,12 @@ class Profile extends Component {
   render(props){
     return (
       <div className="Profile">
-            <NavBar isAuth={this.state.currentUser.isAdmin} isEmp={this.state.currentUser.isEmployee}/>
+            <NavBar isAuth={this.state.isAdmin} isEmp={this.state.isEmp}/>
 
-            <ProfileCard thisUser={this.state.currentUser} />
-
-            {/* <ProfileEditPanel /> */}
+            <ProfileCard 
+              user={this.state.currentUser}
+              
+            />
 
             <Footer />
       </div>

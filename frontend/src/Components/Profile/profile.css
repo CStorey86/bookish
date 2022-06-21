@@ -97,3 +97,10 @@
     color: black;
 }
 
+.overlayBtnPanel-wide{
+    height: 55px;
+    margin: auto;
+    padding-left: 150px;
+    padding-top: 20px;
+}
+

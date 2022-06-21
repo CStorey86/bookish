@@ -18,11 +18,11 @@ import AllRequests from './Components/Request/AllRequests';
 let thisUser = {
 
   //STANDARD USER
-    // id: "62860fe823c9c0ba976b9ba7",
-    // firstName: "Claire",
-    // lastName: "Storey",
-    // isAdmin: false,
-    // isEmployee: false,
+    id: "62860fe823c9c0ba976b9ba7",
+    firstName: "Claire",
+    lastName: "Storey",
+    isAdmin: false,
+    isEmployee: false,
 
   // EMPLOYEE
     // id: "62860fe823c9c0ba976b9ba6",
@@ -33,11 +33,11 @@ let thisUser = {
     // authLimit: 50.00,
 
   //AUTHORISOR
-    id: "62860fe823c9c0ba976b9ba5",
-    firstName: "Angela",
-    lastName: "Jones",
-    isAdmin: true,
-    isEmployee: false,
+    // id: "62860fe823c9c0ba976b9ba5",
+    // firstName: "Angela",
+    // lastName: "Jones",
+    // isAdmin: true,
+    // isEmployee: false,
 
 }
 
