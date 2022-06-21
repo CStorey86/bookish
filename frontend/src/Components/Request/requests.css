@@ -137,7 +137,7 @@
     margin: 5px;
 }
 
-.ActionBtn:Hover, .ActionBtn-wide:hover{
+.ActionBtn:Hover, .ActionBtn-wide:hover, .ActionBtn-med:hover{
     background-color: #d3fff0;
     color: #0b4935;
     transition: background-color 0.2s;

@@ -9,16 +9,13 @@ import ProfileCard from './ProfileCard';
 
 function Profile (props) {
 
-    const user = props.user;
+    const currentUser = props.user;
 
     return (
       <div className="Profile">
-            <NavBar isAuth={user.isAdmin} isEmp={user.isEmployee}/>
+            <NavBar isAuth={currentUser.isAdmin} isEmp={currentUser.isEmployee}/>
 
-            <ProfileCard 
-              user={user}
-              
-            />
+            <ProfileCard user={currentUser}/>
 
             <Footer />
       </div>
