@@ -18,7 +18,7 @@ const Buttons =(props) => {
     else if(props.currentUser.isAdmin ===  true){
         return(
             <div>
-                <AuthBtns user={props.currentUser} req={props.request} logs={props.logs}/>
+                <AuthBtns user={props.currentUser} req={props.request} />
             </div>
             
         )
@@ -29,7 +29,7 @@ const Buttons =(props) => {
         return(
             
             <div>
-                <EmployeeBtns user={props.currentUser} req={props.request} logs={props.logs} />
+                <EmployeeBtns user={props.currentUser} req={props.request} />
             </div>
     )}
 

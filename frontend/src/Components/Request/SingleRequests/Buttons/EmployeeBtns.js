@@ -15,7 +15,7 @@ const EmployeeBtns =(props) => {
                     {/*  Request more information */}
                         <RequestInfo reqID={props.req._id} userID={props.user.id}/>
                     {/* View Status History */}
-                        <StatusHistoryBtn reqID={props.req._id} logs={props.logs}/>  
+                        <StatusHistoryBtn reqID={props.req._id} />  
                     {/* Complete */}
                         <CompleteOrder reqID={props.req._id} userID={props.user.id}/>                    
                 </div>
@@ -24,15 +24,17 @@ const EmployeeBtns =(props) => {
             return(
                 <div className="btnPanel">
                     {/* View Status History */}
-                        <StatusHistoryBtn reqID={props.req._id} logs={props.logs}/> 
+                        <StatusHistoryBtn reqID={props.req._id}/> 
                 </div>
             )
         }
         else{
             return(
                 <div className="btnPanel">
+                    {/*  Request more information */}
+                        <RequestInfo reqID={props.req._id} userID={props.user.id}/>
                     {/* View Status History */}
-                        <StatusHistoryBtn reqID={props.req._id} logs={props.logs}/> 
+                        <StatusHistoryBtn reqID={props.req._id}/> 
                     {/* Ask for Authorisation */} 
                         <RequestAuthorisation reqID={props.req._id} userID={props.user.id}/>
                 </div>

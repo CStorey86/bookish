@@ -27,23 +27,23 @@ let thisUser ={
     // isEmployee: false,
 
   // EMPLOYEE
-    // id: "62860fe823c9c0ba976b9ba6",
-    // firstName: "Basil",
-    // lastName: "Bush",
-    // email: "basil@email.com",
-    // createdDate: "2022-05-05T13:10:00.000+00:00",
-    // isAdmin: false,
-    // isEmployee: true,
-    // authLimit: 50.00,
+    id: "62860fe823c9c0ba976b9ba6",
+    firstName: "Basil",
+    lastName: "Bush",
+    email: "basil@email.com",
+    createdDate: "2022-05-05T13:10:00.000+00:00",
+    isAdmin: false,
+    isEmployee: true,
+    authLimit: 50.00,
 
   //AUTHORISOR
-    id: "62860fe823c9c0ba976b9ba5",
-    firstName: "Angela",
-    lastName: "Jones",
-    email: "angela@email.com",
-    createdDate: "2022-05-05T13:10:00.000+00:00",
-    isAdmin: true,
-    isEmployee: false,
+    // id: "62860fe823c9c0ba976b9ba5",
+    // firstName: "Angela",
+    // lastName: "Jones",
+    // email: "angela@email.com",
+    // createdDate: "2022-05-05T13:10:00.000+00:00",
+    // isAdmin: true,
+    // isEmployee: false,
 }
 
 

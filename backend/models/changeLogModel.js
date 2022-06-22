@@ -1,4 +1,3 @@
-import { faThermometerQuarter } from '@fortawesome/free-solid-svg-icons';
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
