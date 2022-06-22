@@ -58,7 +58,7 @@ const EditUserBtn =(props) => {
                     </div>
 
                     <div className="editRequestForm">
-                        <h3>Edit Request</h3>
+                        <h3>Edit My Details</h3>
                         <form>
                             <div className="formRow">
                                 <div className="formItem">

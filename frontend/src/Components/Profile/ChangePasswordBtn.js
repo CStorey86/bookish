@@ -17,7 +17,6 @@ const changePassword =(props) => {
   
     }
 
-
     return(
         <>
             <button className="ActionBtn-wide" onClick={changePasswordOn}> Change Password</button>
@@ -29,13 +28,36 @@ const changePassword =(props) => {
                         <FontAwesomeIcon icon={faWindowClose} onClick={changePasswordOff}/> 
                     </div>
                     <h3>Change Password</h3>
-                    <div className="overlayBtnPanel">
+                    <form>
+                        <div className="formRow">
+                            <div className="formItem2">
+                                <label>New Password:</label>
+                                <input type="text"
+                                        // value={} onChange={(e)=>setFirstName(e.target.value)}
+                                />
+                            </div>
+                            <div className="formItem2">
+                                <label>Confirm Password:</label>
+                                <input type="text"
+                                        // value={} onChange={(e)=>setFirstName(e.target.value)}
+                                />
+                            </div>
+                        </div>
+
+                        <div className ="formRow">
+                            <input type="submit" value="SUBMIT PASSWORD CHANGE" id="submitFormBtn" />
+                        </div>
+                    </form>
+
+                    {/* <div className="overlayBtnPanel">
                         <button className="ActionBtn"  onClick={changeMyPassword}>Yes</button>  
                         <button className="ActionBtn" onClick={changePasswordOff}>No</button>
-                    </div>
+                    </div> */}
 
                 </div>                                            
             </div>
+   
+          
         </>
     )
 }
