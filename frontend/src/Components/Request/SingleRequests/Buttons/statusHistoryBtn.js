@@ -2,6 +2,7 @@ import React from 'react';
 import '../../requests.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios'
 
 
 function statusHistoryOn(){
@@ -12,11 +13,33 @@ function statusHistoryOff(){
     document.getElementById("statusHistory").style.display = "none";     
 }
 
-const statusHistoryBtn = (props) => {
+class statusHistoryBtn extends React.Component {
+    
+    constructor(props){
+        super(props);
+        this.state={
+            logs: [],
+            reqID: props.reqID,     
+        }
+    }
 
-    const statusLogs = props.logs;
+    componentDidMount(){
+        const logUrl=`http://localhost:4000/changelogs?requestID=${this.state.reqID}`;
 
-    return(
+        axios.get(logUrl)
+        .then((Response) => {
+            //set statusHistory[] as data recieved from api call
+            this.setState({
+                logs: Response.data     
+            })
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+    }
+
+    render(){
+        return(
             <>
                 <button className="ActionBtn-med" onClick={statusHistoryOn}>View Request History</button>
                 {/* on click, show overlay with edit form inputs*/}          
@@ -29,7 +52,7 @@ const statusHistoryBtn = (props) => {
                         </div>
 
                         <div className="statusHistoryList">
-                            <h3>Status History - ID: {props.reqID}</h3>
+                            <h3>Status History - ID: {this.state.reqID}</h3>
                             <div className="RequestList" >
                                 <table id="changeLogTable">
                                     <thead>
@@ -39,7 +62,7 @@ const statusHistoryBtn = (props) => {
                                             <td>Changed By</td>
                                         </tr>
                                     </thead>
-                                    {props.logs.map((item) => (
+                                    {this.state.logs.map((item) => (
                                     <tbody key={item._id}>
                                         <tr>
                                             {/* TO DO: CHANGE DATE FORMAT */}
@@ -52,10 +75,10 @@ const statusHistoryBtn = (props) => {
                                     </tbody>
                                     ))}   
                                 </table>
-                                      
+                                    
                                                 
 
-                               
+                            
                             </div>
                         </div>
                         
@@ -63,6 +86,7 @@ const statusHistoryBtn = (props) => {
                 </div>
             </>
         )
+    }
 }
 
 export default statusHistoryBtn

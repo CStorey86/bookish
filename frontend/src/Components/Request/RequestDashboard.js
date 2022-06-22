@@ -16,8 +16,7 @@ class RequestDashboard extends React.Component{
             user: props.currentUser,
             userID: props.currentUser.id,
             isEmp: props.currentUser.isEmployee,
-            isAdmin: props.currentUser.isAdmin,
-            logs: []            
+            isAdmin: props.currentUser.isAdmin,        
         }
         this.updateCurrentRequest = this.updateCurrentRequest.bind(this);
     }
@@ -66,20 +65,6 @@ class RequestDashboard extends React.Component{
             });
         }
 
-
-        // GET CHANGE LOGS FOR THE SELECTED REQUEST - REGARDLESS OF USER
-          // const logUrl=`http://localhost:4000/changelogs?requestID=${this.state.currentRequestID}`;
-
-          // axios.get(logUrl)
-          // .then((Response) => {
-          //     //set statusHistory[] as data recieved from api call
-          //     this.setState({
-          //         logs: Response.data     
-          //     })
-          //   })
-          //   .catch((error) => {
-          //     console.log(error);
-          //   });
     };
 
     updateCurrentRequest(item){
@@ -100,7 +85,7 @@ class RequestDashboard extends React.Component{
                 </div>
 
                 <div className="RightPanel">
-                    <SingleRequest request={this.state.currentRequest} logs={this.state.logs} user={this.state.user}/>
+                    <SingleRequest request={this.state.currentRequest} user={this.state.user}/>
                 </div>                    
             </div>
             

@@ -39,7 +39,7 @@ const UserBtns =(props) => {
         return(
             <div className="btnPanel">
                 {/* View Status History */}
-                    <StatusHistoryBtn reqID={props.req._id} logs={props.logs}/>  
+                    <StatusHistoryBtn reqID={props.req._id}/>  
             </div>
         )           
     }

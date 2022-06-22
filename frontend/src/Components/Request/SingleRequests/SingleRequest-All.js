@@ -49,7 +49,7 @@ const SingleRequest =(props) => {
             </tbody>
           </table>
 
-          <ViewStatusHistory requestID={props.request._id} logs={props.logs}/>
+          <ViewStatusHistory reqID={props.request._id} />
         </div>
     );
   }

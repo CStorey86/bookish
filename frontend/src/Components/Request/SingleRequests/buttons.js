@@ -37,7 +37,7 @@ const Buttons =(props) => {
     else{
         return(
             <div>
-                <UserBtns user={props.currentUser} req={props.request} logs={props.logs}/>
+                <UserBtns user={props.currentUser} req={props.request} />
             </div>
         )
     }

@@ -13,8 +13,7 @@ class AllRequestDashboard extends React.Component{
             requests: [],
             currentRequest: {},
             currentRequestID:"",
-            userID: props.currentUser.id,
-            logs: []            
+            userID: props.currentUser.id,          
         }
         this.updateCurrentRequest = this.updateCurrentRequest.bind(this);
     }
@@ -52,7 +51,7 @@ class AllRequestDashboard extends React.Component{
                 </div>
 
                 <div className="RightPanel">
-                    <SingleRequestAll request={this.state.currentRequest} logs={this.state.logs} />
+                    <SingleRequestAll request={this.state.currentRequest} />
                 </div>
 
             </div>
