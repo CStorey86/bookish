@@ -332,7 +332,7 @@
     font-size: 30px;
     padding: 8px 0 16px 0;
     border-bottom: 2px solid #0b4935;
-    margin: 2px 10px;
+    margin: 2px 10px 20px 10px;
 }
 
 .overlayBtnPanel{
@@ -428,9 +428,71 @@
 }
 
 .infoInput{
-    width: 700px;
-    height: 160px;
-    margin: 20px;
+    width: 715px;
+    height: 120px;
+    margin: 10px;
+    margin-left: 135px;
     padding: 10px;
     font-size: 16px;
+    float: left;
+}
+
+.infoInput2{
+    width: 715px;
+    height: 120px;
+    margin: 10px;
+    margin-left: 135px;
+    padding: 10px;
+    font-size: 16px;
+    float: left;
+}
+
+#query{
+    padding: 5px;
+    margin: 10px;
+    font-weight: bold;
+    float: left;
+    width: 100px;
+    font-size: 18px;
+}
+
+#infoMsg{
+    color: #282c34;
+    background-color: #c4c4c4;
+    border: solid 1px #282c34;
+    padding: 5px 20px;
+    margin: 10px 5px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    float: left;
+    width: 60%;
+    overflow-y: scroll;
+}
+
+#infoEmp{
+    padding: 5px;
+    margin: 10px 20px 10px 5px;
+    font-weight: bold;
+    float: right;
+    width: 20%;
+    font-size: 18px;
+    text-align: left;
+}
+
+#replyFormBtn{
+    width: 735px;
+    height: 50px;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #0c704f;
+    color: #ffffff;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.2s;
+    border-radius: 8px;
+    float:left;
+    margin-left: 135px;
 }

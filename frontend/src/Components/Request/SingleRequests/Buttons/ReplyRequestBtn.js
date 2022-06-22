@@ -20,31 +20,46 @@ class ReplyInfo extends Component {
         this.state={
             reqID: props.reqID,
             info: {},
-            infoID: "",
-            empMsg: "",
+            messsageChoice: "",
         }
-    }
-
-    getInfoID(info){
-        this.setState({
-            infoID: info._id
-        })
     }
     
     componentDidMount(){
         //GET INFO ID USING REQ ID.
-        const url= `http://localhost:4000/info/?requestID=${this.state.reqID}&__v=0`;
+        const url= `http://localhost:4000/info/?requestID=${this.state.reqID}`;
         axios.get(url)
         .then((Response) => {
           //set requests[] as data recieved from api call
           this.setState({
-            info: Response.data,
+            info: Response.data[0]
           })
         })
         .catch((error) => {
             console.log(error);
         }); 
     }
+
+    getInfoID(info){
+        const infoID = info._id;
+        return infoID;
+    }
+
+    getInfoMsg(info){
+        const message = info.empMsg;
+        return message;
+    }
+
+    getInfoEmp(info){
+        const emp = info.infoReqBy;
+        return emp;
+    }
+
+    setMessageChoice(event){
+        this.setState({
+            messageChoice: ""
+        })
+    }
+
 
 
 
@@ -56,6 +71,12 @@ class ReplyInfo extends Component {
     }
 
     render(){
+
+        // const infoID = this.getInfoID(this.state.info);
+        const message = this.getInfoMsg(this.state.info);
+        // const emp = this.getInfoEmp(this.state.info);
+        const emp = "name here";
+
         return(
             <>
                 <button className="ActionBtn-med" onClick={repInfoOn}> Give Further Information</button>
@@ -70,18 +91,19 @@ class ReplyInfo extends Component {
                         <h3>Provide More information for order ID: {this.state.reqID}</h3>
                         <form > 
                             <div className ="formRow">
-                                <label>Query: </label>
-                                <label>{}</label>
+                                <div id="query">Query: </div>
+                                <div id="infoMsg">"{message}"</div>
+                                <div id="infoEmp">From: {emp}</div>
                             </div>
 
                             <div className ="formRow">
-                                {/* <textarea className="infoInput" placeholder='Type your Message here..'
-                                    value={msgChoice} onChange={(e)=>setMsg(e.target.value)} 
-                                />*/}
+                                <textarea className="infoInput2" placeholder='Type your Message here..'
+                                    // value={msgChoice} onChange={(e)=>setMsg(e.target.value)} 
+                                />
                             </div>
 
                             <div className ="formRow">
-                                <input type="submit" value="SUBMIT" id="submitFormBtn" />
+                                <input id="replyFormBtn" type="submit" value="SUBMIT" />
                             </div>
                             
                         </form>
