@@ -18,7 +18,6 @@ const RequestInfo =(props) => {
 
     const [msgChoice, setMsg] = useState("");
 
-
     async function handleSubmit(event) {
         event.preventDefault();
 
@@ -33,7 +32,7 @@ const RequestInfo =(props) => {
             infoReqBy: props.userID,
             empMsg: msgChoice,
             empMsgDate: Date.now(),
-          })
+        })
           .then (res =>{
                 // CHANGE STATUS
                 axios.put(changeUrl,
@@ -77,7 +76,6 @@ const RequestInfo =(props) => {
                     <h3>Request More information for order ID: {props.reqID}</h3>
                     <form onSubmit={handleSubmit}> 
                         <div className ="formRow">
-                            {/* <input type="text" className="infoInput"></input> */}
                             <textarea className="infoInput" placeholder='Type your Message here..'
                                 value={msgChoice} onChange={(e)=>setMsg(e.target.value)}
                             />

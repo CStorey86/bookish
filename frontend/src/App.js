@@ -17,24 +17,24 @@ import AllRequests from './Components/Request/AllRequests';
 //DEV PROCESS - REMOVE AFTER LOGIN CONFIRMED
 let thisUser ={
 
-  //STANDARD USER
-    // id: "62860fe823c9c0ba976b9ba7",
-    // firstName: "Claire",
-    // lastName: "Storey",
-    // email: "claire@email.com",
-    // createdDate: "2022-05-05T13:10:00.000+00:00",
-    // isAdmin: false,
-    // isEmployee: false,
-
-  // EMPLOYEE
-    id: "62860fe823c9c0ba976b9ba6",
-    firstName: "Basil",
-    lastName: "Bush",
-    email: "basil@email.com",
+  // STANDARD USER
+    id: "62af7c4daea678e8b9f650d3",
+    firstName: "Claire",
+    lastName: "Storey",
+    email: "claire@email.com",
     createdDate: "2022-05-05T13:10:00.000+00:00",
     isAdmin: false,
-    isEmployee: true,
-    authLimit: 50.00,
+    isEmployee: false,
+
+  // EMPLOYEE
+    // id: "62860fe823c9c0ba976b9ba6",
+    // firstName: "Basil",
+    // lastName: "Bush",
+    // email: "basil@email.com",
+    // createdDate: "2022-05-05T13:10:00.000+00:00",
+    // isAdmin: false,
+    // isEmployee: true,
+    // authLimit: 50.00,
 
   //AUTHORISOR
     // id: "62860fe823c9c0ba976b9ba5",

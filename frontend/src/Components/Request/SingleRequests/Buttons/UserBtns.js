@@ -1,15 +1,16 @@
-import React from 'react';
-import '../../requests.css'
+import React, {useState} from 'react';
+import '../../requests.css';
+import axios from 'axios';
 
 import DeleteBtn from './DeleteBtn';
 import EditBtn from './EditBtn';
 import StatusHistoryBtn from './statusHistoryBtn';
+import GiveMoreInfo from './ReplyRequestBtn';
 
 const UserBtns =(props) => {
 
     const userID = props.user.id;
-    const limit =  props.user.authLimit;
-    const reqStatus = props.req.status;   
+    const reqStatus = props.req.status;  
     
     if(reqStatus === "Awaiting Allocation" || reqStatus === "Updated"){
         return(
@@ -22,14 +23,14 @@ const UserBtns =(props) => {
         );
     }
     // More Details requested by Employee
-    else if (reqStatus === "Requires More Information"){
+    else if (reqStatus === "Requires further information"){
         //requires more information.
         return(
             <div className="btnPanel">
 
             
                 {/*  TO DO: More Info */}
-                        <button className="ActionBtn-wide" >Add further Information</button>
+                    <GiveMoreInfo reqID={props.req._id} />
 
                         
             </div>
