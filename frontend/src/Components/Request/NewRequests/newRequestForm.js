@@ -79,6 +79,8 @@ function NewRequest (props) {
   const [yearChoice, setYear] = useState("");
   const [priceChoice, setPrice] = useState("");
 
+  const[ErrorMessage] = useState("");
+
   async function handleSubmit(event) {
       event.preventDefault();
       //if data = valid....
@@ -159,6 +161,10 @@ function NewRequest (props) {
                         <input id="price" name="price" min="0" step="0.01" type="number"
                           value={priceChoice} onChange={(e)=>setPrice(e.target.value)} required/>          
                     </div>
+                </div>
+
+                <div className="ErrorMessage">
+                  {ErrorMessage}
                 </div>
 
                 <div className ="formRow">

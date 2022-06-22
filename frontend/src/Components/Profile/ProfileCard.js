@@ -72,7 +72,7 @@ const ProfileCard =(props)=> {
                 <AuthLimitRow isEmp ={props.user.isEmployee} aLimit={props.user.authLimit}/>
                 
                 <div className="overlayBtnPanel-wide">
-                    <ChangePassword />
+                    <ChangePassword user={props.user}/>
                     <EditUserBtn user={props.user}/>
                 </div>
             </div>

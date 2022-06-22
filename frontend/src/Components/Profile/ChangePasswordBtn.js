@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './profile.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 function changePasswordOn(){
     document.getElementById("changeThePassword").style.display = "block";     
@@ -11,10 +12,40 @@ function changePasswordOff(){
     document.getElementById("changeThePassword").style.display = "none";     
 }
 
-const changePassword =(props) => {
+function hashPassword(pass){
+    var password="" //hash and salt password
+    return password;
+}
 
-    function changeMyPassword(){
-  
+function ChangePasswordBtn (props) {
+
+    const [pass, setPass] = useState("");
+    const [confPass, setConfPass] = useState("");
+    const [errorMessage] = useState("");
+
+    async function handleSubmit(event){
+        if (this.state.pass === this.state.confPass)
+        {
+            const url=`http://localhost:4000/users/${props.user._id}`; 
+            const password = hashPassword(pass);
+
+            axios.put(url,
+                {
+                    password: password
+                })
+                .then(
+                    alert(`Your Password has now been updated`)
+                )
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+        else{
+            alert(`Passwords do not match`)
+            this.setState({
+                ErrorMessage: "Passwords do not match"     
+            })
+        }
     }
 
     return(
@@ -28,31 +59,30 @@ const changePassword =(props) => {
                         <FontAwesomeIcon icon={faWindowClose} onClick={changePasswordOff}/> 
                     </div>
                     <h3>Change Password</h3>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className="formRow">
                             <div className="formItem2">
                                 <label>New Password:</label>
                                 <input type="text"
-                                        // value={} onChange={(e)=>setFirstName(e.target.value)}
+                                        value={pass} onChange={(e)=>setPass(e.target.value)}
                                 />
                             </div>
                             <div className="formItem2">
                                 <label>Confirm Password:</label>
                                 <input type="text"
-                                        // value={} onChange={(e)=>setFirstName(e.target.value)}
+                                        value={confPass} onChange={(e)=>setConfPass(e.target.value)}
                                 />
                             </div>
+                        </div>
+
+                        <div className="ErrorMessage">
+                            {errorMessage}
                         </div>
 
                         <div className ="formRow">
                             <input type="submit" value="SUBMIT PASSWORD CHANGE" id="submitFormBtn" />
                         </div>
                     </form>
-
-                    {/* <div className="overlayBtnPanel">
-                        <button className="ActionBtn"  onClick={changeMyPassword}>Yes</button>  
-                        <button className="ActionBtn" onClick={changePasswordOff}>No</button>
-                    </div> */}
 
                 </div>                                            
             </div>
@@ -62,4 +92,4 @@ const changePassword =(props) => {
     )
 }
 
-export default changePassword
+export default ChangePasswordBtn
