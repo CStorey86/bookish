@@ -195,9 +195,8 @@
 
 /* /////////////////////////////////        Overlays     /////////////////////////////////*/
 
-#deleteRequest  {
+#deleteRequest, #editRequest, #completeRequest, #statusHistory, #infoLog, #requestAuth, #requestInfo, #replyInfo {
     position: fixed;
-    display: none; 
     width: 100%; 
     height: 100%; 
     top: 0;
@@ -209,89 +208,15 @@
     cursor: pointer; 
 }
 
-#editRequest{
-    position: fixed;
-    display: none; 
-    width: 100%; 
-    height: 100%; 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #282c34c0;
-    z-index: 2; 
-    cursor: pointer; 
-}
+#deleteRequest{display: none}
+#editRequest{display: none}
+#completeRequest{display: none}
+#statusHistory{display: none}
+#infoLog{display: none}
+#requestAuth{display: none}
+#requestInfo{display: none}
+#replyInfo{display: none}
 
-#completeRequest{
-    position: fixed;
-    display: none; 
-    width: 100%; 
-    height: 100%; 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #282c34c0;
-    z-index: 2; 
-    cursor: pointer;
-}
-
-#statusHistory{
-    position: fixed;
-    display: none; 
-    width: 100%; 
-    height: 100%; 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #282c34c0;
-    z-index: 2; 
-    cursor: pointer; 
-}
-
-#requestAuth{
-    position: fixed;
-    display: none; 
-    width: 100%; 
-    height: 100%; 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #282c34c0;
-    z-index: 2; 
-    cursor: pointer; 
-}
-
-#requestInfo{
-    position: fixed;
-    display: none; 
-    width: 100%; 
-    height: 100%; 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #282c34c0;
-    z-index: 2; 
-    cursor: pointer; 
-}
-
-#replyInfo{
-    position: fixed;
-    display: none; 
-    width: 100%; 
-    height: 100%; 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #282c34c0;
-    z-index: 2; 
-    cursor: pointer; 
-}
 
 .topClose{
     width: 40px;
@@ -406,9 +331,10 @@
     width: 200px;
 }
 
-#changeLogTable{
+#changeLogTable, #infoLogTable{
     width: 98%;
 }
+
 
 #changeLogTable thead{
     color: #c4c4c4;
@@ -496,3 +422,81 @@
     float:left;
     margin-left: 135px;
 }
+
+/* ///////////////////////////////////////    INFO MESSAGES RECORD    ///////////////////////////////////////////// */
+
+.message3{
+    position: fixed;
+    width: 95%;
+    height: 460px;
+    top: 70px ;
+    left: 50px;
+    color: #0b4935;
+    background-color: #7bcfb3;
+}
+
+.message3 h3{
+    text-align: center;
+    color: #0b4935;
+    font-size: 30px;
+    padding: 8px 0 16px 0;
+    border-bottom: 2px solid #0b4935;
+    margin: 2px 10px 20px 10px;
+}
+
+.infoReqList{
+    width: 70%;
+    height: 330px;
+    color: white;
+    margin: 5px;
+    margin-left: 12px;
+    padding: 5px;
+    background-color: #282c34;
+    float: left;
+    font-size: 16px;
+    overflow-y: scroll;
+}
+
+.singleInfoRequest{
+    width: 330px;
+    height: 330px;
+    margin: 5px;
+    margin-right: 12px;
+    padding: 5px;
+    float: left;
+    font-size: 16px;
+    background-color: #282c34;
+    color: #7bcfb3;
+}
+
+.infoLogItem{
+    width: 97%;
+    margin: 5px 10px;
+    background-color: #c4c4c4;
+    color: #0b4935;
+    height: 55px;
+    padding: 5px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.infoLogItem:hover{
+    background-color: #f1f1f1;
+    color: #0b4935;
+    font-weight: bold;
+
+}
+
+.infoID{
+    float: left;
+    width: 90%;
+    padding: 2px;
+    font-weight: bold;
+}
+
+.infoDate{
+    float: left;
+    width: 90%;
+    padding: 2px;
+}
+

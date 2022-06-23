@@ -32,6 +32,9 @@ const RequestInfo =(props) => {
             infoReqBy: props.userID,
             empMsg: msgChoice,
             empMsgDate: Date.now(),
+            infoGivenBy: "",
+            userMsg: "",
+            userMsgDate:Date.now(),
         })
           .then (res =>{
                 // CHANGE STATUS

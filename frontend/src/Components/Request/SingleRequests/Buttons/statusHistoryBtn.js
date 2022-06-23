@@ -53,6 +53,7 @@ class statusHistoryBtn extends React.Component {
 
                         <div className="statusHistoryList">
                             <h3>Status History - ID: {this.state.reqID}</h3>
+
                             <div className="RequestList" >
                                 <table id="changeLogTable">
                                     <thead>
@@ -74,11 +75,7 @@ class statusHistoryBtn extends React.Component {
                                         </tr>
                                     </tbody>
                                     ))}   
-                                </table>
-                                    
-                                                
-
-                            
+                                </table>                                 
                             </div>
                         </div>
                         

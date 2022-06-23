@@ -99,7 +99,6 @@ function NewRequest (props) {
             dateStatusChange: Date.now(),
             allocatedTo: "",
             authorisedBy: "",
-
           })
           .then (res =>{
               console.log("New Request Added");

@@ -1,7 +1,7 @@
 import { addNewUser, viewAllUsers, getUserWithID, updateUser, deleteUser } from '../controllers/userControllers';
 import { addNewRequest, getRequests, getRequestWithID, updateRequest, deleteRequest} from '../controllers/requestControllers';
 import {getChangeLogs, addNewChangeLog} from '../controllers/changeLogControllers';
-import {getInfo, addNewInfo} from '../controllers/infoControllers';
+import {getInfo, addNewInfo, getinfoWithID, updateInfo} from '../controllers/infoControllers';
 
 const routes = (app) => {
     
@@ -32,8 +32,12 @@ const routes = (app) => {
 
     // INFO API END POINTS
     app.route('/info')
-    .get(getInfo)
-    .post(addNewInfo)
+        .get(getInfo)
+        .post(addNewInfo)
+
+    app.route('/info/:InfoId')
+        .get(getinfoWithID)
+        .put(updateInfo)
 }
 
 export default routes;

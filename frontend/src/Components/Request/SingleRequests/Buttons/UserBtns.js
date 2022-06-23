@@ -6,6 +6,7 @@ import DeleteBtn from './DeleteBtn';
 import EditBtn from './EditBtn';
 import StatusHistoryBtn from './statusHistoryBtn';
 import GiveMoreInfo from './ReplyRequestBtn';
+import InfoLogBtn from './InfoLog';
 
 const UserBtns =(props) => {
 
@@ -26,16 +27,21 @@ const UserBtns =(props) => {
     else if (reqStatus === "Requires further information"){
         //requires more information.
         return(
-            <div className="btnPanel">
-
-            
-                {/*  TO DO: More Info */}
-                    <GiveMoreInfo reqID={props.req._id} />
-
-                        
+            <div className="btnPanel">            
+                    <GiveMoreInfo reqID={props.req._id} userID = {userID}/>
             </div>
         );
     }
+    // More Detailsgiven by User - View all
+    else if (reqStatus === "Information Provided"){
+        //requires more information.
+        return(
+            <div className="btnPanel">            
+                <InfoLogBtn reqID={props.req._id}/>
+            </div>
+        );
+    }
+    
     else{
         return(
             <div className="btnPanel">

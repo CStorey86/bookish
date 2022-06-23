@@ -36,4 +36,24 @@ export const getInfo =(req,res) =>{
     });
 };
 
+// GET INFO WITH SINGLE ID
+export const getinfoWithID = (req, res) => {
+    Info.findById(req.params.InfoId,(err, Info) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(Info);
+    });
+};
+
+// UPDATE INFO
+export const updateInfo = (req, res) => {
+    Info.findOneAndUpdate({ _id: req.params.InfoId}, req.body, {new: true}, (err, Info) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(Info);
+    });
+};
+
 

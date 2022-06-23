@@ -89,9 +89,7 @@ class RequestDashboard extends React.Component{
                 </div>                    
             </div>
             
-        );
-        
-        }
+        )}
 }
 
 export default RequestDashboard;

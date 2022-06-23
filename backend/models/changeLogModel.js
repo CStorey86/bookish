@@ -11,7 +11,8 @@ export const changeLogSchema = new Schema({
 
     newStatus:{
         type:String,
-        enum: ["Awaiting Allocation", "Updated", "Allocated", "Requires further information", "Awaiting authorisation", "Authorisor Assigned", "Complete"],
+        enum: ["Awaiting Allocation", "Updated", "Allocated", "Requires further information", 
+            "Information Provided", "Awaiting authorisation", "Authorisor Assigned", "Complete"],
         default: "Awaiting Allocation",
         required: true
     },
