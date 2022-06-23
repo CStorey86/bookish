@@ -5,6 +5,7 @@ import './requests.css';
 import RequestList from './RequestList';
 import SingleRequest from './SingleRequests/SingleRequest';
 
+
 class RequestDashboard extends React.Component{
 
     constructor(props){
@@ -16,7 +17,7 @@ class RequestDashboard extends React.Component{
             user: props.currentUser,
             userID: props.currentUser.id,
             isEmp: props.currentUser.isEmployee,
-            isAdmin: props.currentUser.isAdmin,        
+            isAdmin: props.currentUser.isAdmin,
         }
         this.updateCurrentRequest = this.updateCurrentRequest.bind(this);
     }
@@ -25,7 +26,10 @@ class RequestDashboard extends React.Component{
 
         if(this.state.isEmp === true)
         {
-            const url= `http://localhost:4000/requests/?allocatedTo=${this.state.userID}`;
+            const sortUrl ="";
+            const searchUrl ="";
+            const url= `http://localhost:4000/requests/?allocatedTo=${this.state.userID}`+ sortUrl + searchUrl;
+
             axios.get(url)
             .then((Response) => {
               //set requests[] as data recieved from api call
@@ -74,14 +78,14 @@ class RequestDashboard extends React.Component{
         })
     }
 
-
     render(){
     
         return (
             <div className="RequestDashboard">
                 <div className="LeftPanel">
                     <h2>MY REQUESTS </h2>
-                    <RequestList requests={this.state.requests} updateCurrentRequest={this.updateCurrentRequest} />
+                    <RequestList requests={this.state.requests} updateCurrentRequest={this.updateCurrentRequest} 
+                      sort={""} search={""}/>
                 </div>
 
                 <div className="RightPanel">

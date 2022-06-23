@@ -1,11 +1,11 @@
 import React from 'react';
-import SearchBar from '../SearchBar.js/Searchbar';
+import SearchBar from '../SearchBar/Searchbar';
 
 const RequestList = (props) => {
     return ( 
         <div>
-            <SearchBar />
             <div className="RequestList" >
+                <SearchBar />
                 {props.requests.map((item) => (
                     <div className ="requestItemRow" key={item._id}>
                         <a onClick={props.updateCurrentRequest.bind(this,item)}>

@@ -1,10 +1,10 @@
 import React from 'react';
-import SearchBar from '../SearchBar.js/Searchbar';
+// import SearchBar from '../SearchBar.js/Searchbar';
 
 const UsersList = (props) => {
     return ( 
         <div>
-            <SearchBar />
+            {/* <SearchBar /> */}
             <div className="UserList">
                 {props.users.map((item) => (
                     <div  key={item._id}>
