@@ -72,7 +72,7 @@ function isValidPrice(input){
 
 function NewRequest (props) {
 
-  const [formatChoice, setFormat] = useState("");
+  const [formatChoice, setFormat] = useState("Book");
   const [titleChoice, setTitle] = useState("");
   const [authorChoice, setAuthor] = useState("");
   const [publisherChoice, setPublisher] = useState("");
@@ -103,7 +103,7 @@ function NewRequest (props) {
           .then (res =>{
               console.log("New Request Added");
               alert(`New Request Added`);
-              window.location.reload(false) 
+              window.location.reload(false); 
           })
           .catch((error) => {
             console.log(error);

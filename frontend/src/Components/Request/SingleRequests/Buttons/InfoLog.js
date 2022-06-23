@@ -20,7 +20,7 @@ class infoLogBtn extends React.Component {
         this.state={
             infoLogs: [],
             currentInfoLog: {},
-            currentInfoLogID: "",
+            currentInfoLogID: "test",
             reqID: props.reqID,     
         }
         this.updateCurrentInfo = this.updateCurrentInfo.bind(this);
@@ -62,26 +62,35 @@ class infoLogBtn extends React.Component {
                         <div className="topClose">
                             <FontAwesomeIcon icon={faWindowClose} onClick={infoLogOff}/> 
                         </div>
-                        <h3>Information Log - ID: {this.state.reqID}</h3>
-                        <div>
-                            {this.state.infoLogs.map((item) =>(
-                                <div className="infoReqList" key={item._id}>
-                                    <div className="infoLogItem" >
-                                        <div className="infoID">Information Request: {item._id}</div>
-                                        <div className="infoDate">Date Sent: {item.empMsgDate}</div>
-                                    </div>
-                                </div>
-                            ))}
-      
-                        </div>
-                            <div className="singleInfoRequest">
-                                ID: {this.state.currentInfoLogID}
+                        <div className="statusHistoryList">
+                            <h3>Status History - ID: {this.state.reqID}</h3>
+
+                            <div className="RequestList" >
+                                <table id="infoLogTable">
+                                    <thead>
+                                        <tr>
+                                            <td className="colMed">Date Info Request Created</td>
+                                            <td className="colMed">Employee Name</td>
+                                            <td className="colLrg">Information Requested</td>
+                                            <td className="colMed">Date of Reply</td>
+                                            <td className="colLrg">Reply</td>
+                                        </tr>
+                                    </thead>
+                                    {this.state.infoLogs.map((item) => (
+                                    <tbody key={item._id}>
+                                        <tr>
+                                            <td>{item.empMsgDate}</td>
+                                            <td>{item.infoReqBy}</td>
+                                            <td>{item.empMsg}</td>
+                                            <td>{item.empMsgDate}</td>
+                                            <td>{item.userMsg}</td>
+                                        </tr>
+                                    </tbody>
+                                    ))}   
+                                </table>                                 
                             </div>
-
-
-                    </div>
-
-                                          
+                        </div>
+                    </div>                                          
                 </div>
             </>
         )
