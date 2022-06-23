@@ -6,6 +6,7 @@ import RequestList from './RequestList';
 import SingleRequest from './SingleRequests/SingleRequest';
 
 
+
 class RequestDashboard extends React.Component{
 
     constructor(props){
@@ -18,6 +19,7 @@ class RequestDashboard extends React.Component{
             userID: props.currentUser.id,
             isEmp: props.currentUser.isEmployee,
             isAdmin: props.currentUser.isAdmin,
+            comp: "false",
         }
         this.updateCurrentRequest = this.updateCurrentRequest.bind(this);
     }
@@ -26,9 +28,9 @@ class RequestDashboard extends React.Component{
 
         if(this.state.isEmp === true)
         {
-            const sortUrl ="";
-            const searchUrl ="";
-            const url= `http://localhost:4000/requests/?allocatedTo=${this.state.userID}`+ sortUrl + searchUrl;
+            const showComp = `&isComplete=${this.state.comp}`;
+   
+            const url= `http://localhost:4000/requests/?allocatedTo=${this.state.userID}`+ showComp;
 
             axios.get(url)
             .then((Response) => {
@@ -43,7 +45,8 @@ class RequestDashboard extends React.Component{
         }
         else if(this.state.isAdmin === true)
         {
-            const url= `http://localhost:4000/requests/?authorisedBy=${this.state.userID}`;
+            const showComp = `&isComplete=${this.state.comp}`;
+            const url= `http://localhost:4000/requests/?authorisedBy=${this.state.userID}`+ showComp;
             axios.get(url)
             .then((Response) => {
               //set requests[] as data recieved from api call
@@ -56,7 +59,8 @@ class RequestDashboard extends React.Component{
             }); 
         }
         else{
-            const url= `http://localhost:4000/requests/?userID=${this.state.userID}`; 
+            const showComp = `&isComplete=${this.state.comp}`;
+            const url= `http://localhost:4000/requests/?userID=${this.state.userID}`+ showComp; 
             axios.get(url)
             .then((Response) => {
               //set requests[] as data recieved from api call
@@ -72,10 +76,10 @@ class RequestDashboard extends React.Component{
     };
 
     updateCurrentRequest(item){
-        this.setState({
-            currentRequest: item,
-            currentRequestID: item._id
-        })
+      this.setState({
+          currentRequest: item,
+          currentRequestID: item._id
+      })
     }
 
     render(){
@@ -84,6 +88,7 @@ class RequestDashboard extends React.Component{
             <div className="RequestDashboard">
                 <div className="LeftPanel">
                     <h2>MY REQUESTS </h2>
+                    
                     <RequestList requests={this.state.requests} updateCurrentRequest={this.updateCurrentRequest} 
                       sort={""} search={""}/>
                 </div>

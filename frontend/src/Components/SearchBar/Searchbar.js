@@ -3,14 +3,6 @@ import './searchBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faSort} from '@fortawesome/free-solid-svg-icons';
 
-function showIfComplete(showComplete){
-    const show = false;
-    if(showComplete === checked)
-    {
-        show = true;
-    }
-    return show;
-}
 
 function SearchBar (props)  {
 
@@ -47,7 +39,8 @@ function SearchBar (props)  {
                     <div className="completeCheckBox">
                         <div className="checkBox">
                             <input id="complete" type="checkbox" 
-                                value={showComplete} onChange={(e)=>setShowComplete(e.target.value)}/>
+                                value={showComplete} onChange={(e)=>setShowComplete(e.target.value)}
+                            />
                             <label>Show completed requests</label>  
                         </div>
                     </div>

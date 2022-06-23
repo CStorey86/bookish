@@ -5,7 +5,7 @@ const RequestList = (props) => {
     return ( 
         <div>
             <div className="RequestList" >
-                <SearchBar />
+                <SearchBar/>
                 {props.requests.map((item) => (
                     <div className ="requestItemRow" key={item._id}>
                         <a onClick={props.updateCurrentRequest.bind(this,item)}>

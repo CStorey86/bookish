@@ -1,5 +1,6 @@
 .SearchBar{
     width: 95%;
+    border-bottom: solid 2px white;
 }
 .formRow2{
     width: 100%;
