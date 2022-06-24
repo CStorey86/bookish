@@ -66,8 +66,11 @@ function Register () {
      
     async function handleSubmit(event) {
           event.preventDefault();
+          const validForm = validateForm(validFirstName, validLastName,validEmail,validPassword);
 
-          if(validateForm(validFirstName, validLastName,validEmail,validPassword) === true){
+          if( validForm === true){
+            
+
               axios.post(`http://localhost:4000/users`,
               {
                 firstName:firstName,
