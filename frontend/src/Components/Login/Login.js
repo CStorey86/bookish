@@ -7,7 +7,6 @@ import { faEnvelope, faLock} from '@fortawesome/free-solid-svg-icons';
 import logo from '../../BookishLogo.PNG';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
-import jwt_decode from "jwt-decode";
 
 function Login () {
 
@@ -23,59 +22,10 @@ function Login () {
 
     const handleSubmit =(event)=>{
         event.preventDefault();
-        try{
-          axios.post(`http://localhost4000:/api/login`,
-          {
-            email:email,
-            password:password
-          },
-          {
-            validateStatus: false
-          } 
-          )
-          .then(res => {
-            console.log(res.data);
-            if (res.status === 200){
-              const token = res.data;
-              // Store the token in localstorage. 
-              localStorage.setItem('token', JSON.stringify(token));
-              window.location = '/home';
-            }
-            else{
-              setErrMsg(res.data);
-            }
-          })
-        } catch (err) {
-          alert(err.message);
-          setErrMsg(err.data);
-        }
+     
     }
     
-    useEffect(() => {
-        onLoad();
-        async function onLoad() {
-            try {
-                const token = JSON.parse(localStorage.getItem('token')).token;
-                const date = new Date();
-                const decodedToken = jwt_decode(token);
-                
-                if ((date.getTime()/1000) > decodedToken.exp ){
-                  await setUserHasAuthenticated(false);
-                  localStorage.removeItem('token');
-                  if (window.location.pathname !== '/'){
-                    window.location = '/login';
-                  }
-                  
-                }else {
-                  window.location = "/home";
-                }
-              }
-              catch(e) {
-                console.log(e);
-              }
-        }
-      }, [isAuthenticated]);
-
+   
 
     return (
         <div>

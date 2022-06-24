@@ -7,7 +7,6 @@ import { faEnvelope, faLock, faUser} from '@fortawesome/free-solid-svg-icons';
 import logo from '../../BookishLogo.PNG';
 import Footer from '../Footer/Footer';
 import {isValidInput, isValidPassword} from '../Utils';
-import jwt_decode from "jwt-decode";
  
 
 function validateForm(validFirstName, validLastName, validEmail, validPassword) {

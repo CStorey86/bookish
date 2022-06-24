@@ -19,7 +19,7 @@ export function checkIfIsString(input)
 
 export function checkIfEmptyString(input){
     var isEmpty = false;
-    if(input.length = 0){
+    if(input.length === 0){
         isEmpty = true;
     }
     return isEmpty;
@@ -28,7 +28,7 @@ export function checkIfEmptyString(input){
 ////////////////////////////////////  USER VALIDATIONS - BASED ON MODEL ////////////////////////////////////////////
 
 export function isValidInput(input, min, max){
-    const validInput = false;
+    var validInput = false;
 
     // IF BETWEEN SPECIFIED PARAMS (FROM MODEL), AND IS A STRING
     if(input >= min && input <=max && checkIfIsString(input) === true){
@@ -38,7 +38,7 @@ export function isValidInput(input, min, max){
 }
 
 export function isValidPassword(pass, confPass, min){
-    const validPassword = false;
+    var validPassword = false;
 
     // IF PASSWORD IS LESS THAN MIN REQ LENGTH
     if(pass.length > min && pass === confPass)
