@@ -8,7 +8,7 @@ const routes = (app) => {
     // USER API END POINTS
     app.route('/users')
         .get(viewAllUsers)
-        .post(addNewUser)       //basic add user - not secure
+        .post(addNewUser)
           
     app.route('/users/:UserId')    
         .get(getUserWithID)

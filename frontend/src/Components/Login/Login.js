@@ -8,9 +8,9 @@ import logo from '../../BookishLogo.PNG';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
 
+
 function Login () {
 
-    const { isAuthenticated ,setUserHasAuthenticated} = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errMsg, setErrMsg] = useState("");
@@ -67,6 +67,7 @@ function Login () {
                         </Link>                                     
                     </div>
             </div>
+
             <Footer />
         </div>
         );

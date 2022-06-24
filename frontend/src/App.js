@@ -1,8 +1,6 @@
 import React,{Component} from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import {GetUserFromID} from './Components/Utils'
-
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import Home from './Components/Home/Home';

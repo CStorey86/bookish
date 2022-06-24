@@ -1,4 +1,3 @@
-import { faMarsDouble } from '@fortawesome/free-solid-svg-icons';
 import mongoose from 'mongoose';
 
 const UserSchema = mongoose.Schema({
@@ -23,13 +22,13 @@ const UserSchema = mongoose.Schema({
     email: {
         type: String,
         required: [true, 'An email is required'],
-        unique: true,
         minlength: 3,
-        maxlength: 64,
+        maxlength: 32,
+        unique: true,
     },
     createdDate:{
         type: Date,
-        default: Date.now
+        default: Date.now()
           
     },
     isAdmin: {
@@ -43,7 +42,7 @@ const UserSchema = mongoose.Schema({
 
     authLimit: {
         type: Number,
-        default: 50.00,
+        default: 0,
     }
 
 

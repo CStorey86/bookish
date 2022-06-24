@@ -102,6 +102,11 @@ function Register () {
                     <h1>Register</h1>
                     <form  onSubmit={handleSubmit}>
                     <div className="regFormRow">
+                        <div className="ErrorMessage">
+                          {ErrorMessage}
+                        </div>
+                    </div> 
+                    <div className="regFormRow">
                         <div className="regFormItem">
                             <label htmlFor="firstName"><FontAwesomeIcon icon={faUser} /></label>
                             <input type='text' id="firstName" name="firstName"placeholder='First Name'
@@ -133,11 +138,7 @@ function Register () {
                                 value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}/>
                         </div>
                     </div>      
-                    <div className="regFormRow">
-                        <div className="ErrorMessage">
-                          {ErrorMessage}
-                        </div>
-                    </div>      
+         
 
                     <input  disabled={!validateForm()} type='submit' value='Register New User'/>   
                     

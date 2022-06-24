@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt, faUser, faBookOpen, faPlus, faBookmark} from '@fortawesome/free-solid-svg-icons';
 import logo from '../../BookishLogo.PNG';
 import './navbar.css';
+import {useAuth0} from '@auth0/auth0-react';
 
 function NavBar (props) {
   
