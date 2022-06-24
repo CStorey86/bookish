@@ -47,11 +47,3 @@ export function isValidPassword(pass, confPass, min){
     }
     return validPassword;
 }
-
-export function saltAndHashPasswords(password){
-    var newPassword ="";
-    //HASH PASSWORD
-
-    //SALT
-    return newPassword;
-}
