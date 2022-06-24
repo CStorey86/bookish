@@ -11,30 +11,32 @@ import Allocations from './Components/Request/Allocations/Allocations';
 import Authorisations from './Components/Request/Authorisations/Authorisations';
 import Users from './Components/Users/Users';
 import AllRequests from './Components/Request/AllRequests';
+import {getUserWithID} from './Components/Utils';
+
 
 //DEV PROCESS - REMOVE AFTER LOGIN CONFIRMED
-let thisUser ={
+let thisUser = {
 
-  // STANDARD USER
-    id: "62af7c4daea678e8b9f650d3",
-    firstName: "Claire",
-    lastName: "Storey",
-    email: "claire@email.com",
-    createdDate: "2022-05-05T13:10:00.000+00:00",
-    isAdmin: false,
-    isEmployee: false,
+  // // STANDARD USER
+  //   id: "62af7c4daea678e8b9f650d3",
+  //   firstName: "Claire",
+  //   lastName: "Storey",
+  //   email: "claire@email.com",
+  //   createdDate: "2022-05-05T13:10:00.000+00:00",
+  //   isAdmin: false,
+  //   isEmployee: false,
 
   // EMPLOYEE
-    // id: "62860fe823c9c0ba976b9ba6",
-    // firstName: "Basil",
-    // lastName: "Bush",
-    // email: "basil@email.com",
-    // createdDate: "2022-05-05T13:10:00.000+00:00",
-    // isAdmin: false,
-    // isEmployee: true,
-    // authLimit: 50.00,
+    id: "62860fe823c9c0ba976b9ba6",
+    firstName: "Basil",
+    lastName: "Bush",
+    email: "basil@email.com",
+    createdDate: "2022-05-05T13:10:00.000+00:00",
+    isAdmin: false,
+    isEmployee: true,
+    authLimit: 50.00,
 
-  //AUTHORISOR
+  // AUTHORISOR
     // id: "62860fe823c9c0ba976b9ba5",
     // firstName: "Angela",
     // lastName: "Jones",
@@ -43,7 +45,6 @@ let thisUser ={
     // isAdmin: true,
     // isEmployee: false,
 }
-
 
 class App extends Component {
 

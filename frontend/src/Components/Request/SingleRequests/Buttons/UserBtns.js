@@ -17,9 +17,9 @@ const UserBtns =(props) => {
         return(
             <div className="btnPanel">
                 {/* Edit */}
-                    <EditBtn req={props.req} userID = {userID}/>
+                    <EditBtn req={props.req} userID = {userID} />
                 {/* Delete */}
-                    <DeleteBtn reqID = {props.req._id}/>
+                    <DeleteBtn reqID = {props.req._id} />
             </div>
         );
     }
@@ -28,7 +28,7 @@ const UserBtns =(props) => {
         //requires more information.
         return(
             <div className="btnPanel">            
-                    <GiveMoreInfo reqID={props.req._id} userID = {userID}/>
+                    <GiveMoreInfo reqID={props.req._id} userID = {userID} userName={props.userName}/>
             </div>
         );
     }
@@ -37,7 +37,7 @@ const UserBtns =(props) => {
         //requires more information.
         return(
             <div className="btnPanel">            
-                <InfoLogBtn reqID={props.req._id}/>
+                <InfoLogBtn reqID={props.req._id} userName={props.userName}/>
             </div>
         );
     }
@@ -46,7 +46,7 @@ const UserBtns =(props) => {
         return(
             <div className="btnPanel">
                 {/* View Status History */}
-                    <StatusHistoryBtn reqID={props.req._id}/>  
+                    <StatusHistoryBtn reqID={props.req._id} userName={props.userName}/>  
             </div>
         )           
     }

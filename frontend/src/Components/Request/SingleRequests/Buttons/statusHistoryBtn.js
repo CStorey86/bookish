@@ -3,6 +3,7 @@ import '../../requests.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios'
+import {formatDate} from '../../../Utils';
 
 
 function statusHistoryOn(){
@@ -67,7 +68,9 @@ class statusHistoryBtn extends React.Component {
                                     <tbody key={item._id}>
                                         <tr>
                                             {/* TO DO: CHANGE DATE FORMAT */}
-                                            <td>{item.dateChange}</td>
+                                            <td>{formatDate(item.dateChange)}</td>
+
+                                            {/* formatDate() */}
 
                                             <td>{item.newStatus}</td>
                                             {/* TO DO: SHOW USER NAME - NOT ID */}

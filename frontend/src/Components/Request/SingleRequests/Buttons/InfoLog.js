@@ -3,6 +3,7 @@ import '../../requests.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios'
+import {formatDate} from '../../../Utils';
 
 
 function infoLogOn(){
@@ -79,10 +80,11 @@ class infoLogBtn extends React.Component {
                                     {this.state.infoLogs.map((item) => (
                                     <tbody key={item._id}>
                                         <tr>
-                                            <td>{item.empMsgDate}</td>
-                                            <td>{item.infoReqBy}</td>
+                                            <td>{formatDate(item.empMsgDate)}</td>
+                                            {/* get user details from id... then get name */}
+                                            <td>{item.infoReqBy}</td> 
                                             <td>{item.empMsg}</td>
-                                            <td>{item.empMsgDate}</td>
+                                            <td>{formatDate(item.empMsgDate)}</td>
                                             <td>{item.userMsg}</td>
                                         </tr>
                                     </tbody>

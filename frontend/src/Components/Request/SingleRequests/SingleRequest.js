@@ -1,8 +1,15 @@
 import React from 'react';
 import '../requests.css';
 import Buttons from './buttons';
+import {formatDate, getUserName} from '../../Utils';
+
 
 const SingleRequest =(props) => {
+
+
+    const date = formatDate(props.request.dateStatusChange);  
+    const userName = getUserName(props.user.firstName, props.user.lastName);
+    
     return (
       <div>
         <h2>REQUEST </h2>
@@ -42,13 +49,13 @@ const SingleRequest =(props) => {
 
               <tr>
                 <td className="cardHeader">Last Status Update:</td>
-                <td className="cardDetails">{props.request.dateStatusChange}</td>
+                <td className="cardDetails">{date}</td>
                                                                                   {/* TO DO: CSS TO CHANGE FORMAT OF DATE */}
               </tr>
             </tbody>
           </table>
 
-          <Buttons request={props.request} currentUser={props.user} />
+          <Buttons request={props.request} currentUser={props.user} userName={userName}/>
         </div>
     );
   }

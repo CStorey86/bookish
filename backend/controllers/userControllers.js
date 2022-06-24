@@ -58,14 +58,16 @@ export const viewAllUsers = (req, res) => {
 
 
 // GET SINGLE USER USING ID (WITHOUT PASSWORD)
-export const getUserWithID = (req, res) => {
-    User.findById(req.params.UserId,(err, User) => {
-        if (err) {
-            res.send(err);
-        }
-        res.json(User);
-    });
-};
+export const getUserWithID = ( async (req, res) => {
+        User.findOne(req.params.UserId,(err, User) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json(User);
+        });
+});
+
+
 
 // UPDATE SINGLE USER
 export const updateUser = (req, res) => {

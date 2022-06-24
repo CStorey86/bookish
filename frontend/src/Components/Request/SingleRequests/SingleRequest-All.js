@@ -1,9 +1,13 @@
 import React from 'react';
 import '../requests.css';
-
+import {formatDate, getUserName} from '../../Utils';
 import ViewStatusHistory from './Buttons/statusHistoryBtn';
 
 const SingleRequest =(props) => {
+
+  const date = formatDate(props.request.dateStatusChange);  
+  const userName = getUserName(props.user.firstName, props.user.lastName);
+
     return (
       <div>
         <h2>REQUEST </h2>
@@ -43,13 +47,13 @@ const SingleRequest =(props) => {
 
               <tr>
                 <td className="cardHeader">Last Status Update:</td>
-                <td className="cardDetails">{props.request.dateStatusChange}</td>
+                <td className="cardDetails">{date}</td>
                                                                                   {/* TO DO: CSS TO CHANGE FORMAT OF DATE */}
               </tr>
             </tbody>
           </table>
 
-          <ViewStatusHistory reqID={props.request._id} />
+          <ViewStatusHistory reqID={props.request._id} userName={userName}/>
         </div>
     );
   }

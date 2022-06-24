@@ -1,6 +1,9 @@
 //USEFUL RE-USABLE FUNCTIONS FOR THE APPLICATION
 
+import axios from "axios";
+
 export function formatDate(inputDate){
+
     const newDate = new Date(inputDate);
     var str = String(newDate);
     var newerDate = str.slice(0,15);
@@ -46,4 +49,11 @@ export function isValidPassword(pass, confPass, min){
         validPassword = true;
     }
     return validPassword;
+}
+
+export function getUserName(user){
+    const fName = user.firstName;
+    const lName = user.lastName;
+    const fullName = fName + lName;
+    return fullName;
 }

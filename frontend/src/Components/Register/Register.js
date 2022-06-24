@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from 'axios';
 import './register.css';
@@ -69,7 +69,6 @@ function Register () {
 
           if( validForm === true){
             
-
               axios.post(`http://localhost:4000/users`,
               {
                 firstName:firstName,
@@ -78,8 +77,7 @@ function Register () {
                 password:password
               })
               .then(res => {
-                  // SET TOKEN TO USER DETAILS (?)
-
+                  // get user details
                   window.location = '/Home';    // TAKE USER TO HOME PAGE
               })
               .catch((error) => {
