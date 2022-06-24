@@ -6,59 +6,88 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser} from '@fortawesome/free-solid-svg-icons';
 import logo from '../../BookishLogo.PNG';
 import Footer from '../Footer/Footer';
+import {isValidInput, isValidPassword} from '../Utils';
 import jwt_decode from "jwt-decode";
  
 
+function validateForm(validFirstName, validLastName, validEmail, validPassword) {
+  const validForm = false;     
+
+  if(validFirstName === true && validLastName === true && validEmail === true && validPassword === true)
+  {
+    validForm = true;
+  }
+  return validForm;
+}
+
+function setErrorMessage(validFirstName, validLastName, validEmail, validPassword){
+
+
+  if(validFirstName === false)
+  {
+    this.setState({
+      ErrorMessage: "Please enter a valid first Name"
+    })
+  }
+  else if(validLastName === false)
+  {
+    this.setState({
+      ErrorMessage: "Please enter a valid last Name"
+    })
+  }
+  else if(validEmail === false)
+  {
+    this.setState({
+      ErrorMessage: "Please enter a valid Email"
+    })
+  }
+  else if(validPassword === false)
+  {
+    this.setState({
+      ErrorMessage: "Please enter a valid Password - Must be at least 8 characters"
+    })
+  }
+}
+
 function Register () {
 
-    const [isAuthenticated ,userHasAuthenticated ] = useState(false);
     const [firstName, setFirstName] =useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    const [errMsg, setErrMsg] = useState("");
+    const validFirstName = isValidInput(firstName, 2,24);                 // VALID FIRST NAME
+    const validLastName = isValidInput(lastName, 2,24);                   // VALID LAST NAME
+    const validEmail = isValidInput(email, 3,64);                         // VALID EMAIL
+    const validPassword = isValidPassword(password, confirmPassword, 8);  // VALID PASSWORD  
 
+    const ErrorMessage = useState("");    
      
     async function handleSubmit(event) {
           event.preventDefault();
-          try{
-            axios.post(`http://localhost:4000/users`,
-            {
-              firstName:firstName,
-              lastName:lastName,
-              email:email.toLowerCase(),
-              password:password
-            },
-            {
-              validateStatus: false
-            } 
-          )
-            .then(res => {
-              if (res.status === 201) {
-                const token = res.data;
-                // Store the user token in localStorage
-                localStorage.setItem('token', JSON.stringify(token));
-                userHasAuthenticated(true);
-                window.location = '/Home';
-              }
-              else {
-                setErrMsg(res.data);
-              }
-              
-            })
-          } catch (err) {
-            alert(err.message);
-            setErrMsg(err.data);
-          }
-        }
 
-    //Check Email and Password are not empty, and that the password and confirm password fields ar ethe same
-    function validateForm() {
-        return email.length > 0 && password.length > 0 && (password === confirmPassword);
-      }
-      
+          if(validateForm(validFirstName, validLastName,validEmail,validPassword) === true){
+              axios.post(`http://localhost:4000/users`,
+              {
+                firstName:firstName,
+                lastName:lastName,
+                email:email.toLowerCase(),
+                password:password
+              })
+              .then(res => {
+                  // SET TOKEN TO USER DETAILS (?)
+
+                  window.location = '/Home';    // TAKE USER TO HOME PAGE
+              })
+              .catch((error) => {
+                    console.log(error);
+              }); 
+          }
+          else{
+            setErrorMessage(validFirstName, validLastName,validEmail,validPassword);
+          }
+    }
     
     return (
         <div>
@@ -101,7 +130,12 @@ function Register () {
                             <input type='password' id="confirmPassword" name="confirmPassword" placeholder='Confirm Password' autoComplete="off" 
                                 value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}/>
                         </div>
-                    </div>           
+                    </div>      
+                    <div className="regFormRow">
+                        <div className="ErrorMessage">
+                          {ErrorMessage}
+                        </div>
+                    </div>      
 
                     <input  disabled={!validateForm()} type='submit' value='Register New User'/>   
                     
@@ -118,7 +152,4 @@ function Register () {
             </div>
         );
 }
-
-
-   
 export default Register;
