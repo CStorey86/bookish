@@ -2,11 +2,7 @@ import React from 'react';
 import './users.css';
 import BottomCard from './BottomCard';
 import Buttons from './Buttons';
-
-function formatDate(inputDate){
-  const newDate = new Date(inputDate);
-  return String(newDate);
-}
+import {formatDate} from '../Utils';
 
 
 const SingleUser =(props) => {

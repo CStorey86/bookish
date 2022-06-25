@@ -54,6 +54,6 @@ export function isValidPassword(pass, confPass, min){
 export function getUserName(user){
     const fName = user.firstName;
     const lName = user.lastName;
-    const fullName = fName + lName;
+    const fullName = fName + " " + lName;
     return fullName;
 }

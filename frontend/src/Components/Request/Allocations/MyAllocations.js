@@ -1,8 +1,9 @@
-import React,{Component} from 'react';
+import React from 'react';
 import axios from 'axios';
 import './allocations.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus} from '@fortawesome/free-solid-svg-icons';
+import {Link} from "react-router-dom";
 
 function removeAllocation(userID, reqID){
 
@@ -51,7 +52,9 @@ function MyAllocation (props) {
         {props.myAllocations.map((item) => (
           <div className="allocationRow2" key={item._id}>
             <div className="rowLeft2">
-              <div className="mainDetails">{item.title} - {item.author} - {item.year}</div>
+              <Link to="/Requests">  
+                <div className="mainDetails">{item.title} - {item.author} - {item.year}</div>
+              </Link>
             </div>
             <div className="rowRight2">
                 <button className="removeAllocateBtn" 

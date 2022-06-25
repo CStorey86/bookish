@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt, faUser, faBookOpen, faPlus, faBookmark} from '@fortawesome/free-solid-svg-icons';
-import logo from '../../BookishLogo.PNG';
+import logo from '../../Logos/BookishLogo.PNG';
 import './navbar.css';
 import {useAuth0} from '@auth0/auth0-react';
 

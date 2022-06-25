@@ -12,13 +12,30 @@ class Dashboard extends Component{
         requests: [],
         closedRequests: [],
         user: props.currentUser,
-        userID: props.currentUser.id
+        userID: props.currentUser.id,
+        isAdmin: props.currentUser.isAdmin,
+        isEmployee: props.currentUser.isEmployee,
     }
   }
 
   componentDidMount(){
-    const closedUrl=`http://localhost:4000/requests/?userID=${this.state.userID}&status=Complete`; 
-    const allUrl =`http://localhost:4000/requests/?userID=${this.state.userID}`; 
+    var closedUrl=""; 
+    var allUrl =""; 
+
+    if (this.state.isAdmin === true)
+    {
+      closedUrl = `http://localhost:4000/requests/?authorisedBy=${this.state.userID}&status=Complete`;
+      allUrl = `http://localhost:4000/requests/?authorisedBy=${this.state.userID}`;
+    }
+    else if(this.state.isEmployee){
+      closedUrl = `http://localhost:4000/requests/?allocatedTo=${this.state.userID}&status=Complete`;
+      allUrl = `http://localhost:4000/requests/?allocatedTo=${this.state.userID}`;
+    }
+    else{
+      closedUrl=`http://localhost:4000/requests/?userID=${this.state.userID}&status=Complete`; 
+      allUrl =`http://localhost:4000/requests/?userID=${this.state.userID}`; 
+    }
+   
     
     axios.get(closedUrl)
     .then((Response) => {

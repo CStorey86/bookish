@@ -3,6 +3,7 @@ import axios from 'axios';
 import './allocations.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus} from '@fortawesome/free-solid-svg-icons';
+import {formatDate, getUserName} from '../../Utils';
 
 function allocateRequest(userID, reqID){
 
@@ -43,6 +44,9 @@ function allocateRequest(userID, reqID){
 }
 
 function AwaitingAllocation (props) {
+
+  // const userName = getUserName(props.user.firstName, props.user.lastName);
+
     return (
       <div className="AwaitingAllocationList">
         {/* Search bar ? */}
@@ -52,8 +56,9 @@ function AwaitingAllocation (props) {
           <div className="allocationRow" key={item._id}>
             <div className="rowLeft">
               <div className="mainDetails">{item.title} - {item.author} - {item.year}</div>
-              <div className="dateCreated">Date Created: {item.dateStatusChange}</div>
-              <div className="UserName">User: {item.userID}</div>
+              <div className="dateCreated">Date Created: {formatDate(item.dateStatusChange)}</div>
+              {/* Get user name from userID */}
+              <div className="UserName">User: {item.userID}</div> 
             </div>
             <div className="rowRight">
                 <button className="allocateBtn" 

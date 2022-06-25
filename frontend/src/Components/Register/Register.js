@@ -4,7 +4,7 @@ import axios from 'axios';
 import './register.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser} from '@fortawesome/free-solid-svg-icons';
-import logo from '../../BookishLogo.PNG';
+import logo from '../../Logos/BookishLogo.PNG';
 import Footer from '../Footer/Footer';
 import {isValidInput, isValidPassword} from '../Utils';
  

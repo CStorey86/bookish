@@ -32,7 +32,7 @@
     margin: 10px;
     padding: 5px;
     text-align: left;
-    height: 40px;
+    height: 50px;
     color: #1d3b31;
     font-size: 20px;
 }
@@ -40,7 +40,7 @@
 .mainDetails{
     float: left;
     width: 98%;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     padding: 2px;
 }

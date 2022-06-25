@@ -16,14 +16,24 @@
     margin-left: 30px;
 }
 
+.altLogLogo{
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    float: left;
+}
+
 .Login {
     width: 400px;
     background-color: #c4c4c4;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.568);
     margin: 40px;
     float: left;
-    
+    position: fixed;
+    top: 60px;
+    left: 20%;
 }
+
   
 .Login h1 {
     text-align: center;
@@ -40,7 +50,7 @@
     justify-content: center;
 }
 
-.formRow{
+.loginFormRow {
     float: left;
     margin: 4px;
     width: 98%;
@@ -70,7 +80,7 @@
 }
 
 .Login form input[type="password"], .Login form input[type="text"], .Login form input[type="email"] {
-    width: 270px;
+    width: 275px;
     height: 58px;
     border: 1px solid #dee0e4;
     padding: 0 15px;
@@ -84,9 +94,9 @@
 }
 
 .Login form input[type="submit"] {
-    width: 90%;
+    width: 362px;
     padding: 15px;
-    margin-top: 20px;
+    margin: 20px 0 5px 12px;
     background-color: #0c704f;
     border: 0;
     cursor: pointer;
@@ -123,7 +133,39 @@
     font-weight: bold;
   }
 
+  
+.altLogin{
+    width: 270px;
+    background-color: #c4c4c4;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.568);
+    margin: 40px;
+    float: left;
+    position: fixed;
+    top: 60px;
+    right: 20%;
+}
 
+
+.altLoginRow{
+    float: left;
+    margin: 5px;
+    width: 260px;
+    height: 40px;
+    background-color: #e8e8e8;
+}
+
+.altLoginRow:hover{
+    background-color: #ffffff;
+}
+
+
+.altLoginRow h3{
+    color: #0b4935;
+    float: left;
+    margin: 5px;
+    height: 40px;
+    font-size: 18px;
+}
 
 
   

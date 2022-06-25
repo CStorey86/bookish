@@ -12,11 +12,13 @@ class AllocationDashboard extends React.Component {
     this.state={
         available: [],
         currentUserID: props.user.id,
+        currentUser: props.user,
         myAllocations: [],
     }
   }
 
   componentDidMount(){
+    // TO DO: ADD SORT BY DATE - MOST RECENT FIRST - TO API URLS
     const url= `http://localhost:4000/requests/?status=Awaiting Allocation`; 
     const ownUrl= `http://localhost:4000/requests/?allocatedTo=${this.state.currentUserID}`;
 
@@ -52,7 +54,8 @@ class AllocationDashboard extends React.Component {
       <div>
         <div className="LeftPanel">
             <h2>Awaiting Allocation</h2>
-            <AwaitingAllocations available={this.state.available} userID={this.state.currentUserID}/>
+            <AwaitingAllocations available={this.state.available} userID={this.state.currentUserID}             
+            />
         </div>
 
         <div className="RightPanel">
