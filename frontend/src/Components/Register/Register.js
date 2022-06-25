@@ -8,7 +8,6 @@ import logo from '../../Logos/BookishLogo.PNG';
 import Footer from '../Footer/Footer';
 import {isValidInput, isValidPassword} from '../Utils';
 
-
 function validateForm(firstName, lastName, email, password, confirmPassword){
 
   const validFName = isValidInput(firstName, 2, 24);
