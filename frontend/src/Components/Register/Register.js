@@ -99,46 +99,46 @@ function Register () {
                 <div className='Register'>
                     <h1>Register</h1>
                     <form  onSubmit={handleSubmit}>
-                    <div className="regFormRow">
-                        <div className="ErrorMessage">
-                          {ErrorMessage}
-                        </div>
-                    </div> 
-                    <div className="regFormRow">
-                        <div className="regFormItem">
-                            <label htmlFor="firstName"><FontAwesomeIcon icon={faUser} /></label>
-                            <input type='text' id="firstName" name="firstName"placeholder='First Name'
-                                value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
-                        </div>
-                        <div className="regFormItem">
-                            <label htmlFor="lastName"><FontAwesomeIcon icon={faUser} /></label>
-                            <input type='text'  id="lastName" name="lastName" placeholder='Last Name' 
-                                value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
-                        </div>
-                    </div>
-                    <div className="regFormRow">
-                        <div className="regFormItem2">
-                            <label htmlFor="email"><FontAwesomeIcon icon={faEnvelope} /></label>
-                            <input type='email' id="email" name="email" placeholder='Email'  
-                                value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                        </div>
-                    </div>
-                    <div className="regFormRow">
-                        <div className="regFormItem">
-                            <label htmlFor='password'><FontAwesomeIcon icon={faLock} /></label>
-                            <input type='password' id="password" name="password" placeholder='Password' autoComplete="off"  
-                                    value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                      <div className="regFormRow">
+                          <div className="ErrorMessage">
+                            {ErrorMessage}
+                          </div>
+                      </div> 
+                      <div className="regFormRow">
+                          <div className="regFormItem">
+                              <label htmlFor="firstName"><FontAwesomeIcon icon={faUser} /></label>
+                              <input type='text' id="firstName" name="firstName"placeholder='First Name'
+                                  value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
+                          </div>
+                          <div className="regFormItem">
+                              <label htmlFor="lastName"><FontAwesomeIcon icon={faUser} /></label>
+                              <input type='text'  id="lastName" name="lastName" placeholder='Last Name' 
+                                  value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
+                          </div>
+                      </div>
+                      <div className="regFormRow">
+                          <div className="regFormItem2">
+                              <label htmlFor="email"><FontAwesomeIcon icon={faEnvelope} /></label>
+                              <input type='email' id="email" name="email" placeholder='Email'  
+                                  value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                          </div>
+                      </div>
+                      <div className="regFormRow">
+                          <div className="regFormItem">
+                              <label htmlFor='password'><FontAwesomeIcon icon={faLock} /></label>
+                              <input type='password' id="password" name="password" placeholder='Password' autoComplete="off"  
+                                      value={password} onChange={(e)=>setPassword(e.target.value)}/>
 
-                        </div>
-                        <div className="regFormItem">
-                            <label htmlFor='password'><FontAwesomeIcon icon={faLock} /></label>
-                            <input type='password' id="confirmPassword" name="confirmPassword" placeholder='Confirm Password' autoComplete="off" 
-                                value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}/>
-                        </div>
-                    </div>      
-         
+                          </div>
+                          <div className="regFormItem">
+                              <label htmlFor='password'><FontAwesomeIcon icon={faLock} /></label>
+                              <input type='password' id="confirmPassword" name="confirmPassword" placeholder='Confirm Password' autoComplete="off" 
+                                  value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}/>
+                          </div>
+                      </div>      
+          
 
-                    <input  disabled={!validateForm()} type='submit' value='Register New User'/>   
+                      <input  type='submit' value='Register New User'/>   
                     
                     </form>
 
