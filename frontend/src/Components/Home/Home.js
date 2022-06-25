@@ -7,6 +7,8 @@ import Dashboard from './Dashboard';
 
 const Home = (props) =>{
 
+  //GET USER DETAILS
+  
     return (
       <div className="Home">
             <NavBar isAuth={props.user.isAdmin} isEmp={props.user.isEmployee}/>

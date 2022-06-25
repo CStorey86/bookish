@@ -13,13 +13,8 @@ import Users from './Components/Users/Users';
 import AllRequests from './Components/Request/AllRequests';
 import {getUserWithID} from './Components/Utils';
 
-function getUserFromToken(){
-
-  
-}
-
 //DEV PROCESS - REMOVE AFTER LOGIN CONFIRMED
-let thisUser = {
+let thisUser = {};
 
   // // STANDARD USER
   //   id: "62af7c4daea678e8b9f650d3",
@@ -29,7 +24,7 @@ let thisUser = {
   //   createdDate: "2022-05-05T13:10:00.000+00:00",
   //   isAdmin: false,
   //   isEmployee: false,
-}
+
 
 class App extends Component {
 

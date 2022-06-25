@@ -32,8 +32,7 @@ function Register () {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    // const [ErrorMessage] = useState("");  
-     
+
     async function handleSubmit(event) {
           event.preventDefault();
 
@@ -105,17 +104,13 @@ function Register () {
                                   value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}/>
                           </div>
                       </div>      
-          
-
                       <input  type='submit' value='Register New User'/>   
-                    
                     </form>
 
                     <div className="formFooter">
                         <Link to="/Login">
                             <p>Already Registered? - Login</p>
                         </Link>
-
                     </div>
                 </div>
                 <Footer />

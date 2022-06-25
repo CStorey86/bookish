@@ -20,43 +20,21 @@ function validateForm(validEmail, validPassword){
     return validForm;
 }
 
-function ErrMsgOn(){
-    document.getElementById("ErrMsg").style.display = "block";     
-}
-function ErrMsgOff(){
-    document.getElementById("ErrMsg").style.display = "none";     
-}
-
-function setErrorMessage(validEmail, validPassword){
-
-    if(validEmail === false)
-    {
-        this.setState({
-            ErrorMessage: "Please enter a valid Email"
-        })
-    }
-    else if(validPassword === false){
-        this.setState({
-            ErrorMessage: "Please enter a valid Password"
-        })
-    }
-}
-
 function Login () {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [ErrorMessage] = useState("");
-    const validEmail = isValidInput(email, 3,32);            //min and max from user Model
-    const validPassword = isValidInput(password, 8,100);     //min from user Model
+
+    // const validEmail = isValidInput(email, 3,32);            //min and max from user Model
+    // const validPassword = isValidInput(password, 8,100);     //min from user Model
 
     const handleSubmit =(event)=>{
         event.preventDefault();
 
-        const validForm = validateForm(validEmail,validPassword);
+        // const validForm = validateForm(validEmail,validPassword);
+        const validForm = true;
 
         if(validForm === true){
-            ErrMsgOff();
 
             // SUBMIT TO SERVER FOR VERIFICATION
                 const url=`https://localhost:3000/login`;
@@ -70,8 +48,7 @@ function Login () {
 
         }
         else{
-            setErrorMessage(validEmail, validPassword);
-            ErrMsgOn();
+            alert("Invalid email or password");
         }
 
           
@@ -106,10 +83,7 @@ function Login () {
                             <input type='password' id="password" name="password" placeholder='Password' autoComplete="off"  
                                 value={password}  onChange={(e) => setPassword(e.target.value)} />
                         </div>
-                    </div> 
-                    <div className="loginFormRow">
-                        <div id="ErrMsg">{ErrorMessage}</div>
-                    </div>    
+                    </div>   
                     <div className="loginFormRow">
                         <input type='submit' value='Login' /> 
                     </div>       

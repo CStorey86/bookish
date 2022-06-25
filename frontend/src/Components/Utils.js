@@ -1,5 +1,7 @@
 //USEFUL RE-USABLE FUNCTIONS FOR THE APPLICATION
 
+import axios from "axios";
+
 export function formatDate(inputDate){
 
     const newDate = new Date(inputDate);
@@ -55,6 +57,20 @@ export function isValidPassword(pass, confPass, min){
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export function getUserWithID(userID){
+    const user = {};
+    const url=`https://localhost:3000/users/:${userID}`;
+
+    axios.get(url)
+        .then((Response) => {
+                user = Response.data;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    return user;
+}
 
 export function getUserName(user){
     const fName = user.firstName;

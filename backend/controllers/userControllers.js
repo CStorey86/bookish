@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
+import bcrypt, {compare} from 'bcrypt';
 import { UserSchema} from '../models/userModel';
 import jwt from 'jsonwebtoken'
 
@@ -46,9 +46,12 @@ export const addNewUser = ( async (req, res) => {
 
 export const login = (req, res) => {
     try{
-        const {email, password} = req.body;
+        const email = req.body.email;
+        const password = req.body.password;
+
         // VALIDATE USER INPUTS (if empty return error)
         if(!(email && password)){
+            console.log(err);
             return res.status(400).send("Additional input is required");
         }
 
@@ -56,8 +59,8 @@ export const login = (req, res) => {
         const user = User.findOne({email});
 
         // COMPARE PASSWORDS
-        if (user && (bcrypt.compare(password, user.password))) {
-            //SUCCESSFUL LOGIN - CREATE TOKEM
+        if (user && (compare(password, user.password))) {
+            //SUCCESSFUL LOGIN - CREATE TOKEN
                 const token = jwt.sign(
                     {user_id: user._id, email},
                     process.env.TOKEN_KEY,{
@@ -72,12 +75,14 @@ export const login = (req, res) => {
                 return res.status(200).json(user);
         }
         else{
+            console.log(err);
             return res.status(404).send("Invalid Credentials");
         }
     }
     catch(error){
-        console.log(err)
+        console.log(err);
         return res.status(500).send("Internal Server Error");
+        
     }
 }
 
@@ -97,15 +102,9 @@ export const viewAllUsers = (async (req, res) => {
 export const getUserWithID = ( async (req, res) => {
 
     try {
-		if (req.user.isAdmin || req.user.isEmployee || req.user._id == req.params.id){
-			const user = User.findOne({ _id: req.params.id }).select("-password");
-			if (user === null) return res.status(404).send('The requested user does not exist');
-			return res.status(200).send(user);
-
-		}else {
-			return res.status(401).send('You do not have permission for this action.');
-		}
-		
+        const user = User.findOne({ _id: req.params.id }).select("-password");
+        if (user === null) return res.status(404).send('The requested user does not exist');
+        return res.status(200).send(user);
 	} catch (error){
 		return res.status(404).send("User doesn't exist!");
 	}
