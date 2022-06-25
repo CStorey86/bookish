@@ -101,7 +101,7 @@ function Register () {
                     <form  onSubmit={handleSubmit}>
                       <div className="regFormRow">
                           <div className="ErrorMessage">
-                            {ErrorMessage}
+                            {/* {ErrorMessage} */}
                           </div>
                       </div> 
                       <div className="regFormRow">
