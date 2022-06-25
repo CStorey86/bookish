@@ -30,9 +30,10 @@ export function checkIfEmptyString(input){
 
 export function isValidInput(input, min, max){
     var validInput = false;
+    const len = input.length;
 
     // IF BETWEEN SPECIFIED PARAMS (FROM MODEL), AND IS A STRING
-    if(input.length >= min && input.length <=max && checkIfIsString(input) === true){
+    if(len >= min && len <=max && checkIfIsString(input) === true){
         validInput = true;
     }
     return validInput;
@@ -41,13 +42,18 @@ export function isValidInput(input, min, max){
 export function isValidPassword(pass, confPass, min){
     var validPassword = false;
 
-    // IF PASSWORD IS LESS THAN MIN REQ LENGTH
-    if(pass.length > min && pass === confPass)
-    {
-        validPassword = true;
+    // IF PASSWORD AND CONF PASSWORD ARE BOTH STRINGS
+    if(checkIfIsString(pass) === true && checkIfIsString(confPass) === true){
+        // IF PASSWORD IS AT LEAST MIN REQ LENGTH
+        if(pass.length > min && pass === confPass)
+        {
+            validPassword = true;
+        }
     }
     return validPassword;
 }
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export function getUserName(user){
