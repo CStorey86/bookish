@@ -17,10 +17,7 @@ const routes = (app) => {
 
     app.route('/login')
         .post(login)
-
-//  // Get all users only employees or Authorizers can access
-    // router.get("/users", auth, workerCheck, getUsers);
-
+        
 
     // REQUEST API END POINTS
     app.route('/requests')

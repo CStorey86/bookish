@@ -38,9 +38,7 @@ export const addNewUser = ( async (req, res) => {
             }
             res.json(User);
         });
-        return res.status(201).send("User successfully created")
 
-        
 	} catch (error) {
 		return res.status(500).send({error: error.message});
 	}

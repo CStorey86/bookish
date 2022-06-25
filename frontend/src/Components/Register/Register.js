@@ -7,45 +7,60 @@ import { faEnvelope, faLock, faUser} from '@fortawesome/free-solid-svg-icons';
 import logo from '../../Logos/BookishLogo.PNG';
 import Footer from '../Footer/Footer';
 import {isValidInput, isValidPassword} from '../Utils';
- 
 
-function validateForm(validFirstName, validLastName, validEmail, validPassword) {
-  const validForm = false;     
+function validateForm(firstName, lastName, email, password, confirmPassword){
 
-  if(validFirstName === true && validLastName === true && validEmail === true && validPassword === true)
-  {
-    validForm = true;
-  }
-  return validForm;
-}
+  const validFName = false;
+  const validEmail = false;
+  const validLName = false;
+  const validPassword = false
+  const validForm = false;
 
-function setErrorMessage(validFirstName, validLastName, validEmail, validPassword){
+  // CHECK FIRSTNAME
+      //CHECK IS STRING && BETWEEN MIN AND MAX
+      if(isValidInput(firstName, 2, 24)){
+        validFName = true;
+      }
+      else{
+        this.setState({
+          ErrorMessage: "Invalid First Name"
+        })
+      }
 
+  // CHECK LASTNAME
+    if(isValidInput(lastName, 2, 24)){
+      validLName = true;
+    }
+    else{
+      this.setState({
+        ErrorMessage: "Invalid Last Name"
+      })
+    }
 
-  if(validFirstName === false)
-  {
-    this.setState({
-      ErrorMessage: "Please enter a valid first Name"
-    })
-  }
-  else if(validLastName === false)
-  {
-    this.setState({
-      ErrorMessage: "Please enter a valid last Name"
-    })
-  }
-  else if(validEmail === false)
-  {
-    this.setState({
-      ErrorMessage: "Please enter a valid Email"
-    })
-  }
-  else if(validPassword === false)
-  {
-    this.setState({
-      ErrorMessage: "Please enter a valid Password - Must be at least 8 characters"
-    })
-  }
+  // CHECK EMAIL
+    if(isValidInput(email, 3, 32)){
+      validEmail = true;
+    }
+    else{
+      this.setState({
+        ErrorMessage: "Invalid Email"
+      })
+    }
+  // CHECK PASSWORD 
+    if(isValidPassword(password, confirmPassword, 8,)){
+      validPassword = true;
+    }
+    else{
+      this.setState({
+        ErrorMessage: "Invalid Password - Passwords must match and be at least 8 characters long"
+      })
+    }
+
+    if(validFName === true && validLName ===  true && validEmail === true && validPassword ==- true){
+      validForm = true;
+    }
+
+  return validForm
 }
 
 function Register () {
@@ -55,17 +70,14 @@ function Register () {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-
-    const validFirstName = isValidInput(firstName, 2,24);                 // VALID FIRST NAME
-    const validLastName = isValidInput(lastName, 2,24);                   // VALID LAST NAME
-    const validEmail = isValidInput(email, 3,64);                         // VALID EMAIL
-    const validPassword = isValidPassword(password, confirmPassword, 8);  // VALID PASSWORD  
-
-    const ErrorMessage = useState("");    
+    const [ErrorMessage] = useState("");
+   
      
     async function handleSubmit(event) {
           event.preventDefault();
-          const validForm = validateForm(validFirstName, validLastName,validEmail,validPassword);
+
+          const validForm = validateForm(firstName, lastName, email, password, confirmPassword);
+          // const validForm = true;
 
           if( validForm === true){
             
@@ -77,15 +89,16 @@ function Register () {
                 password:password
               })
               .then(res => {
-                  // get user details
-                  window.location = '/Home';    // TAKE USER TO HOME PAGE
+                  alert("You have registered successfully")
+                  window.location = '/Login';    // TAKE USER TO LOGIN PAGE
               })
               .catch((error) => {
                     console.log(error);
               }); 
           }
           else{
-            setErrorMessage(validFirstName, validLastName,validEmail,validPassword);
+            // setErrorMessage(validFirstName, validLastName,validEmail,validPassword);
+            alert(this.state.ErrorMessage)
           }
     }
     
@@ -99,11 +112,6 @@ function Register () {
                 <div className='Register'>
                     <h1>Register</h1>
                     <form  onSubmit={handleSubmit}>
-                      <div className="regFormRow">
-                          <div className="ErrorMessage">
-                            {/* {ErrorMessage} */}
-                          </div>
-                      </div> 
                       <div className="regFormRow">
                           <div className="regFormItem">
                               <label htmlFor="firstName"><FontAwesomeIcon icon={faUser} /></label>

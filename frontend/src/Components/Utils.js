@@ -32,7 +32,7 @@ export function isValidInput(input, min, max){
     var validInput = false;
 
     // IF BETWEEN SPECIFIED PARAMS (FROM MODEL), AND IS A STRING
-    if(input >= min && input <=max && checkIfIsString(input) === true){
+    if(input.length >= min && input.length <=max && checkIfIsString(input) === true){
         validInput = true;
     }
     return validInput;
@@ -48,6 +48,7 @@ export function isValidPassword(pass, confPass, min){
     }
     return validPassword;
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export function getUserName(user){
     const fName = user.firstName;
