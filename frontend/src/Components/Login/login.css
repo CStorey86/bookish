@@ -30,8 +30,8 @@
     margin: 40px;
     float: left;
     position: fixed;
-    top: 60px;
-    left: 20%;
+    top: 30px;
+    left: 32%;
 }
 
   
@@ -53,7 +53,7 @@
 .loginFormRow {
     float: left;
     margin: 4px;
-    width: 98%;
+    width: 97%;
 }
 
 .formItem{
@@ -96,7 +96,7 @@
 .Login form input[type="submit"] {
     width: 362px;
     padding: 15px;
-    margin: 20px 0 5px 12px;
+    margin: 15px 0 5px 12px;
     background-color: #0c704f;
     border: 0;
     cursor: pointer;
@@ -167,5 +167,11 @@
     font-size: 18px;
 }
 
-
-  
+#ErrMsg{
+    background-color:#4fb695;
+    color:#0b4935;
+    width: 357px;
+    margin: 10px;
+    padding: 5px;
+    display: none;
+}

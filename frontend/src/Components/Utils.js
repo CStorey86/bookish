@@ -1,7 +1,5 @@
 //USEFUL RE-USABLE FUNCTIONS FOR THE APPLICATION
 
-import axios from "axios";
-
 export function formatDate(inputDate){
 
     const newDate = new Date(inputDate);

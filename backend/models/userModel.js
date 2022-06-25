@@ -43,7 +43,10 @@ const UserSchema = mongoose.Schema({
     authLimit: {
         type: Number,
         default: 0,
-    }
+    },
+    token: {
+        type: String
+    },
 
 
 });
