@@ -18,11 +18,8 @@ export const verifyToken = async (req, res, next) => {
     // GET DATA FROM TOKEN USING PRIVATE KEY
     if(token && isCustomAuth){
         decodedData = jwt.verify(token, config.TOKEN_KEY);
-
-        req.userId = decodedData ?.id;
     } else{
       decodedData = jwt.decode(token);
-      req.userId = decodedData ?.sub
     }
 
   } catch(error){

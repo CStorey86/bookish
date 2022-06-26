@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const User = require('../models/User');
+const User = require('../models/userModel');
 const config = process.env;
 
 /**
@@ -18,7 +18,7 @@ const  verifyRole = async (req, res, next) => {
 			res.status(401);
 			return res.status(401).send("Not Authorised For This Request");
 		}
-    } catch {
+    } catch(error) {
         return res.status(401).send("Invalid Token");
     }
 };
