@@ -3,13 +3,18 @@ import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faBookOpen, faUser, faBookmark, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import './navbar.css';
+import logo from '../../Logos/BookishLogo.PNG';
 
 function Toolbar (props) {
-
+  
+  
   if(props.isAuth === true){
     // USER IS AUTHORISER
     return (
       <div className="NavBar">
+        <Link to="/Login">
+          <p id="Logout"><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
+        </Link>
         <Link to="/Profile">
           <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
         </Link>
@@ -32,6 +37,9 @@ function Toolbar (props) {
     // USER IS EMPLOYEE
     return (      
       <div className="NavBar">
+        <Link to="/Login">
+          <p id="Logout"><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
+        </Link>
         <Link to="/Profile">
           <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
         </Link>
@@ -52,6 +60,9 @@ function Toolbar (props) {
     // USER IS STANDARD USER
     return (
       <div className="NavBar">
+        <Link to="/Login">
+          <p id="Logout"><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
+        </Link>
         <Link to="/Profile">
           <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
         </Link>

@@ -8,18 +8,23 @@ import ProfileCard from './ProfileCard';
 
 function Profile (props) {
 
-      /////////////////////////////// TO BE REPLACED ////////////////////////////////////
-      const user = null;          
-      // const isEmp = user.isEmployee;
-      // const isAuth = user.isAdmin;
-      
-      ///////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////// TO BE REPLACED ////////////////////////////////////
 
-    const currentUser = user;
+  let thisUser = {
+    id: "62af7c4daea678e8b9f650d3",
+    firstName: "Claire",
+    lastName: "Storey",
+    email: "claire@email.com",
+    createdDate: "2022-05-05T13:10:00.000+00:00",
+    isAdmin: false,
+    isEmployee: false,
+  };     
+
+  ///////////////////////////////////////////////////////////////////////////////////
 
     return (
       <div className="Profile">
-            <ProfileCard user={currentUser}/>
+            <ProfileCard user={thisUser}/>
       </div>
     );
   }

@@ -80,7 +80,6 @@ export const login = (req, res) => {
         }
     }
     catch(error){
-        console.log(err);
         return res.status(500).send("Internal Server Error");
         
     }
