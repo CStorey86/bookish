@@ -16,63 +16,37 @@ class RequestDashboard extends React.Component{
             currentRequest: {},
             currentRequestID:"",
             user: props.currentUser,
-            userID: props.currentUser.id,
-            isEmp: props.currentUser.isEmployee,
-            isAdmin: props.currentUser.isAdmin,
-            comp: "false",
+            userID: props.currentUser.id,         //TO DO: GET FROM USER TOKEN
+            isEmp: props.currentUser.isEmployee,  //TO DO: GET WITH USERID
+            isAdmin: props.currentUser.isAdmin,   //TO DO: GET WITH USERID
         }
         this.updateCurrentRequest = this.updateCurrentRequest.bind(this);
     }
 
     componentDidMount(){
+      const url=``;
+      // SET URL BASED ON USERTYPE
+      if(this.state.isAdmin === true){
+        const url= `http://localhost:4000/requests/?authorisedBy=${this.state.userID}`;
+      }
+      else if (this.state.isEmp === true){   
+        url= `http://localhost:4000/requests/?allocatedTo=${this.state.userID}`;
+      }
+      else{
+        url= `http://localhost:4000/requests/?userID=${this.state.userID}`; 
+      }
 
-        if(this.state.isEmp === true)
-        {
-            const showComp = `&isComplete=${this.state.comp}`;
-   
-            const url= `http://localhost:4000/requests/?allocatedTo=${this.state.userID}`+ showComp;
-
-            axios.get(url)
-            .then((Response) => {
-              //set requests[] as data recieved from api call
-              this.setState({
-                requests: Response.data     
-              })
-            })
-            .catch((error) => {
-              console.log(error);
-            }); 
-        }
-        else if(this.state.isAdmin === true)
-        {
-            const showComp = `&isComplete=${this.state.comp}`;
-            const url= `http://localhost:4000/requests/?authorisedBy=${this.state.userID}`+ showComp;
-            axios.get(url)
-            .then((Response) => {
-              //set requests[] as data recieved from api call
-              this.setState({
-                requests: Response.data     
-              })
-            })
-            .catch((error) => {
-              console.log(error);
-            }); 
-        }
-        else{
-            const showComp = `&isComplete=${this.state.comp}`;
-            const url= `http://localhost:4000/requests/?userID=${this.state.userID}`+ showComp; 
-            axios.get(url)
-            .then((Response) => {
-              //set requests[] as data recieved from api call
-              this.setState({
-                requests: Response.data     
-              })
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        }
-
+      // GET REQUESTS BASED ON PARAMETERS
+      axios.get(url)
+        .then((Response) => {
+          //set requests[] as data recieved from api call
+          this.setState({
+            requests: Response.data     
+          })
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     };
 
     updateCurrentRequest(item){
@@ -88,9 +62,7 @@ class RequestDashboard extends React.Component{
             <div className="RequestDashboard">
                 <div className="LeftPanel">
                     <h2>MY REQUESTS </h2>
-                    
-                    <RequestList requests={this.state.requests} updateCurrentRequest={this.updateCurrentRequest} 
-                      sort={""} search={""}/>
+                    <RequestList requests={this.state.requests} updateCurrentRequest={this.updateCurrentRequest} />
                 </div>
 
                 <div className="RightPanel">

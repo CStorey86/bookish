@@ -1,28 +1,3 @@
-.NavBar{
-    width: 100%;
-    background-color: #4fb695;
-    float: left;
-    Font-style: Arial;
-    font-size: 18px;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-#Logo{
-    width: 160px;
-    margin: 5px 20px;
-    float: left;
-    margin-left: 30px;
-}
-
-.altLogLogo{
-    width: 25px;
-    height: 25px;
-    margin: 5px;
-    float: left;
-}
-
 .Login {
     width: 400px;
     background-color: #c4c4c4;
@@ -30,7 +5,7 @@
     margin: 40px;
     float: left;
     position: fixed;
-    top: 30px;
+    top: 50px;
     left: 32%;
 }
 
@@ -72,16 +47,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: #ffffff;
     color: #23755b;
     float: left;
 }
 
 .Login form input[type="password"], .Login form input[type="text"], .Login form input[type="email"] {
-    width: 275px;
-    height: 58px;
+    width: 280px;
+    height: 48px;
     border: 1px solid #dee0e4;
     padding: 0 15px;
     float: left;
@@ -133,45 +108,4 @@
     font-weight: bold;
   }
 
-  
-.altLogin{
-    width: 270px;
-    background-color: #c4c4c4;
-    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.568);
-    margin: 40px;
-    float: left;
-    position: fixed;
-    top: 60px;
-    right: 20%;
-}
 
-
-.altLoginRow{
-    float: left;
-    margin: 5px;
-    width: 260px;
-    height: 40px;
-    background-color: #e8e8e8;
-}
-
-.altLoginRow:hover{
-    background-color: #ffffff;
-}
-
-
-.altLoginRow h3{
-    color: #0b4935;
-    float: left;
-    margin: 5px;
-    height: 40px;
-    font-size: 18px;
-}
-
-#ErrMsg{
-    background-color:#4fb695;
-    color:#0b4935;
-    width: 357px;
-    margin: 10px;
-    padding: 5px;
-    display: none;
-}

@@ -11,10 +11,10 @@ class Dashboard extends Component{
     this.state={
         requests: [],
         closedRequests: [],
-        user: props.currentUser,
-        userID: props.currentUser.id,
-        isAdmin: props.currentUser.isAdmin,
-        isEmployee: props.currentUser.isEmployee,
+        user: props.user,
+        userID: "props.user.id",
+        isAdmin: props.user.isAdmin,
+        isEmployee: props.user.isEmployee,
     }
   }
 
@@ -67,7 +67,7 @@ class Dashboard extends Component{
         return (
           <div>
             <div className="Dashboard">
-              <div className="LeftPanel">
+              <div className="BigPanel">
                 <h2>Welcome </h2>
                 {/* Summary Panel */}
 
@@ -84,12 +84,6 @@ class Dashboard extends Component{
                     {/* /on click - open my requests page -filtering to show only closed requests */}
                   </div>
                 </Link>
-              </div>
-
-              {/* Notifictaion Panel */}
-              <div className="RightPanel">
-                  <h2>Notifications</h2>
-                  <p>You have no Notifications</p>
               </div>
             </div>
           </div>
