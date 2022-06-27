@@ -28,8 +28,7 @@ export const addNewUser = ( async (req, res) => {
             email: req.body.email,
             password: encryptedPassword,
             createdDate: Date.now(),
-            isAdmin: false,                 // NEW ADMINS CAN BE MADE BY EXISTING ADMINS
-            isEmployee: false,              // USERS CAN BE MADE EMPLOYEES BY ADMINS
+            role: "Standard User",                 // NEW ADMINS AND EMPLOYEES CAN BE MADE BY EXISTING ADMINS            
             authLimit: 0,                   // AUTH LIMIT CHANGED IF USER IS MADE EMPLOYEE/ADMIN ETC.           
         })
         await newUser .save((err, User) => {

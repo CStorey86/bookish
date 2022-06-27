@@ -31,15 +31,11 @@ const UserSchema = mongoose.Schema({
         default: Date.now()
           
     },
-    isAdmin: {
-        type: Boolean,
-        default: false,
+    role: {
+        type: String,
+        enum: ["Standard User","Employee","Authoriser"],
+        default: "Standard User"
     },
-    isEmployee: {
-        type: Boolean,
-        default: false,
-    },
-
     authLimit: {
         type: Number,
         default: 0,
