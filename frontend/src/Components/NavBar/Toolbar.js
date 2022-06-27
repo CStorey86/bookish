@@ -5,10 +5,6 @@ import { faPlus, faBookOpen, faUser, faBookmark, faSignOutAlt } from '@fortaweso
 import './navbar.css';
 import BrandLogo from './Logo';
 
-function handleLogout() {
-  localStorage.setItem('user', '');
-  window.location = '/Login';
-}
 
 function Toolbar (props) {
   
@@ -66,7 +62,7 @@ function Toolbar (props) {
     // USER IS STANDARD USER
     return (
       <div className="NavBar">
-          <p id="Logout" onClick={handleLogout}><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
+          <p id="Logout" ><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
         <Link to="/Profile">
           <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
         </Link>

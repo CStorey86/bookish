@@ -16,38 +16,48 @@ import Authorisations from './Components/Request/Authorisations/Authorisations';
 import Users from './Components/Users/Users';
 import AllRequests from './Components/Request/AllRequests';
 
-// const ROLES = {
-//   "User": 2001,
-//   "Employee": 1984,
-//   "Authoriser": 5150
-// }
+const ROLES = {
+  "User": "Standard User",
+  "Employee": "Employee",
+  "Authoriser": "Authoriser"
+}
+
+//<Route element={<RequireAuth allowedRoles={ROLES.User}/>}>
+// <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Employee, ROLES.Authoriser]}/>}>
 
 function App() {
   return ( 
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* PUBLIC ROUTES */}
-          <Route path="login" element={<Login />} />
+          <Route index element={<Home />} />
+          <Route path="Login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          
-          {/* <Route path="linkpage" element={<LinkPage />} />      
-          <Route path="unauthorized" element={<Unauthorized />} /> */}
 
-        {/* LOGGED IN USERS ROUTES*/}
         <Route element={<RequireAuth />}>
-          {/* STANDARD USER */}
+          {/* ALL USERS */}
+          {/* <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Employee, ROLES.Authoriser]}/>}> */}
             <Route path="/Home" element={<Home />}/>
             <Route path="/Requests" element={<Requests />}/>
             <Route path="/Profile" element={<Profile />}/>
+          {/* </Route> */}
+
+          {/* STANDARD USER */}
+          {/* <Route element={<RequireAuth allowedRoles={ROLES.User}/>}> */}
             <Route path="/NewRequest" element={<NewRequest />}/>
+        {/* </Route> */}
 
-          {/* EMPLOYEE */}
-            <Route path="/Allocations" element={<Allocations />} />
-            <Route path="/AllRequests" element={<AllRequests />} />
+        {/* EMPLOYEE */}
+        {/* <Route element={<RequireAuth allowedRoles={ROLES.Employee}/>}> */}
+          <Route path="/Allocations" element={<Allocations />} />
+          <Route path="/AllRequests" element={<AllRequests />} />
+        {/* </Route> */}
 
-          {/* AUTHORISER */}
-            <Route path="/Authorisations" element={<Authorisations />} />
-            <Route path="/Users" element={<Users />} />
+        {/* AUTHORISER */}
+        {/* <Route element={<RequireAuth allowedRoles={ROLES.Authoriser}/>}> */}
+          <Route path="/Authorisations" element={<Authorisations />} />
+          <Route path="/Users" element={<Users />} />
+        
         </Route>
 
       </Route>
@@ -59,20 +69,4 @@ function App() {
 export default App;
 
          
-  
-  
-//   <Navbar />
 
-//   <Routes>
-//   <Route index element={<Login />} />
-//   <Route path="/" element={<Home userID={userID} isAuth={isAuthoriser} isEmp={isEmployee}/>} />
-
-//   <Route path="/Login" element={<Login />} />
-//   <Route path="/Register" element={<Register />} />
-
-// {/* Routes below are only accessible with valid login */}
-
-
-// </Routes>
-
-// <Footer />

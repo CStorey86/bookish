@@ -3,11 +3,11 @@ import './home.css';
 
 import Dashboard from './Dashboard';
 
-const Home = (props) =>{
+const HomeOut = (props) =>{
   
     return (
       <div className="Home">
-        <h1>HOME - LOGGED IN USER</h1>
+        <h1>HOME</h1>
           {/* <Dashboard userID={props.userID} isEmp ={props.isEmp} isAuth={props.isAuth}/> */}
           {/* chat window here */}
           {/* <div className="chatWindow"></div> */}
@@ -17,4 +17,4 @@ const Home = (props) =>{
  }
 
 
-export default Home;
+export default HomeOut;

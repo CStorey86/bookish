@@ -1,5 +1,5 @@
-import {React, useState, useEffect } from 'react';
-import {Link} from "react-router-dom";
+import {React, useState} from 'react';
+import {Link, useNavigate, useLocation} from "react-router-dom";
 import './login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock} from '@fortawesome/free-solid-svg-icons';
@@ -23,6 +23,12 @@ function validateForm(validEmail, validPassword){
 function Login () {
 
     const { setAuth } = useAuth();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
@@ -45,17 +51,20 @@ function Login () {
                     email: email,
                     password: password,
                 })
-                .then(res => {
-                    console.log(res.data);
+                .then(response => {  
+                    // IF DATA (USER) IS RETURNED FROM SERVER
+                        console.log(JSON.stringify(response?.data));
+                        const accessToken = response?.data?.token;
+                        const role = response?.data?.role
+                        setAuth({ email, password, role, accessToken });
+                        localStorage.setItem('user', accessToken);
 
-                    //IF DATA (A USER) IS RETURNED
-                    if (res.status === 200){
-                        const persons = res.data;
-                        const user = persons
-                        // STORE THE USER TOKEN IN LOCAL STORAGE. 
-                        localStorage.setItem('user', JSON.stringify(user));
+                        // RESET EMAIL AND PASSWORD TO EMPTY
+                        setEmail('');
+                        setPassword('');
+                        // navigate(from, { replace: true });
                         window.location = '/Home';
-                      }
+                      
                   })
             }
         else{
