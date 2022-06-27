@@ -1,33 +1,42 @@
-import { useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import AuthContext from "../../Context/AuthProvider";
+import React, { useState, useEffect  } from "react";
+import jwt_decode from "jwt-decode";
 import './home.css';
 
-const Home = () =>{
-    const { setAuth } = useContext(AuthContext);
-    const navigate = useNavigate();
+import Dashboard from './Dashboard';
 
-    // const logout = async () => {
-    //     // if used in more components, this should be in context 
-    //     // axios to /logout endpoint 
-    //     setAuth({});
-    //     navigate('/linkpage');
-    // }
+const Home = (props) =>{
 
+  const [isAuthenticated, userHasAuthenticated] = useState(false);
+  const [user, setUser] = useState({});
+
+   // GET LOGIN STATUS OF USER
+   useEffect(() => {
+    onLoad();
+  }, [ isAuthenticated]);
+    async function onLoad() {
+      try {
+        const user = JSON.parse(localStorage.getItem('user'));
+        const exp = jwt_decode(user.token);
+        const date = new Date();
+        if (date.getTime() >= exp ){
+          userHasAuthenticated(false);
+        }else {
+          userHasAuthenticated(true);
+        }
+        // GET USER
+        await setUser(user);
+      }
+      catch(e) {
+        userHasAuthenticated(false);
+      }
+  
     return (
       <div className="Home">
-        <h1>HOME - LOGGED IN USER</h1>
+          <Dashboard user={user}/>
+          <div></div>
       </div>
-    )
+    );
+ }
 }
-
-
-//   const { setAuth } = useContext(AuthContext);
-  
-//     return (
-
-//     );
-//  }
-
 
 export default Home;

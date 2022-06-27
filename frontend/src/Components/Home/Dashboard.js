@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import './home.css';
 import axios from 'axios';
 
+
 class Dashboard extends Component{
   
   constructor(props){
@@ -10,9 +11,10 @@ class Dashboard extends Component{
     this.state={
         requests: [],
         closedRequests: [],
-        userID: props.userID,
-        isAdmin: props.isAuth,
-        isEmployee: props.isEmp,
+        user: props.user,
+        userID: props.user._id,
+        role: props.user.role,
+        firstName: props.user.firstName
     }
   }
 
@@ -20,12 +22,12 @@ class Dashboard extends Component{
     var closedUrl=""; 
     var allUrl =""; 
 
-    if (this.state.isAdmin === true)
+    if (this.state.role === "Authoriser")
     {
       closedUrl = `http://localhost:4000/requests/?authorisedBy=${this.state.userID}&status=Complete`;
       allUrl = `http://localhost:4000/requests/?authorisedBy=${this.state.userID}`;
     }
-    else if(this.state.isEmployee){
+    else if(this.state.role === "Employee"){
       closedUrl = `http://localhost:4000/requests/?allocatedTo=${this.state.userID}&status=Complete`;
       allUrl = `http://localhost:4000/requests/?allocatedTo=${this.state.userID}`;
     }
@@ -59,14 +61,14 @@ class Dashboard extends Component{
   };
 
   render(){
-    var countClosed = this.state.closedRequests.length;
-    var countOpen = (this.state.requests.length)-(countClosed);
+    var countClosed=this.state.closedRequests.length;
+    var countOpen=(this.state.requests.length)-(countClosed);
     
         return (
           <div>
             <div className="Dashboard">
               <div className="BigPanel">
-                <h2>Welcome</h2>
+                <h2>Welcome {this.state.firstName}</h2>
                 {/* Summary Panel */}
 
                 <Link to="/Requests">
