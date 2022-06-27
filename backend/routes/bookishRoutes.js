@@ -1,19 +1,22 @@
-const express = require("express");
-const router = express.Router();
-
 import { addNewUser, loginUser, getAllUsers, getUserWithID, updateUser, deleteUser } from '../controllers/userControllers';
 import { addNewRequest, getRequests, getRequestWithID, updateRequest, deleteRequest} from '../controllers/requestControllers';
 import {getChangeLogs, addNewChangeLog} from '../controllers/changeLogControllers';
 import {getInfo, addNewInfo, getinfoWithID, updateInfo} from '../controllers/infoControllers';
 
+import AdminCheck from '../middleware/AdminCheck';
+import EmployeeCheck from '../middleware/EmployeeCheck';
+import Auth from '../middleware/Auth';
 
 const routes = (app) => {
     
     // USER API END POINTS
     app.route('/users')
-        .get(getAllUsers) // employee and authorisers only
+        .get(AdminCheck, getAllUsers) // employee and authorisers only
         .post(addNewUser)
-          
+    
+ //     router.get("/users", Auth, AdminCheck, viewAllUsers);
+
+
     app.route('/users/:UserId')    
         .get(getUserWithID)
         .delete(deleteUser)
@@ -53,7 +56,6 @@ export default routes;
 
 
     // GET ALL USERS - AUTHORISERS ONLY
-    //     router.get("/users", Auth, AdminCheck, viewAllUsers);
 
     // // GET ALL REQUESTS
     // router.get("/requests", Auth, EmployeeCheck, getRequests);

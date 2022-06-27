@@ -7,7 +7,8 @@ import logo from '../../Logos/BookishLogo.PNG';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
 import {isValidInput, isValidpasswordInput} from '../Utils';
-import { useAppContext } from '../../Context/Context';
+
+import useAuth from '../../Hooks/useAuth'
 
 
 function validateForm(validEmail, validPassword){
@@ -21,6 +22,7 @@ function validateForm(validEmail, validPassword){
 
 function Login () {
 
+    const { setAuth } = useAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     

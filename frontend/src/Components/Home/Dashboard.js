@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import './home.css';
 import axios from 'axios';
 
-
 class Dashboard extends Component{
   
   constructor(props){
@@ -11,10 +10,9 @@ class Dashboard extends Component{
     this.state={
         requests: [],
         closedRequests: [],
-        user: props.user,
-        userID: "props.user.id",
-        isAdmin: props.user.isAdmin,
-        isEmployee: props.user.isEmployee,
+        userID: props.userID,
+        isAdmin: props.isAuth,
+        isEmployee: props.isEmp,
     }
   }
 
@@ -61,14 +59,14 @@ class Dashboard extends Component{
   };
 
   render(){
-    var countClosed=this.state.closedRequests.length;
-    var countOpen=(this.state.requests.length)-(countClosed);
+    var countClosed = this.state.closedRequests.length;
+    var countOpen = (this.state.requests.length)-(countClosed);
     
         return (
           <div>
             <div className="Dashboard">
               <div className="BigPanel">
-                <h2>Welcome </h2>
+                <h2>Welcome</h2>
                 {/* Summary Panel */}
 
                 <Link to="/Requests">
