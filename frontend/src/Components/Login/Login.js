@@ -4,12 +4,11 @@ import './login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock} from '@fortawesome/free-solid-svg-icons';
 import logo from '../../Logos/BookishLogo.PNG';
-// import googleLogo from '../../Logos/GoogleLogo.PNG'
-// import microsoftLogo from '../../Logos/MicrosoftLogo.PNG'
 import Footer from '../Footer/Footer';
 import axios from 'axios';
-import {isValidInput} from '../Utils';
-// Auth0 import here
+import {isValidInput, isValidpasswordInput} from '../Utils';
+import { useAppContext } from '../../Context/Context';
+
 
 function validateForm(validEmail, validPassword){
     const validForm = false;     
@@ -24,34 +23,42 @@ function Login () {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    
+    const validEmail =isValidInput(email, 3,32); 
+    const validPassword =  isValidpasswordInput(password, 8);
 
-    // const validEmail = isValidInput(email, 3,32);            //min and max from user Model
-    // const validPassword = isValidInput(password, 8,100);     //min from user Model
 
-    const handleSubmit =(event)=>{
+    function handleSubmit (event){
         event.preventDefault();
 
-        // const validForm = validateForm(validEmail,validPassword);
-        const validForm = true;
+        // INPUT VALIDATION - CHECKS ARE STRINGS AND CORRECT LENGTH BASED ON MODELS
+            const validForm = true;
+            // const validForm = (validEmail && validPassword)
 
         if(validForm === true){
 
             // SUBMIT TO SERVER FOR VERIFICATION
-                const url=`https://localhost:3000/login`;
+                const url=`http://localhost:4000/login`;
                 axios.post(url,{
                     email: email,
                     password: password,
-                },
-                {
-                    validateStatus: false
-                })           
+                })
+                .then(res => {
+                    console.log(res.data);
 
-        }
+                    //IF DATA (A USER) IS RETURNED
+                    if (res.status === 200){
+                        const persons = res.data;
+                        const user = persons
+                        // STORE THE USER TOKEN IN LOCAL STORAGE. 
+                        localStorage.setItem('user', JSON.stringify(user));
+                        window.location = '/Home';
+                      }
+                  })
+            }
         else{
             alert("Invalid email or password");
-        }
-
-          
+        }          
       }
 
  

@@ -24,10 +24,11 @@ class RequestDashboard extends React.Component{
     }
 
     componentDidMount(){
-      const url=``;
+      var url=``;
+      
       // SET URL BASED ON USERTYPE
       if(this.state.isAdmin === true){
-        const url= `http://localhost:4000/requests/?authorisedBy=${this.state.userID}`;
+        url= `http://localhost:4000/requests/?authorisedBy=${this.state.userID}`;
       }
       else if (this.state.isEmp === true){   
         url= `http://localhost:4000/requests/?allocatedTo=${this.state.userID}`;

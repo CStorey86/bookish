@@ -6,14 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser} from '@fortawesome/free-solid-svg-icons';
 import logo from '../../Logos/BookishLogo.PNG';
 import Footer from '../Footer/Footer';
-import {isValidInput, isValidPassword} from '../Utils';
+import {isValidInput, isValidPasswordMatch} from '../Utils';
 
 function validateForm(firstName, lastName, email, password, confirmPassword){
 
   const validFName = isValidInput(firstName, 2, 24);
   const validEmail = isValidInput(lastName, 2, 24);
   const validLName = isValidInput(email, 3, 32);
-  const validPassword = isValidPassword(password, confirmPassword, 8,);
+  const validPassword = isValidPasswordMatch(password, confirmPassword, 8,);
   
   var validForm = false;
   if(validFName === true && validLName ===  true && validEmail === true && validPassword === true){

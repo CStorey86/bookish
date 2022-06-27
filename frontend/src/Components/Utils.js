@@ -41,7 +41,18 @@ export function isValidInput(input, min, max){
     return validInput;
 }
 
-export function isValidPassword(pass, confPass, min){
+export function isValidpasswordInput(input, min){
+    var validInput = false;
+    const len = input.length;
+
+    // IF BETWEEN SPECIFIED PARAMS (FROM MODEL), AND IS A STRING
+    if(len >= min && checkIfIsString(input) === true){
+        validInput = true;
+    }
+    return validInput;
+}
+
+export function isValidPasswordMatch(pass, confPass, min){
     var validPassword = false;
 
     // IF PASSWORD AND CONF PASSWORD ARE BOTH STRINGS
@@ -60,8 +71,7 @@ export function isValidPassword(pass, confPass, min){
 
 export function getUserWithID(userID){
     const user = {};
-    const url=`https://localhost:3000/users/:${userID}`;
-
+    const url=`http://localhost:4000/users/${userID}`;
     axios.get(url)
         .then((Response) => {
                 user = Response.data;

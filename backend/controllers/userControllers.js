@@ -44,10 +44,9 @@ export const addNewUser = ( async (req, res) => {
 	}
 })
 
-export const login = (req, res) => {
+export const loginUser = async (req, res) => {
     try{
-        const email = req.body.email;
-        const password = req.body.password;
+        const {email,password} = req.body;
 
         // VALIDATE USER INPUTS (if empty return error)
         if(!(email && password)){
@@ -56,23 +55,26 @@ export const login = (req, res) => {
         }
 
         // CHECK EMAIL EXISTS IN DB
-        const user = User.findOne({email});
+            const user = await User.findOne({email: email})
 
         // COMPARE PASSWORDS
         if (user && (compare(password, user.password))) {
-            //SUCCESSFUL LOGIN - CREATE TOKEN
+            //SUCCESSFUL LOGIN 
+  
                 const token = jwt.sign(
-                    {user_id: user._id, email},
+                    {user_id: user._id},
                     process.env.TOKEN_KEY,{
                         expiresIn: "2h",
                     }
-                );
+                );            
             //SAVE USER TOKEN
-                user.token = token;
-            //REMOVE PASSWORD
-                user.password = undefined;
+            user.token = token;
+
+            //REMOVE PASSWORD 
+            user.password = undefined;
+
             //SET USER
-                return res.status(200).json(user);
+            return res.status(200).json(user); 
         }
         else{
             console.log(err);
@@ -86,20 +88,28 @@ export const login = (req, res) => {
 }
 
 
-// GET ALL USERS (WITHOUT PASSWORDS) - AUTHORISERS ONLY
-export const viewAllUsers = (async (req, res) => {
-    try{
-        const users = await User.find().select("-password");
-        return res.send(users);
-    }catch(error){
-        return res.status(500).send({ error: 'Server Error Occured'});
-    }
-});
+// GET ALL USERS - AUTHORISERS ONLY
+export const getAllUsers =(req,res) =>{
+    // Query strings in API call
+    let query;
+    const reqQuery ={...req.query};     
+    const removeFields = ["sort"];
+    removeFields.forEach(val => delete reqQuery[val]);
+
+    let queryStr =JSON.stringify(reqQuery);
+    queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g,(match)=> `$${match}`);
+
+    User.find(JSON.parse(queryStr),(err, User)=>{
+        if(err){
+            res.send(err);
+        }
+        res.json(User);
+    });
+};
 
 
 // GET SINGLE USER USING ID (WITHOUT PASSWORD)
-export const getUserWithID = ( async (req, res) => {
-
+export const getUserWithIDNoPass = ( async (req, res) => {
     try {
         const user = User.findOne({ _id: req.params.id }).select("-password");
         if (user === null) return res.status(404).send('The requested user does not exist');
@@ -108,6 +118,17 @@ export const getUserWithID = ( async (req, res) => {
 		return res.status(404).send("User doesn't exist!");
 	}
 });
+
+// GET SINGLE USER USING ID 
+export const getUserWithID = (req, res) => {
+    User.findById(req.params.UserId,(err, User) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(User);
+    });
+};
+
 
 
 

@@ -19,11 +19,10 @@ const EditUserBtn =(props) => {
     const [firstNameChoice, setFirstName] = useState(props.user.firstName);
     const [lastNameChoice, setLastName] = useState(props.user.lastName);
     const [emailChoice, setEmail] = useState(props.user.email);
-    
 
 
     function editUser(){
-        const url=`http://localhost:4000/user/${props.user._id}`; 
+        const url=`http://localhost:4000/user/${props.user.id}`; 
 
         // update changes
         axios.put(url,
@@ -31,10 +30,9 @@ const EditUserBtn =(props) => {
                 firstName: firstNameChoice,
                 lastName: lastNameChoice,
                 email: emailChoice,
-    
             })
             .then(
-                alert(`Request ID: ${props.user._id}, has been updated`)
+                alert(`Request ID: ${props.user.id}, has been updated`)
             )
             .catch((error) => {
                 console.log(error);

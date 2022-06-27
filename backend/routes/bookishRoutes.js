@@ -1,19 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-import { addNewUser, login, viewAllUsers, getUserWithID, updateUser, deleteUser } from '../controllers/userControllers';
+import { addNewUser, loginUser, getAllUsers, getUserWithID, updateUser, deleteUser } from '../controllers/userControllers';
 import { addNewRequest, getRequests, getRequestWithID, updateRequest, deleteRequest} from '../controllers/requestControllers';
 import {getChangeLogs, addNewChangeLog} from '../controllers/changeLogControllers';
 import {getInfo, addNewInfo, getinfoWithID, updateInfo} from '../controllers/infoControllers';
-import Auth from '../authentication/Auth.js';
-import EmployeeCheck from '../authentication/EmployeeCheck.js';
-import AdminCheck from '../authentication/AdminCheck.js';
+
 
 const routes = (app) => {
     
     // USER API END POINTS
     app.route('/users')
-        .get(viewAllUsers) // employee and authorisers only
+        .get(getAllUsers) // employee and authorisers only
         .post(addNewUser)
           
     app.route('/users/:UserId')    
@@ -22,7 +20,7 @@ const routes = (app) => {
         .put(updateUser)
 
     app.route('/login')
-        .post(login)
+        .post(loginUser)
         
 
     // REQUEST API END POINTS

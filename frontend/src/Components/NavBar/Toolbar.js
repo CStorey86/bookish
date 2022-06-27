@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faBookOpen, faUser, faBookmark, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import './navbar.css';
-import logo from '../../Logos/BookishLogo.PNG';
+import BrandLogo from './Logo';
 
 function Toolbar (props) {
   
@@ -30,6 +30,7 @@ function Toolbar (props) {
         <Link to="/AllRequests">
           <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> All Requests</p>
         </Link> 
+        <BrandLogo />
       </div>
     )
   }
@@ -52,6 +53,7 @@ function Toolbar (props) {
         <Link to="/AllRequests">
           <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> All Requests</p>
         </Link> 
+        <BrandLogo />
       </div>
     )
 
@@ -72,7 +74,9 @@ function Toolbar (props) {
         <Link to="/NewRequest">
           <p className="NavBarItem"><FontAwesomeIcon icon={faPlus} /> New Request</p>
         </Link>
+        <BrandLogo />
       </div>
+
     )
   }
 

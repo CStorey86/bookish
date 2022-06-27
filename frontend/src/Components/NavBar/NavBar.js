@@ -1,7 +1,6 @@
 import React from 'react';
 import './navbar.css';
 import Toolbar from './Toolbar';
-import logo from '../../Logos/BookishLogo.PNG';
 import BrandLogo from './Logo';
 
 function NavBar () {
@@ -22,7 +21,6 @@ function NavBar () {
   
     return (
       <div className="NavBar">
-          <BrandLogo />
           {/* IF USER EXISTS - SHOW FULL NAVBAR WITH LOGOUT BUTTON - ELSE SHOW LOGIN BUTTON*/}
           {thisUser ? (
             <Toolbar isAuth={thisUser.isAuth} isEmp={thisUser.isEmp}/>
