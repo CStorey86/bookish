@@ -7,10 +7,12 @@ const RequireAuth = () => {
 
     return (
         auth?.user
-            ? <Outlet />
+            ? <Navigate to="/Home"  />
+            
             : <Navigate to="/Login"  />
     );
 }
 
 export default RequireAuth;
 
+{/* <Outlet /> */}
