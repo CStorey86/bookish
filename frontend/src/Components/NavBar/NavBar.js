@@ -22,7 +22,7 @@ function NavBar () {
   
     return (
       <div className="NavBar">
-          {/* IF USER EXISTS - SHOW FULL NAVBAR WITH LOGOUT BUTTON - ELSE SHOW LOGIN BUTTON*/}
+          {/* IF USER EXISTS - SHOW FULL NAVBAR WITH LOGOUT BUTTON - ELSE SHOW JUST LOGO */}
           {thisUser ? (
             <Toolbar isAuth={thisUser.isAuth} isEmp={thisUser.isEmp}/>
           ):(
