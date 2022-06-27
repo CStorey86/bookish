@@ -1,20 +1,33 @@
-import React from 'react';
+import { useContext } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import AuthContext from "../../Context/AuthProvider";
 import './home.css';
 
-import Dashboard from './Dashboard';
+const Home = () =>{
+    const { setAuth } = useContext(AuthContext);
+    const navigate = useNavigate();
 
-const Home = (props) =>{
-  
+    // const logout = async () => {
+    //     // if used in more components, this should be in context 
+    //     // axios to /logout endpoint 
+    //     setAuth({});
+    //     navigate('/linkpage');
+    // }
+
     return (
       <div className="Home">
         <h1>HOME - LOGGED IN USER</h1>
-          {/* <Dashboard userID={props.userID} isEmp ={props.isEmp} isAuth={props.isAuth}/> */}
-          {/* chat window here */}
-          {/* <div className="chatWindow"></div> */}
-
       </div>
-    );
- }
+    )
+}
+
+
+//   const { setAuth } = useContext(AuthContext);
+  
+//     return (
+
+//     );
+//  }
 
 
 export default Home;
