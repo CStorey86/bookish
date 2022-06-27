@@ -1,81 +1,81 @@
-
-import {React, useState, useEffect } from 'react';
-import {Link} from "react-router-dom";
+import {React, useState} from 'react';
+import {Link, useNavigate, useLocation} from "react-router-dom";
 import './login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock} from '@fortawesome/free-solid-svg-icons';
-import logo from '../../BookishLogo.PNG';
+import logo from '../../Logos/BookishLogo.PNG';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
-import jwt_decode from "jwt-decode";
+import {isValidInput, isValidpasswordInput} from '../Utils';
+
+import useAuth from '../../Hooks/useAuth'
+
+
+function validateForm(validEmail, validPassword){
+    const validForm = false;     
+    if(validEmail === true && validPassword === true)
+    {
+      validForm = true;
+    }
+    return validForm;
+}
 
 function Login () {
 
-    const { isAuthenticated ,setUserHasAuthenticated} = useState(false);
+    const { setAuth } = useAuth();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [errMsg, setErrMsg] = useState("");
-
-    // Makes sure that an email and password has been entered before submitting
-    function validateForm() {
-        return email.length > 0 && password.length > 0;
-    }
-
-    const handleSubmit =(event)=>{
-        event.preventDefault();
-        try{
-          axios.post(`http://localhost4000:/api/login`,
-          {
-            email:email,
-            password:password
-          },
-          {
-            validateStatus: false
-          } 
-          )
-          .then(res => {
-            console.log(res.data);
-            if (res.status === 200){
-              const token = res.data;
-              // Store the token in localstorage. 
-              localStorage.setItem('token', JSON.stringify(token));
-              window.location = '/home';
-            }
-            else{
-              setErrMsg(res.data);
-            }
-          })
-        } catch (err) {
-          alert(err.message);
-          setErrMsg(err.data);
-        }
-    }
     
-    useEffect(() => {
-        onLoad();
-        async function onLoad() {
-            try {
-                const token = JSON.parse(localStorage.getItem('token')).token;
-                const date = new Date();
-                const decodedToken = jwt_decode(token);
-                
-                if ((date.getTime()/1000) > decodedToken.exp ){
-                  await setUserHasAuthenticated(false);
-                  localStorage.removeItem('token');
-                  if (window.location.pathname !== '/'){
-                    window.location = '/login';
-                  }
-                  
-                }else {
-                  window.location = "/home";
-                }
-              }
-              catch(e) {
-                console.log(e);
-              }
-        }
-      }, [isAuthenticated]);
+    const validEmail =isValidInput(email, 3,32); 
+    const validPassword =  isValidpasswordInput(password, 8);
 
+
+    function handleSubmit (event){
+        event.preventDefault();
+
+        // INPUT VALIDATION - CHECKS ARE STRINGS AND CORRECT LENGTH BASED ON MODELS
+            const validForm = true;
+            // const validForm = (validEmail && validPassword)
+
+        if(validForm === true){
+
+            // SUBMIT TO SERVER FOR VERIFICATION
+                const url=`http://localhost:4000/login`;
+                axios.post(url,{
+                    email: email,
+                    password: password,
+                })
+                .then(response => {  
+                    // IF DATA (USER) IS RETURNED FROM SERVER
+                        console.log(JSON.stringify(response?.data));
+                        const accessToken = response?.data?.token;
+                        const role = response?.data?.role
+                        setAuth({ email, password, role, accessToken });
+                        localStorage.setItem('user', accessToken);
+
+                        // RESET EMAIL AND PASSWORD TO EMPTY
+                        setEmail('');
+                        setPassword('');
+                        // navigate(from, { replace: true });
+                        window.location = '/Home';
+                      
+                  })
+            }
+        else{
+            alert("Invalid email or password");
+        }          
+      }
+
+ 
+
+    
+   
 
     return (
         <div>
@@ -88,27 +88,23 @@ function Login () {
             <div className='Login'>
                     <h1>User Login </h1>
                     <form  onSubmit={handleSubmit}>
-                    <div className="errMsg">
-                        { errMsg &&
-                        <h3 className="error"> { errMsg } </h3> }
-                    </div>
-                    <div className="formRow">
+                    <div className="loginFormRow">
                         <div className="formItem2">
                             <label htmlFor="email"><FontAwesomeIcon icon={faEnvelope} /></label>
                             <input type='email' id="email" name="email" placeholder='Email'
                             value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
                     </div>
-                    <div className="formRow">
+                    <div className="loginFormRow">
                         <div className="formItem2">
                             <label htmlFor='password'><FontAwesomeIcon icon={faLock} /></label>
                             <input type='password' id="password" name="password" placeholder='Password' autoComplete="off"  
                                 value={password}  onChange={(e) => setPassword(e.target.value)} />
                         </div>
-                    </div>           
-
-                    <input type='submit' value='Login' disabled={!validateForm()}/>   
-                    
+                    </div>   
+                    <div className="loginFormRow">
+                        <input type='submit' value='Login' /> 
+                    </div>       
                     </form>
 
                     <div className="formFooter">
@@ -117,9 +113,24 @@ function Login () {
                         </Link>                                     
                     </div>
             </div>
+
+            {/* <div className="altLogin">
+                <div className="altLoginRow">
+                    {/* LINK TO AUTH0 
+                        <img className="altLogLogo" src={googleLogo} alt="Google Logo" />
+                        <h3>Login with Google</h3>
+                </div>
+                <div className="altLoginRow">
+                    {/* LINK TO AUTH0 
+                        <img className="altLogLogo" src={microsoftLogo} alt="Google Logo" />
+                        <h3>Login with Microsoft</h3>
+                </div>
+            </div> */}
+
             <Footer />
         </div>
         );
+    
 }
 
 

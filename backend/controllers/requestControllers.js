@@ -17,7 +17,17 @@ export const addNewRequest =(req,res) =>{
 
 // GET ALL REQUESTS
 export const getRequests =(req,res) =>{
-    Request.find({},(err, Request)=>{
+
+    //Query strings in API call
+    let query;
+    const reqQuery ={...req.query};     
+    const removeFields = ["sort"];
+    removeFields.forEach(val => delete reqQuery[val]);
+
+    let queryStr =JSON.stringify(reqQuery);
+    queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g,(match)=> `$${match}`);
+
+    Request.find(JSON.parse(queryStr),(err, Request)=>{
         if(err){
             res.send(err);
         }
@@ -25,19 +35,10 @@ export const getRequests =(req,res) =>{
     });
 };
 
-// GET REQUESTS FOR ONE USER ONLY
-export const getRequestsWithUserID =(req,res) =>{
-    Request.find({userID: userID},(err, Request)=>{
-        if(err){
-            res.send(err);
-        }
-        res.json(Request);
-    });
-};
 
 // VIEW SINGLE REQUEST
 export const getRequestWithID = (req, res) => {
-    Request.findById(req.params.RequestId,(err, User) => {
+    Request.findById(req.params.RequestId,(err, Request) => {
         if (err) {
             res.send(err);
         }
@@ -57,10 +58,11 @@ export const updateRequest = (req, res) => {
 
 // DELETE SINGLE REQUEST 
 export const deleteRequest = (req, res) => {
-    Request.remove(req.params.RequestId,(err, User) => {
-        if (err) {
-            res.send(err);
-        }
-        res.json({message: "Successfully deleted Request"});
-    });
+
+    Request.findOneAndDelete({ _id: req.params.RequestId}, (err, Request) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json({message: "Successfully deleted Request"});
+        });
 };

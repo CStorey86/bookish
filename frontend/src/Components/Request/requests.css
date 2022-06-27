@@ -3,49 +3,18 @@
     justify-items: center;
 }
 
-
-.SearchBar{
-    width: 95%;
-    color: white;
-    margin: 10px;
-    margin-left: 12px;
-    padding: 5px 10px;
-    background-color: #282c34;
-    float: left;
-    font-size: 16px;
+.RequestDashboard{
+    width: 100%;
+    position: fixed;
+    top: 60px;
 }
 
-.Sort{
-    width: 33%;
-    height: 44px;
-    float: left;
-}
-
-.Search{
-    width: 65%;
-    float: right;
-    height: 44px;
-}
-
-.SearchBar input {
-    height: 20px;
-    width: 350px;
-    float: left;
-    margin: 10px;
-}
-
-.SearchBar p {
-    height: 30px;
-    float: left;
-    margin: 10px;
-    font-size: 18px;
-}
 
 .RequestList{
     width: 96%;
-    heighT: 270px;
+    height: 350px;
     color: white;
-    margin: 10px;
+    margin: 5px;
     margin-left: 12px;
     padding: 5px;
     background-color: #282c34;
@@ -59,8 +28,8 @@
     background-color: #c4c4c4;
     margin: 10px;
     padding: 20px;
-    width: 60%;
-    height: 440px;
+    width: 65%;
+    height: 450px;
     float: left;
 }
 
@@ -69,8 +38,8 @@
     margin: 10px;
     margin-right: 20px;
     padding: 20px;
-    width: 400px;
-    height: 440px;
+    width: 420px;
+    height: 450px;
     float: right;
 }
 
@@ -85,28 +54,19 @@
     justify-content: center;
 }
 
-.RequestListTable{
+.requestItemRow{
     width: 96%;
-    float: left;    
-}
-
-.requestItem{
+    margin: 5px;
+    float: left;   
     background-color: #7bcfb3;
     color: black;
     height: 30px;
-}
-
-.requestItem td{
     text-align: left;
     padding-left: 20px;
 }
 
-.statusCol{
-    width: 170px;
-    text-align: center;
-}
 
-.requestItem:hover{
+.requestItemRow:hover{
     background-color: #d3fff0;
     font-weight: bold;
 }
@@ -120,8 +80,8 @@
     float: left;
 }
 
-.ActionBtn, .ActionBtn-wide{
-    width: 120px;
+.ActionBtn, .ActionBtn-wide, .ActionBtn-med{
+    width: 80px;
     height: 30px;
     margin: 15px;
     background-color: #0c704f;
@@ -129,12 +89,18 @@
     border: none;
     border-radius: 8px;
     font-size: 18px;
+    float: left;
 }
 .ActionBtn-wide{
     width: 200px;
 }
+.ActionBtn-med{
+    width: 120px;
+    height: 65px;
+    margin: 5px;
+}
 
-.ActionBtn:Hover, .ActionBtn-wide:hover{
+.ActionBtn:Hover, .ActionBtn-wide:hover, .ActionBtn-med:hover{
     background-color: #d3fff0;
     color: #0b4935;
     transition: background-color 0.2s;
@@ -160,12 +126,21 @@
     margin-right: 20px;
     color: #7bcfb3;
     font-size: 18px;
+    vertical-align: top;
 }
 
 .cardDetails{
     width: 200px;
     text-align: left;
     font-size: 16px;
+}
+
+
+
+.btnPanel{
+    width: 400px;
+    height: 70px;
+    margin: auto;
 }
 
 .NewRequest{
@@ -182,6 +157,275 @@
     width: 63%;
     height: 440px;
     float: left;
+}
+
+/* /////////////////////////////////        Overlays     /////////////////////////////////*/
+
+#deleteRequest, #editRequest, #completeRequest, #statusHistory, #infoLog, #requestAuth, #requestInfo, #replyInfo {
+    position: fixed;
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #282c34c0;
+    z-index: 2; 
+    cursor: pointer; 
+}
+
+#deleteRequest{display: none}
+#editRequest{display: none}
+#completeRequest{display: none}
+#statusHistory{display: none}
+#infoLog{display: none}
+#requestAuth{display: none}
+#requestInfo{display: none}
+#replyInfo{display: none}
+
+
+.topClose{
+    width: 40px;
+    float:right;
+    text-align: right;
+    padding: 10px 10px 0 0;
+    color: #0c704f
+}
+
+.topClose:hover{
+    color: white;
+}
+
+
+.message{
+    position: fixed;
+    width: 80%;
+    top: 200px ;
+    left: 150px;
+    color: #0b4935;
+    background-color: #7bcfb3;
+    padding: 10px 10px 20px 10px;
+}
+
+.message2{
+    position: fixed;
+    width: 85%;
+    height: 420px;
+    top: 100px ;
+    left: 120px;
+    color: #0b4935;
+    background-color: #7bcfb3;
+}
+
+.message2 h3{
+    text-align: center;
+    color: #0b4935;
+    font-size: 30px;
+    padding: 8px 0 16px 0;
+    border-bottom: 2px solid #0b4935;
+    margin: 2px 10px 20px 10px;
+}
+
+.overlayBtnPanel{
+    height: 55px;
+    margin: auto;
+    padding-left: 400px;
+}
+
+.singleReq{
+    width:100%;
+    height:100%;
+}
+
+.editRequestForm{
+    width: 100%;
+    float: left;
+}
+
+.formRow{
+    float: left;
+    margin: 4px;
+    width: 95%;
+}
+
+.formItem{
+    float: left;
+    width: 550px;
+    margin: 10px;
+}
+
+
+.editRequestForm form label{
+    width: 120px;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 2px 15px;
+    text-align: left;
+}
+
+.editRequestForm select {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    width: 200px;
+    border: solid rgb(204, 203, 203) 1px;
+    height: 35px;
+    padding: 4px 8px;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    margin: 5px;
+    font-size: 16px;
+    float: left;
+    color: black;
+    border-radius: 4px;
+}
+
+.editRequestForm form input[type="text"] {
+    width: 65%;
+    height: 30px;
+    border: 1px solid #dee0e4;
+    padding: 2px 15px;
+    float: left;
+    color: black;
+    background-color: #f1f1f1;
+    font-size: 18px;
+}
+
+#Year, #Price {
+    width: 150px;
+}
+
+#Format{
+    width: 200px;
+}
+
+#changeLogTable, #infoLogTable{
+    width: 98%;
+    table-layout: fixed;
+}
+
+
+#changeLogTable thead, #infoLogTable thead{
+    color: #c4c4c4;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 2px solid #c4c4c4;
+}
+
+#changeLogTable tbody , #infoLogTable tbody{
+    color: #0b4935;
+    background-color:#d0d8d5;
+    font-size: 18px;
+}
+
+#changeLogTable tr:nth-child(even), #infoLogTable tr:nth-child(even){
+    background-color: #7bcfb3;
+}
+
+/* /////////////////////////////////////////////////////////////////////// */
+.col-lrg{
+    width: 250px;
+    border: solid white 1px;
+}
+
+.col-Med{
+    width: 160px;
+    border: solid white 1px;
+}
+
+.col-sml{
+    width: 80px;
+    border: solid white 1px;
+}
+/* /////////////////////////////////////////////////////////////////////// */
+
+.infoInput{
+    width: 715px;
+    height: 120px;
+    margin: 10px;
+    margin-left: 135px;
+    padding: 10px;
+    font-size: 16px;
+    float: left;
+}
+
+.infoInput2{
+    width: 715px;
+    height: 120px;
+    margin: 10px;
+    margin-left: 135px;
+    padding: 10px;
+    font-size: 16px;
+    float: left;
+}
+
+#query{
+    padding: 5px;
+    margin: 10px;
+    font-weight: bold;
+    float: left;
+    width: 100px;
+    font-size: 18px;
+}
+
+#infoMsg{
+    color: #282c34;
+    background-color: #c4c4c4;
+    border: solid 1px #282c34;
+    padding: 5px 20px;
+    margin: 10px 5px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    float: left;
+    width: 60%;
+    overflow-y: scroll;
+}
+
+#infoEmp{
+    padding: 5px;
+    margin: 10px 20px 10px 5px;
+    font-weight: bold;
+    float: right;
+    width: 20%;
+    font-size: 18px;
+    text-align: left;
+}
+
+#replyFormBtn{
+    width: 735px;
+    height: 50px;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #0c704f;
+    color: #ffffff;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.2s;
+    border-radius: 8px;
+    float:left;
+    margin-left: 135px;
+}
+
+/* ///////////////////////////////////////    INFO MESSAGES RECORD    ///////////////////////////////////////////// */
+
+.message3{
+    position: fixed;
+    width: 95%;
+    height: 460px;
+    top: 70px ;
+    left: 50px;
+    color: #0b4935;
+    background-color: #7bcfb3;
+}
+
+.message3 h3{
+    text-align: center;
+    color: #0b4935;
+    font-size: 30px;
+    padding: 8px 0 16px 0;
+    border-bottom: 2px solid #0b4935;
+    margin: 2px 10px 20px 10px;
 }
 
 

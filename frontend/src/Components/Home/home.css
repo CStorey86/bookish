@@ -13,25 +13,17 @@
     margin: 25px;
 }
 
-.LeftPanel{
+.BigPanel{
     background-color: #c4c4c4;
     margin: 10px;
+    margin-left: 15%;
     padding: 20px;
-    width: 63%;
+    width: 65%;
     height: 440px;
     float: left;
 }
 
-.RightPanel{
-    background-color: #c4c4c4;
-    margin: 10px;
-    padding: 20px;
-    width: 350px;
-    height: 440px;
-    float: right;
-}
-
-.LeftPanel h2, .RightPanel h2{
+.BigPanel h2 {
     font-size: 30px;
     padding: 5px 5px 20px 5px;
     border-bottom: solid 2px #1d3b31;
@@ -42,13 +34,7 @@
     justify-content: center;
 }
 
-.RightPanel p{
-    color: black;
-    font-size: 18px;
-}
-
-
-.PanelItem{
+.PanelItem {
     background-color: #282c34;
     font-size: 18px;
     color: white;
@@ -57,7 +43,6 @@
     width: 92.5%;
     text-align: left;
     padding: 2px 20px;
-
 }
 
 .PanelItem:hover{

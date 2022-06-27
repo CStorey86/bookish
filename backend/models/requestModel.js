@@ -19,16 +19,21 @@ export const requestSchema = new Schema({
     },
     format:{
         type: String,
-        enum: ["Book","Audiobook","Braille"],        //allows for more types to be added e.g. braille or large print.
+        enum: ["Book","Audio Book","Braille"],        //allows for more types to be added e.g. braille or large print.
         required: [true, 'The Format is required']
     },
     price:{
         type: Number,
         required: [true, 'A Price is required']
     },
+    userID:{
+        type: String,
+        required: true
+    },
     status:{
         type:String,
-        enum: ["Awaiting Allocation, Allocated, Requires further information, Awaiting authorisation, Complete"],
+        enum: ["Awaiting Allocation", "Updated", "Allocated", "Requires further information", 
+            "Information Provided", "Awaiting authorisation", "Authorisor Assigned", "Complete"],
         required: true,
         default: "Awaiting Allocation"
     },
@@ -36,5 +41,22 @@ export const requestSchema = new Schema({
         type: Date,
         required: true,
         default: Date.now
+    },
+
+    allocatedTo:{
+        type: String,        
+    },
+
+    authorisedBy:{
+        type: String,
+    },
+    
+    isComplete:{
+        type: Boolean,
+        required: true,
+        default: false
     }
+
+    //add boolean complete?
+
 });

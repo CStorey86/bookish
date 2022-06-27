@@ -1,25 +1,24 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './profile.css';
-
+import axios from 'axios';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import ProfileCard from './ProfileCard';
-import ProfileEditPanel from './ProfileEditPanel';
+import {getUserWithID} from '../Utils';
 
+  /////////////////////////////// TO BE REPLACED ////////////////////////////////////
+   let user = {
+    id: "62b70ae15f1a0982a44bc2a9"
+  };     
+  //////////////////////////////////////////////////////////////////////////////////
 
-class Profile extends Component {
-  render(){
+function Profile (props) {
+  const thisUser = getUserWithID(user.id);
     return (
       <div className="Profile">
-            <NavBar />
-
-            <ProfileCard />
-            <ProfileEditPanel/>
-
-            <Footer />
+            <ProfileCard user={thisUser}/>
       </div>
     );
   }
-}
 
 export default Profile;

@@ -16,27 +16,32 @@ const UserSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, 'A password is required']
+        required: [true, 'A password is required'],
+        minlength: 8,  // SET AS 8 AS PER MIN INDUSTRY STANDARDS
     },
     email: {
         type: String,
         required: [true, 'An email is required'],
-        unique: true,
         minlength: 3,
         maxlength: 32,
+        unique: true,
     },
     createdDate:{
         type: Date,
-        default: Date.now
+        default: Date.now()
           
     },
-    isAdmin: {
-        type: Boolean,
-        default: false,
+    role:{
+        type: String,
+        enum: ["Standard User", "Employee", "Authoriser"], 
+        default: "Standard User",
     },
-    isEmployee: {
-        type: Boolean,
-        default: false,
+    authLimit: {
+        type: Number,
+        default: 0,
+    },
+    token: {
+        type: String
     },
 
 

@@ -1,55 +1,72 @@
-import React,{Component} from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React , {useState, useEffect} from 'react';
+import {Routes, Route } from "react-router-dom";
+import RequireAuth from './Components/RequireAuth';
 import './App.css';
 
+// ROUTER LINK IMPORTS
+import Home from './Components/Home/Home';
+import Layout from './Components/Layout';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
-import Home from './Components/Home/Home';
 import Requests from './Components/Request/Requests';
 import Profile from './Components/Profile/Profile';
 import NewRequest from './Components/Request/NewRequests/NewRequest';
 import Allocations from './Components/Request/Allocations/Allocations';
 import Authorisations from './Components/Request/Authorisations/Authorisations';
-import Users from './Components/Profile/Users';
+import Users from './Components/Users/Users';
+import AllRequests from './Components/Request/AllRequests';
 
-
-//DEV PROCESS - REMOVE AFTER LOGIN CONFIRMED
-let thisUser = {
-  userID: "62860fe823c9c0ba976b9ba7"
+const ROLES = {
+  "User": "Standard User",
+  "Employee": "Employee",
+  "Authoriser": "Authoriser"
 }
 
-class App extends Component {
-  render(){
-    return (
-      <div className="App">
-          <BrowserRouter>
-            <Routes>
-              <Route index element={<Login />} />
-              <Route path="/Login" element={<Login />} />
-              <Route path="/Register" element={<Register />} />
+//<Route element={<RequireAuth allowedRoles={ROLES.User}/>}>
+// <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Employee, ROLES.Authoriser]}/>}>
 
-              {/* Routes below are only accessible with valid login */}
-              <Route path="/Home" element={<Home />} userID={thisUser.userID}/>
-              <Route path="/Requests" element={<Requests />} userID={thisUser.userID}/>
-              <Route path="Profile" element={<Profile />} userID={thisUser.userID}/>
-              <Route path="NewRequest" element={<NewRequest />} userID={thisUser.userID}/>
-              
+function App() {
+  return ( 
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        {/* PUBLIC ROUTES */}
+          <Route index element={<Home />} />
+          <Route path="Login" element={<Login />} />
+          <Route path="register" element={<Register />} />
 
-              {/* Employee */}
-              <Route path="Allocations" element={<Allocations />} userID={thisUser.userID}/>
-              
+        <Route element={<RequireAuth />}>
+          {/* ALL USERS */}
+          {/* <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Employee, ROLES.Authoriser]}/>}> */}
+            <Route path="/Home" element={<Home />}/>
+            <Route path="/Requests" element={<Requests />}/>
+            <Route path="/Profile" element={<Profile />}/>
+          {/* </Route> */}
 
-              {/* Authoriser */}
-              <Route path="Authorisations" element={<Authorisations userID={thisUser.userID}/>} /> 
-              <Route path="Users" element={<Users />} />
+          {/* STANDARD USER */}
+          {/* <Route element={<RequireAuth allowedRoles={ROLES.User}/>}> */}
+            <Route path="/NewRequest" element={<NewRequest />}/>
+        {/* </Route> */}
 
+        {/* EMPLOYEE */}
+        {/* <Route element={<RequireAuth allowedRoles={ROLES.Employee}/>}> */}
+          <Route path="/Allocations" element={<Allocations />} />
+          <Route path="/AllRequests" element={<AllRequests />} />
+        {/* </Route> */}
 
-            </Routes>
-          </BrowserRouter>
+        {/* AUTHORISER */}
+        {/* <Route element={<RequireAuth allowedRoles={ROLES.Authoriser}/>}> */}
+          <Route path="/Authorisations" element={<Authorisations />} />
+          <Route path="/Users" element={<Users />} />
+        
+        </Route>
 
-      </div>
-    );
-  }
+      </Route>
+    </Routes>
+
+  );
 }
 
 export default App;
+
+         
+

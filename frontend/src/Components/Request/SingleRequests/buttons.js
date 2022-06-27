@@ -1,26 +1,46 @@
-import React,{Component} from 'react';
-import '../requests.css';
+import React from 'react';
+import '../requests.css'
 
-const Buttons =(props) => {
+import AuthBtns from './Buttons/AuthBtns';
+import UserBtns from './Buttons/UserBtns';
+import EmployeeBtns from './Buttons/EmployeeBtns';
 
-    if(props.status !== "Awaiting Allocation")             // any stage after allocation
+const Buttons =(props) => { 
+
+    if(props.request.status === undefined)
     {
         return(
-            <>
-                <button className="ActionBtn-wide">View Status History</button>
-                {/* on click, show overlay listing status history and dates */}
-            </>
-        );
+            <div className="btnPanel">
+            </div>
+        )
     }
-    else {
+    // User is an Authorisor
+    else if(props.currentUser.isAdmin ===  true){
         return(
-            <>
-                <button className="ActionBtn">Edit</button>
-                <button className="ActionBtn">Delete</button>
-            </>
-        );
+            <div>
+                <AuthBtns user={props.currentUser} req={props.request} userName={props.userName}/>
+            </div>
+            
+        )
     }
 
+    // User is an Employee
+    else if(props.currentUser.isEmployee ===  true){
+        return(
+            
+            <div>
+                <EmployeeBtns user={props.currentUser} req={props.request} userName={props.userName}/>
+            </div>
+    )}
+
+    // User is a standard User
+    else{
+        return(
+            <div>
+                <UserBtns user={props.currentUser} req={props.request} userName={props.userName}/>
+            </div>
+        )
+    }
 
 }
 

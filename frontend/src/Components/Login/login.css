@@ -1,29 +1,14 @@
-.NavBar{
-    width: 100%;
-    background-color: #4fb695;
-    float: left;
-    Font-style: Arial;
-    font-size: 18px;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-#Logo{
-    width: 160px;
-    margin: 5px 20px;
-    float: left;
-    margin-left: 30px;
-}
-
 .Login {
     width: 400px;
     background-color: #c4c4c4;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.568);
     margin: 40px;
     float: left;
-    
+    position: fixed;
+    top: 50px;
+    left: 32%;
 }
+
   
 .Login h1 {
     text-align: center;
@@ -40,10 +25,10 @@
     justify-content: center;
 }
 
-.formRow{
+.loginFormRow {
     float: left;
     margin: 4px;
-    width: 98%;
+    width: 97%;
 }
 
 .formItem{
@@ -70,7 +55,7 @@
 }
 
 .Login form input[type="password"], .Login form input[type="text"], .Login form input[type="email"] {
-    width: 270px;
+    width: 280px;
     height: 48px;
     border: 1px solid #dee0e4;
     padding: 0 15px;
@@ -84,9 +69,9 @@
 }
 
 .Login form input[type="submit"] {
-    width: 90%;
+    width: 362px;
     padding: 15px;
-    margin-top: 20px;
+    margin: 15px 0 5px 12px;
     background-color: #0c704f;
     border: 0;
     cursor: pointer;
@@ -95,6 +80,7 @@
     color:  #FFFFFF;
     transition: background-color 0.2s;
     border-radius: 8px;
+    float: left;
 }
 
 .Login form input[type="submit"]:hover {
@@ -123,6 +109,3 @@
   }
 
 
-
-
-  

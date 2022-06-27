@@ -32,6 +32,29 @@
     margin-right: 30px;
 }
 
+#LoginBtn {
+    width: 120px;
+    padding: 5px;
+    margin: 15px 20px;
+    background-color: #0c704f;
+    color:  #FFFFFF;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.2s;
+    border-radius: 8px;
+    float: right;
+}
+
+#LoginBtn:hover{
+    background-color: #d3fff0;
+    color: #0b4935;
+    transition: background-color 0.2s;
+}
+
+
+
 .NavBarItem:Hover, #Logout:hover{
     color: #ffffff;
 }
