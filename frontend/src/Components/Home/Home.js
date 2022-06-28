@@ -1,42 +1,32 @@
-import React, { useState, useEffect  } from "react";
-import jwt_decode from "jwt-decode";
+import React from 'react';
 import './home.css';
 
 import Dashboard from './Dashboard';
 
 const Home = (props) =>{
 
-  const [isAuthenticated, userHasAuthenticated] = useState(false);
-  const [user, setUser] = useState({});
+  /////////////////////////////// TO BE REPLACED ////////////////////////////////////
 
-   // GET LOGIN STATUS OF USER
-   useEffect(() => {
-    onLoad();
-  }, [ isAuthenticated]);
-    async function onLoad() {
-      try {
-        const user = JSON.parse(localStorage.getItem('user'));
-        const exp = jwt_decode(user.token);
-        const date = new Date();
-        if (date.getTime() >= exp ){
-          userHasAuthenticated(false);
-        }else {
-          userHasAuthenticated(true);
-        }
-        // GET USER
-        await setUser(user);
-      }
-      catch(e) {
-        userHasAuthenticated(false);
-      }
+  let thisUser = {
+    id: "62af7c4daea678e8b9f650d3",
+    firstName: "Claire",
+    lastName: "Storey",
+    email: "claire@email.com",
+    createdDate: "2022-05-05T13:10:00.000+00:00",
+    isAdmin: false,
+    isEmployee: false,
+  };     
+
+
+  ///////////////////////////////////////////////////////////////////////////////////
   
+  // IF NO AUTH USER - REDIRECT TO LOGIN.
     return (
       <div className="Home">
-          <Dashboard user={user}/>
-          <div></div>
+          <Dashboard user={thisUser}/>
       </div>
     );
  }
-}
+
 
 export default Home;

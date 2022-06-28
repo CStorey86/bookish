@@ -26,7 +26,7 @@ function App() {
           <Routes>
           {/* Routes if user not Logged In */}
             <Route index element={<Login />} />
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Home />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
 

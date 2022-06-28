@@ -12,9 +12,9 @@ class Dashboard extends Component{
         requests: [],
         closedRequests: [],
         user: props.user,
-        userID: props.user._id,
-        role: props.user.role,
-        firstName: props.user.firstName
+        userID: "props.user.id",
+        isAdmin: props.user.isAdmin,
+        isEmployee: props.user.isEmployee,
     }
   }
 
@@ -22,12 +22,12 @@ class Dashboard extends Component{
     var closedUrl=""; 
     var allUrl =""; 
 
-    if (this.state.role === "Authoriser")
+    if (this.state.isAdmin === true)
     {
       closedUrl = `http://localhost:4000/requests/?authorisedBy=${this.state.userID}&status=Complete`;
       allUrl = `http://localhost:4000/requests/?authorisedBy=${this.state.userID}`;
     }
-    else if(this.state.role === "Employee"){
+    else if(this.state.isEmployee){
       closedUrl = `http://localhost:4000/requests/?allocatedTo=${this.state.userID}&status=Complete`;
       allUrl = `http://localhost:4000/requests/?allocatedTo=${this.state.userID}`;
     }
@@ -68,7 +68,7 @@ class Dashboard extends Component{
           <div>
             <div className="Dashboard">
               <div className="BigPanel">
-                <h2>Welcome {this.state.firstName}</h2>
+                <h2>Welcome </h2>
                 {/* Summary Panel */}
 
                 <Link to="/Requests">
