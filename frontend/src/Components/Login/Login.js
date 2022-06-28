@@ -7,30 +7,22 @@ import axios from '../../Api/axios';
 import {isValidInput, isValidpasswordInput} from '../Utils';
 
 
-function validateForm(validEmail, validPassword){
-    const validForm = false;     
-    if(validEmail === true && validPassword === true)
-    {
-      validForm = true;
-    }
-    return validForm;
-}
-
 function Login () {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
-    const validEmail =isValidInput(email, 3,32); 
-    const validPassword =  isValidpasswordInput(password, 8);
-
+    // DATA VALIDATION: CHANGES INPUT TO STRING AND CHECKS INPUT SIZE BASED ON MODEL
+    const validEmail = isValidInput(JSON.stringify(email), 3,32); 
+    const validPassword =  isValidpasswordInput(JSON.stringify(password), 8);
+    
 
     function handleSubmit (event){
         event.preventDefault();
 
         // INPUT VALIDATION - CHECKS ARE STRINGS AND CORRECT LENGTH BASED ON MODELS
-            const validForm = true;
-            // const validForm = (validEmail && validPassword)
+            // const validForm = true;
+            const validForm = (validEmail && validPassword)
 
         if(validForm === true){
 

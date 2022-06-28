@@ -26,14 +26,19 @@ export function checkIfEmptyString(input){
     return isEmpty;
 }
 
-////////////////////////////////////  USER VALIDATIONS - BASED ON MODEL ////////////////////////////////////////////
+export function getUserName(user){
+    const fullName = user.firstName + " " + user.lastName;
+    return fullName;
+}
+
+/////////////////////////////////////////  VALIDATIONS - ///////////////////////////////////////////////////
 
 export function isValidInput(input, min, max){
     var validInput = false;
     const len = input.length;
 
     // IF BETWEEN SPECIFIED PARAMS (FROM MODEL), AND IS A STRING
-    if(len >= min && len <=max && checkIfIsString(input) === true){
+    if(len >= min && len <=max ){
         validInput = true;
     }
     return validInput;
@@ -44,7 +49,7 @@ export function isValidpasswordInput(input, min){
     const len = input.length;
 
     // IF BETWEEN SPECIFIED PARAMS (FROM MODEL), AND IS A STRING
-    if(len >= min && checkIfIsString(input) === true){
+    if(len >= min){
         validInput = true;
     }
     return validInput;
@@ -67,7 +72,3 @@ export function isValidPasswordMatch(pass, confPass, min){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export function getUserName(user){
-    const fullName = user.firstName + " " + user.lastName;
-    return fullName;
-}
