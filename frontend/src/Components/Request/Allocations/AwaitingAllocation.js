@@ -1,9 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from '../../../Api/axios';
 import './allocations.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus} from '@fortawesome/free-solid-svg-icons';
 import {formatDate, getUserName} from '../../Utils';
+
+function getUserNameFromID(userID){
+    const url = `/users/?userID=${userID}`;
+    let user = {};
+
+    axios.get(url)
+    .then((res) => {
+        user = res.data;
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+
+    const userName = getUserName(user);
+    return userName;
+}
 
 function allocateRequest(userID, reqID){
 
@@ -13,7 +29,7 @@ function allocateRequest(userID, reqID){
     const updateURL=`/requests/${reqID}`;
     const addNewURL=`/changelogs`;
 
-    //Update request parameters
+    // Update request parameters
     axios.put(updateURL,
         {
             allocatedTo: userID,
@@ -45,20 +61,22 @@ function allocateRequest(userID, reqID){
 
 function AwaitingAllocation (props) {
 
-  // const userName = getUserName(props.user.firstName, props.user.lastName);
-
-    return (
+  return (
       <div className="AwaitingAllocationList">
         {/* Search bar ? */}
 
       {/* table listing awaiting allocation */}
         {props.available.map((item) => ( 
+
           <div className="allocationRow" key={item._id}>
             <div className="rowLeft">
               <div className="mainDetails">{item.title} - {item.author} - {item.year}</div>
               <div className="dateCreated">Date Created: {formatDate(item.dateStatusChange)}</div>
+
               {/* Get user name from userID */}
-              <div className="UserName">User: {item.userID}</div> 
+              
+              <div className="UserName">Requested By: {item.id}</div> 
+
             </div>
             <div className="rowRight">
                 <button className="allocateBtn" 

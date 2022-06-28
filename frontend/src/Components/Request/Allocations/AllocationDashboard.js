@@ -11,7 +11,7 @@ class AllocationDashboard extends React.Component {
     super(props);
     this.state={
         available: [],
-        currentUserID: props.user.id,
+        currentUserID: props.user._id,
         currentUser: props.user,
         myAllocations: [],
     }
@@ -22,7 +22,7 @@ class AllocationDashboard extends React.Component {
     const url= `/requests/?status=Awaiting Allocation`; 
     const ownUrl= `/requests/?allocatedTo=${this.state.currentUserID}`;
 
-    //GET ALL REQUESTS AWAITING ALLOCATION
+    // GET ALL REQUESTS AWAITING ALLOCATION
     axios.get(url)
       .then((Response) => {
         //set available[] as data recieved from api call
@@ -34,7 +34,7 @@ class AllocationDashboard extends React.Component {
         console.log(error);
       });
 
-    //GET REQUESTS ALLCCATED TO THIS USER ONLY
+    // GET REQUESTS ALLOCCATED TO THIS USER ONLY
     axios.get(ownUrl)
       .then((Response) => {
         //set available[] as data recieved from api call

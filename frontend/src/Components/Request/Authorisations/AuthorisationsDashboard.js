@@ -11,7 +11,7 @@ class Authorisations extends Component {
     super(props);
     this.state={
         available: [],
-        currentUserID: props.currentUser.id,
+        currentUserID: props.currentUser._id,
         myAuthorisations: [],
     }
   }

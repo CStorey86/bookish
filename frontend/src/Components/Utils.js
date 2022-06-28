@@ -27,9 +27,10 @@ export function checkIfEmptyString(input){
 }
 
 export function getUserName(user){
-    const fullName = user.firstName + " " + user.lastName;
+    const fullName = user.firstName + " " + user.lastName; 
     return fullName;
 }
+
 
 /////////////////////////////////////////  VALIDATIONS - ///////////////////////////////////////////////////
 

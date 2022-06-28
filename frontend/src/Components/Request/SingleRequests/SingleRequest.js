@@ -8,7 +8,7 @@ const SingleRequest =(props) => {
 
 
     const date = formatDate(props.request.dateStatusChange);  
-    const userName = getUserName(props.user.firstName, props.user.lastName);
+    const userName = "";
     
     return (
       <div>

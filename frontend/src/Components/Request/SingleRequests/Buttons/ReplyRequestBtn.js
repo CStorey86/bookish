@@ -22,7 +22,7 @@ class ReplyInfo extends Component {
         const url= `/info/?requestID=${this.state.reqID}`;
         axios.get(url)
         .then((Response) => {
-          //set requests[] as data recieved from api call
+          //set info {} as the first item of data recieved from api call
           this.setState({
             info: Response.data[0]
           })

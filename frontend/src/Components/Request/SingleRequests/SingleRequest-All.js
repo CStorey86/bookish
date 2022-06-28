@@ -1,12 +1,12 @@
 import React from 'react';
 import '../requests.css';
-import {formatDate, getUserName} from '../../Utils';
+import {formatDate} from '../../Utils';
 import ViewStatusHistory from './Buttons/statusHistoryBtn';
 
 const SingleRequest =(props) => {
 
   const date = formatDate(props.request.dateStatusChange);  
-  const userName = getUserName(props.user.firstName, props.user.lastName);
+  const userName = "";
 
     return (
       <div>

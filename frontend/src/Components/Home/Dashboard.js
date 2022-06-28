@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import './home.css';
 import axios from '../../Api/axios';
+import {getUserName} from '../Utils';
 
 
 class Dashboard extends Component{
@@ -15,6 +16,7 @@ class Dashboard extends Component{
         userID: props.currentUser._id,
         isAdmin: props.currentUser.isAdmin,
         isEmployee: props.currentUser.isEmployee,
+        userName: getUserName(props.currentUser),
     }
   }
 
@@ -68,7 +70,7 @@ class Dashboard extends Component{
           <div>
             <div className="Dashboard">
               <div className="BigPanel">
-                <h2>Welcome </h2>
+                <h2>Welcome {this.state.userName}</h2>
                 {/* Summary Panel */}
 
                 <Link to="/Requests">
