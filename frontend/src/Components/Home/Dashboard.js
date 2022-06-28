@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import './home.css';
-import axios from 'axios';
+import axios from '../../Api/axios';
 
 
 class Dashboard extends Component{
@@ -12,7 +12,7 @@ class Dashboard extends Component{
         requests: [],
         closedRequests: [],
         user: props.currentUser,
-        userID: props.currentUser.id,
+        userID: props.currentUser._id,
         isAdmin: props.currentUser.isAdmin,
         isEmployee: props.currentUser.isEmployee,
     }
@@ -24,22 +24,22 @@ class Dashboard extends Component{
 
     if (this.state.isAdmin === true)
     {
-      closedUrl = `http://localhost:4000/requests/?authorisedBy=${this.state.userID}&status=Complete`;
-      allUrl = `http://localhost:4000/requests/?authorisedBy=${this.state.userID}`;
+      closedUrl = `/requests/?authorisedBy=${this.state.userID}&status=Complete`;
+      allUrl = `/requests/?authorisedBy=${this.state.userID}`;
     }
     else if(this.state.isEmployee){
-      closedUrl = `http://localhost:4000/requests/?allocatedTo=${this.state.userID}&status=Complete`;
-      allUrl = `http://localhost:4000/requests/?allocatedTo=${this.state.userID}`;
+      closedUrl = `/requests/?allocatedTo=${this.state.userID}&status=Complete`;
+      allUrl = `/requests/?allocatedTo=${this.state.userID}`;
     }
     else{
-      closedUrl=`http://localhost:4000/requests/?userID=${this.state.userID}&status=Complete`; 
-      allUrl =`http://localhost:4000/requests/?userID=${this.state.userID}`; 
+      closedUrl=`/requests/?userID=${this.state.userID}&status=Complete`; 
+      allUrl =`/requests/?userID=${this.state.userID}`; 
     }
    
     
     axios.get(closedUrl)
     .then((Response) => {
-      //set requests[] as data recieved from api call
+      //set closedRequests[] as data recieved from api call
       this.setState({
         closedRequests: Response.data     
       })

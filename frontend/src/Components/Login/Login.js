@@ -3,11 +3,8 @@ import {Link} from "react-router-dom";
 import './login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock} from '@fortawesome/free-solid-svg-icons';
-import logo from '../../Logos/BookishLogo.PNG';
-import Footer from '../Footer/Footer';
-import axios from 'axios';
+import axios from '../../Api/axios';
 import {isValidInput, isValidpasswordInput} from '../Utils';
-import { useAppContext } from '../../Context/Context';
 
 
 function validateForm(validEmail, validPassword){
@@ -38,7 +35,7 @@ function Login () {
         if(validForm === true){
 
             // SUBMIT TO SERVER FOR VERIFICATION
-                const url=`http://localhost:4000/login`;
+                const url=`/login`;
                 axios.post(url,{
                     email: email,
                     password: password,
@@ -66,56 +63,33 @@ function Login () {
    
 
     return (
-        <div>
-            <div className="NavBar">
-                <Link to="/Home">
-                    <img id="Logo" src={logo} alt="Logo" />
-                </Link>
-            </div>
-
-            <div className='Login'>
-                    <h1>User Login </h1>
-                    <form  onSubmit={handleSubmit}>
-                    <div className="loginFormRow">
-                        <div className="formItem2">
-                            <label htmlFor="email"><FontAwesomeIcon icon={faEnvelope} /></label>
-                            <input type='email' id="email" name="email" placeholder='Email'
-                            value={email} onChange={(e) => setEmail(e.target.value)} />
-                        </div>
+        <div className='Login'>
+                <h1>User Login </h1>
+                <form  onSubmit={handleSubmit}>
+                <div className="loginFormRow">
+                    <div className="formItem2">
+                        <label htmlFor="email"><FontAwesomeIcon icon={faEnvelope} /></label>
+                        <input type='email' id="email" name="email" placeholder='Email'
+                        value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
-                    <div className="loginFormRow">
-                        <div className="formItem2">
-                            <label htmlFor='password'><FontAwesomeIcon icon={faLock} /></label>
-                            <input type='password' id="password" name="password" placeholder='Password' autoComplete="off"  
-                                value={password}  onChange={(e) => setPassword(e.target.value)} />
-                        </div>
-                    </div>   
-                    <div className="loginFormRow">
-                        <input type='submit' value='Login' /> 
-                    </div>       
-                    </form>
-
-                    <div className="formFooter">
-                        <Link to="/Register">
-                            <p>Not yet Registered? - Sign Up</p>
-                        </Link>                                     
+                </div>
+                <div className="loginFormRow">
+                    <div className="formItem2">
+                        <label htmlFor='password'><FontAwesomeIcon icon={faLock} /></label>
+                        <input type='password' id="password" name="password" placeholder='Password' autoComplete="off"  
+                            value={password}  onChange={(e) => setPassword(e.target.value)} />
                     </div>
-            </div>
+                </div>   
+                <div className="loginFormRow">
+                    <input type='submit' value='Login' /> 
+                </div>       
+                </form>
 
-            {/* <div className="altLogin">
-                <div className="altLoginRow">
-                    {/* LINK TO AUTH0 
-                        <img className="altLogLogo" src={googleLogo} alt="Google Logo" />
-                        <h3>Login with Google</h3>
+                <div className="formFooter">
+                    <Link to="/Register">
+                        <p>Not yet Registered? - Sign Up</p>
+                    </Link>                                     
                 </div>
-                <div className="altLoginRow">
-                    {/* LINK TO AUTH0 
-                        <img className="altLogLogo" src={microsoftLogo} alt="Google Logo" />
-                        <h3>Login with Microsoft</h3>
-                </div>
-            </div> */}
-
-            <Footer />
         </div>
         );
     
