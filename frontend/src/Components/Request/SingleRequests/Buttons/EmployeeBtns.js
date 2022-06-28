@@ -13,11 +13,11 @@ const EmployeeBtns =(props) => {
             return(
                 <div className="btnPanel">
                     {/*  Request more information */}
-                        <RequestInfo reqID={props.req._id} userID={props.user.id}/>
+                        <RequestInfo reqID={props.req._id} userID={props.user._id}/>
                     {/* View Status History */}
                         <StatusHistoryBtn reqID={props.req._id} />  
                     {/* Complete */}
-                        <CompleteOrder reqID={props.req._id} userID={props.user.id}/>                    
+                        <CompleteOrder reqID={props.req._id} userID={props.user._id}/>                    
                 </div>
         )}
         else if(props.req.status === "Awaiting authorisation"){
@@ -32,11 +32,11 @@ const EmployeeBtns =(props) => {
             return(
                 <div className="btnPanel">
                     {/*  Request more information */}
-                        <RequestInfo reqID={props.req._id} userID={props.user.id}/>
+                        <RequestInfo reqID={props.req._id} userID={props.user._id}/>
                     {/* View Status History */}
                         <StatusHistoryBtn reqID={props.req._id}/> 
                     {/* Ask for Authorisation */} 
-                        <RequestAuthorisation reqID={props.req._id} userID={props.user.id}/>
+                        <RequestAuthorisation reqID={props.req._id} userID={props.user._id}/>
                 </div>
                 
         )}

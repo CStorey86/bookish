@@ -13,7 +13,7 @@ const AuthBtns =(props) => {
             {/* View Status History */}
                 <StatusHistoryBtn reqID={props.req._id} />  
             {/* Complete */}
-                <AuthoriseOrderBtn  reqID={props.req._id} userID={props.user.id} isAdmin={props.user.isAdmin}/>                    
+                <AuthoriseOrderBtn  reqID={props.req._id} userID={props.user._id} isAdmin={props.user.isAdmin}/>                    
         </div>
     )
 }

@@ -13,7 +13,7 @@ class AllRequestDashboard extends React.Component{
             requests: [],
             currentRequest: {},
             currentRequestID:"",
-            userID: props.currentUser.id,   
+            userID: props.currentUser._id,   
             user: props.currentUser,       
         }
         this.updateCurrentRequest = this.updateCurrentRequest.bind(this);

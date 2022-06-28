@@ -10,7 +10,7 @@ import InfoLogBtn from './InfoLog';
 
 const UserBtns =(props) => {
 
-    const userID = props.user.id;
+    const userID = props.user._id;
     const reqStatus = props.req.status;  
     
     if(reqStatus === "Awaiting Allocation" || reqStatus === "Updated"){

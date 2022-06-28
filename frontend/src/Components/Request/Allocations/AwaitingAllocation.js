@@ -75,7 +75,7 @@ function AwaitingAllocation (props) {
 
               {/* Get user name from userID */}
               
-              <div className="UserName">Requested By: {item.id}</div> 
+              <div className="UserName">Requested By: {item._id}</div> 
 
             </div>
             <div className="rowRight">

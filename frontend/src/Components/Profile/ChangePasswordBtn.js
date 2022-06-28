@@ -63,13 +63,13 @@ function ChangePasswordBtn (props) {
                         <div className="formRow">
                             <div className="formItem2">
                                 <label>New Password:</label>
-                                <input type="text"
+                                <input type="password"
                                         value={pass} onChange={(e)=>setPass(e.target.value)}
                                 />
                             </div>
                             <div className="formItem2">
                                 <label>Confirm Password:</label>
-                                <input type="text"
+                                <input type="password"
                                         value={confPass} onChange={(e)=>setConfPass(e.target.value)}
                                 />
                             </div>

@@ -20,9 +20,8 @@ const EditUserBtn =(props) => {
     const [lastNameChoice, setLastName] = useState(props.user.lastName);
     const [emailChoice, setEmail] = useState(props.user.email);
 
-
-    function editUser(){
-        const url=`user/${props.user.id}`; 
+    function editUser(event){
+        const url=`user/${props.user._id}`; 
 
         // update changes
         axios.put(url,
@@ -32,7 +31,7 @@ const EditUserBtn =(props) => {
                 email: emailChoice,
             })
             .then(
-                alert(`Request ID: ${props.user.id}, has been updated`)
+                alert(`User ID: ${props.user._id}, has been updated`)
             )
             .catch((error) => {
                 console.log(error);
@@ -57,28 +56,28 @@ const EditUserBtn =(props) => {
 
                     <div className="editRequestForm">
                         <h3>Edit My Details</h3>
-                        <form>
+                        <form onSubmit={editUser}>
                             <div className="formRow">
                                 <div className="formItem">
                                     <label>First Name:</label>
-                                    <input type="text" placeholder={props.user.firstName}
+                                    <input type="text" placeholder={firstNameChoice}
                                             value={firstNameChoice} onChange={(e)=>setFirstName(e.target.value)}/>
                                 </div>
                                 <div className="formItem">
                                     <label>Last Name:</label>
-                                    <input type="text" placeholder={props.user.lastName}
+                                    <input type="text" placeholder={lastNameChoice}
                                             value={lastNameChoice} onChange={(e)=>setLastName(e.target.value)} />
                                 </div>
                             </div>
                             <div className="formRow">
                                 <div className="formItem">
                                     <label>Email:</label>
-                                    <input type="text" placeholder={props.user.email}
+                                    <input type="text" placeholder={emailChoice}
                                             value={emailChoice} onChange={(e)=>setEmail(e.target.value)}/>
                                 </div>
                             </div>
                             <div className ="formRow">
-                                <input type="submit" value="SUBMIT CHANGES" id="submitFormBtn" onClick={editUser}/>
+                                <input type="submit" value="SUBMIT CHANGES" id="submitFormBtn" />
                             </div>
                         </form>
                     </div>
