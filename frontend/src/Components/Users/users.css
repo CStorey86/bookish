@@ -40,7 +40,7 @@
 
 .UserList{
     width: 96%;
-    height: 270px;
+    height: 350px;
     color: white;
     margin: 10px;
     margin-left: 12px;
@@ -180,7 +180,7 @@
     cursor: pointer; 
 }
 
-#deleteUser, #resetPasswords  {
+#deleteUser, #resetPasswords, #AuthLimit, #ChangeUserType {
     position: fixed;
     display: none; 
     width: 100%; 
@@ -195,7 +195,7 @@
 }
 
 
-.ActionBtn3, .ActionBtn-3wide {
+.ActionBtn3, .ActionBtn-3wide, .ActionBtn-3widest {
     width: 80px;
     height: 30px;
     margin: 10px;
@@ -210,6 +210,10 @@
     width: 170px;
 }
 
+.ActionBtn-3widest{
+    width: 175px;
+    height: 45px;
+}
 
 .ActionBtn3:Hover, .ActionBtn-3wide:hover{
     background-color: #d3fff0;
@@ -221,4 +225,52 @@
     height: 55px;
     margin: auto;
     padding-left: 400px;
+}
+
+/* ///////////////// AUTH LIMIT OVERLAY/////////////// */
+
+#changeUserAuth{
+    width: 98%;
+    height: 70px;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+}
+
+#changeUserAuth label{
+    width: 100px;
+    height: 30px;
+    padding: 5px 20px;
+}
+
+#changeUserAuth input{
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+}
+
+.authFormSection{
+    float: left;
+    width: 47%;
+    height: 50px;
+    padding: 10px;  
+}
+
+
+.AuthBtn{
+    width: 280px;
+    height: 40px;
+    margin: 5px;
+    background-color: #0c704f;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    float: left;
+}
+
+.AuthBtn:hover{
+    background-color: #d3fff0;
+    color: #0b4935;
+    transition: background-color 0.2s;
 }

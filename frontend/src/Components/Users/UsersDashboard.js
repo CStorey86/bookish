@@ -2,12 +2,8 @@ import React from 'react';
 import axios from '../../Api/axios';
 import './users.css';
 
-
-
 import SingleUser from './SingleUser';
 import UsersList from './UsersList';
-
-
 
 class UsersDashboard extends React.Component{
 

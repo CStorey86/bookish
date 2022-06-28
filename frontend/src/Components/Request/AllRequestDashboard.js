@@ -52,7 +52,8 @@ class AllRequestDashboard extends React.Component{
                 </div>
 
                 <div className="RightPanel">
-                    <SingleRequestAll request={this.state.currentRequest} user={this.state.user}/>
+                    <SingleRequestAll request={this.state.currentRequest} requestID={this.state.currentRequestID} 
+                        user={this.state.user}/>
                 </div>
 
             </div>

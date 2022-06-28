@@ -1,5 +1,5 @@
 import React from 'react';
-import './users.css'
+import '../users.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
 

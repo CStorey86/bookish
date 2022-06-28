@@ -16,9 +16,8 @@
 .BigPanel{
     background-color: #c4c4c4;
     margin: 10px;
-    margin-left: 15%;
     padding: 20px;
-    width: 65%;
+    width: 60%;
     height: 440px;
     float: left;
 }
@@ -32,6 +31,15 @@
     margin: auto;
     text-align: center;
     justify-content: center;
+}
+
+#Chat{
+    background-color: #c4c4c4;
+    margin: 10px;
+    padding: 20px;
+    width: 30%;
+    height: 440px;
+    float: left;
 }
 
 .PanelItem {

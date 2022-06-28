@@ -1,7 +1,7 @@
 import React from 'react';
 import './users.css';
 import BottomCard from './BottomCard';
-import Buttons from './Buttons';
+import Buttons from './Buttons/Buttons';
 import {formatDate} from '../Utils';
 
 
@@ -43,13 +43,9 @@ const SingleUser =(props) => {
             </tbody>
           </table>
 
-          <BottomCard userType={userType} limit={props.user.authLimit}/>
-          <Buttons userID={props.user._id}/>
-
-          
-
+          <BottomCard isEmp={props.user.isEmployee} limit={props.user.authLimit}/>
+          <Buttons user={props.user} />
         </div>
-
     );
   }
 

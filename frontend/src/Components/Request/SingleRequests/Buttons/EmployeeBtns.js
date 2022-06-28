@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../requests.css'
 
-import StatusHistoryBtn from './statusHistoryBtn';
+import StatusHistoryBtn from './StatusHistoryBtn';
 import RequestInfo from './RequestInfoBtn';
 import RequestAuthorisation from './RequestAuthBtn';
 import CompleteOrder from './CompleteOrderBtn';

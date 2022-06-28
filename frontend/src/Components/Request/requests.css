@@ -10,7 +10,7 @@
 }
 
 
-.RequestList{
+.RequestList, .RequestList2{
     width: 96%;
     height: 350px;
     color: white;
@@ -21,7 +21,10 @@
     float: left;
     font-size: 16px;
     overflow-y: scroll;
-    
+}
+
+.RequestList2{
+    height: 300px;
 }
 
 .LeftPanel{
@@ -338,7 +341,7 @@
 /* /////////////////////////////////////////////////////////////////////// */
 
 .infoInput{
-    width: 715px;
+    width: 80%;
     height: 120px;
     margin: 10px;
     margin-left: 135px;

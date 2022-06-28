@@ -14,7 +14,7 @@ function statusHistoryOff(){
     document.getElementById("statusHistory").style.display = "none";     
 }
 
-class statusHistoryBtn extends React.Component {
+class StatusHistoryBtn extends React.Component {
     
     constructor(props){
         super(props);
@@ -55,7 +55,7 @@ class statusHistoryBtn extends React.Component {
                         <div className="statusHistoryList">
                             <h3>Status History - ID: {this.state.reqID}</h3>
 
-                            <div className="RequestList" >
+                            <div className="RequestList2" >
                                 <table id="changeLogTable">
                                     <thead>
                                         <tr>
@@ -88,5 +88,5 @@ class statusHistoryBtn extends React.Component {
     }
 }
 
-export default statusHistoryBtn
+export default StatusHistoryBtn
 

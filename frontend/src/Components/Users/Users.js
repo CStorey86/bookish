@@ -1,16 +1,20 @@
 import React from 'react';
 import './users.css';
 
-import NavBar from '../NavBar/NavBar';
-import Footer from '../Footer/Footer';
 import UsersDashboard from './UsersDashboard';
+
+  // GET USER FROM STORED LOGIN TOKEN 
+  const user = localStorage.getItem('user');
+  let thisUser ={};
+  if(user != null)
+  {
+    thisUser = JSON.parse(user);
+  }
 
 function Users (props) {
     return (
       <div className="User">
-            <NavBar isAuth={props.user.isAdmin} isEmp={props.user.isEmployee}/>
-            <UsersDashboard />
-            <Footer />
+        <UsersDashboard user={thisUser}/>
       </div>
     );
   }

@@ -1,12 +1,12 @@
 import React from 'react';
 import '../requests.css';
 import {formatDate} from '../../Utils';
-import ViewStatusHistory from './Buttons/statusHistoryBtn';
+import ButtonChoice from './AllBtns';
+
 
 const SingleRequest =(props) => {
 
   const date = formatDate(props.request.dateStatusChange);  
-  const userName = "";
 
     return (
       <div>
@@ -53,7 +53,8 @@ const SingleRequest =(props) => {
             </tbody>
           </table>
 
-          <ViewStatusHistory reqID={props.request._id} userName={userName}/>
+          <ButtonChoice />
+
         </div>
     );
   }

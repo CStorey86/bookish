@@ -3,9 +3,9 @@ import './users.css';
 
 const BottomCard =(props) =>{
   //If selected user is employee - show auth limit
-  const userType = props.userType;
+  const userType = props.isEmp;
 
-  if (userType === "Employee"){
+  if (props.isEmp === true){
     return(
       <table className="card">
       <tbody>
