@@ -80,6 +80,9 @@ function NewRequest (props) {
   const [priceChoice, setPrice] = useState("");
 
   const[ErrorMessage] = useState("");
+  const [userID] = useState(props.currentUser._id);
+  const status = useState("Awaiting Allocation");
+  const date =useState(Date.now());
 
   async function handleSubmit(event) {
       event.preventDefault();
@@ -94,16 +97,15 @@ function NewRequest (props) {
             year: yearChoice,
             price: parseFloat(priceChoice).toFixed(2),  // stes as number (from string, and sets to 2 dp
             format: formatChoice,
-            userID: props.currentUser._id,
-            status: "Awaiting Allocation",
-            dateStatusChange: Date.now(),
+            userID: userID,
+            status: status,
+            dateStatusChange: date,
             allocatedTo: "",
             authorisedBy: "",
           })
           .then (res =>{
               console.log("New Request Added");
               alert(`New Request Added`);
-              window.location.reload(false); 
           })
           .catch((error) => {
             console.log(error);
