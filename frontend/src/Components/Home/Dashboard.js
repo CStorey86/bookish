@@ -11,10 +11,10 @@ class Dashboard extends Component{
     this.state={
         requests: [],
         closedRequests: [],
-        user: props.user,
-        userID: "props.user.id",
-        isAdmin: props.user.isAdmin,
-        isEmployee: props.user.isEmployee,
+        user: props.currentUser,
+        userID: props.currentUser.id,
+        isAdmin: props.currentUser.isAdmin,
+        isEmployee: props.currentUser.isEmployee,
     }
   }
 

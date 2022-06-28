@@ -48,8 +48,7 @@ function Login () {
 
                     //IF DATA (A USER) IS RETURNED
                     if (res.status === 200){
-                        const persons = res.data;
-                        const user = persons
+                        const user = res.data;
                         // STORE THE USER TOKEN IN LOCAL STORAGE. 
                         localStorage.setItem('user', JSON.stringify(user));
                         window.location = '/Home';
