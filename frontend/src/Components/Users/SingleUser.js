@@ -2,23 +2,11 @@ import React from 'react';
 import './users.css';
 import BottomCard from './BottomCard';
 import Buttons from './Buttons/Buttons';
-import {formatDate} from '../Utils';
+import {formatDate, getUserType} from '../Utils';
 
 
 const SingleUser =(props) => {
-
-    var userType='';
-    var date = (formatDate(props.user.createdDate))
-
-    if((props.user.isAdmin) === true){
-        userType = 'Authoriser';
-    }
-    else if((props.user.isEmployee) === true){
-        userType = 'Employee';
-    }
-    else{
-        userType = 'Standard User';
-    }
+    var date = (formatDate(props.user.createdDate));
 
     return (
       <div>
@@ -43,7 +31,7 @@ const SingleUser =(props) => {
             </tbody>
           </table>
 
-          <BottomCard isEmp={props.user.isEmployee} limit={props.user.authLimit}/>
+          <BottomCard user={props.user} limit={props.user.authLimit}/>
           <Buttons user={props.user} />
         </div>
     );

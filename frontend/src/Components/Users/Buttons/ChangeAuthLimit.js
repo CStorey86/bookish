@@ -21,14 +21,13 @@ const AuthLimit = (props) => {
     const userID = useState(props.user._id);
     const userName = getUserName(props.user);
 
-    function changeAuthLimit(event){
-        event.preventDefault();
+    function changeAuthLimit(){
         const url=`/users/${userID}`;
         const value = Number(AuthLimitChoice);
 
         axios.put(url,
             {
-                "authLimit": value
+                authLimit: value
             })
             .then(res => {
                 alert(`Authorisation Limit increased to ${value} for ${userName}`)

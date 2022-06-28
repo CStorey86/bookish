@@ -31,6 +31,25 @@ export function getUserName(user){
     return fullName;
 }
 
+export function getUserType(user){
+    
+    const isAuth = user.isAdmin;
+    const isEmp = user.isEmployee;
+    var userType='';
+
+    if(isAuth === true){
+        userType = 'Authoriser';
+    }
+    else if(isEmp === true){
+        userType = 'Employee';
+    }
+    else {
+        userType = 'Standard User';
+    }  
+    
+
+    return userType;
+}
 
 /////////////////////////////////////////  VALIDATIONS - ///////////////////////////////////////////////////
 

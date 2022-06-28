@@ -4,23 +4,15 @@ import {formatDate} from '../Utils';
 import AuthLimitRow from './AuthLimitRow';
 import EditUserBtn from './EditUserBtn';
 import ChangePassword from './ChangePasswordBtn';
+import {getUserType} from '../Utils';
 
 
 const ProfileCard =(props)=> {
 
     const createdDate = (props.thisUser.createdDate);
 
-    var userType='';
+    var userType=getUserType(props.user);
 
-    if((props.thisUser.isAdmin) === true){
-        userType = 'Authoriser';
-    }
-    else if((props.thisUser.isEmployee) === true){
-        userType = 'Employee';
-    }
-    else{
-        userType = 'Standard User';
-    }    
         return (
             <div className="profileCard">
                 <h2>MY PROFILE</h2>

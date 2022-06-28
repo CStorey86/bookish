@@ -1,9 +1,13 @@
 import React from 'react';
 import './users.css';
+import {getUserType} from '../Utils';
+
 
 const BottomCard =(props) =>{
   //If selected user is employee - show auth limit
-  const userType = props.isEmp;
+    const userType = getUserType(props.user);
+
+ 
 
   if (props.isEmp === true){
     return(
