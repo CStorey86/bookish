@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import './App.css';
 
@@ -16,7 +16,16 @@ import Authorisations from './Components/Request/Authorisations/Authorisations';
 import Users from './Components/Users/Users';
 import AllRequests from './Components/Request/AllRequests';
 
+
+export function handleLogout(){
+  // REMOVE TOKEN FROM LOCAL STORAGE
+  localStorage.removeItem('user');
+  // GO TO LOGIN PAGE
+  window.location = '/Login';
+}
+
 function App() {
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -24,23 +33,24 @@ function App() {
           <Navbar />
 
           <Routes>
-          {/* Routes if user not Logged In */}
+          {/* PUBLIC ROUTES */}
             <Route index element={<Login />} />
-            <Route path="/" element={<Home />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
 
-          {/* Routes below are only accessible with valid login */}
+          {/* ALL USER ROUTES */}
             <Route path="/Home" element={<Home />}/>
             <Route path="/Requests" element={<Requests />}/>
             <Route path="/Profile" element={<Profile />} />
+
+          {/* USER ONLY ROUTES */}
             <Route path="/NewRequest" element={<NewRequest />} />
 
-          {/* Employee */}
+          {/* EMPLOYEE ONLY ROUTES */}
             <Route path="/Allocations" element={<Allocations />} />
             <Route path="/AllRequests" element={<AllRequests />} />
 
-          {/* Authoriser */}
+          {/* AUTHORISER ONLY ROUTES */}
             <Route path="/Authorisations" element={<Authorisations />} />
             <Route path="/Users" element={<Users />} />
 

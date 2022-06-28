@@ -4,13 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faBookOpen, faUser, faBookmark, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import './navbar.css';
 import BrandLogo from './Logo';
+import { handleLogout } from '../../App';
 
-function handleLogout(){
-  // DELETE TOKEN FROM LOCAL STORAGE
-  localStorage.setItem('user', '');
-  // REDIRECT BACK TO LOGIN PAGE
-  window.location = '/Login';
-}
 
 function Toolbar (props) {
 
@@ -19,7 +14,7 @@ function Toolbar (props) {
     return (
       <div className="NavBar">
         <Link to="/Login">
-          <p id="Logout" onClick={handleLogout}><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
+          <p id="Logout" ><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
         </Link>
 
         <Link to="/Profile">
@@ -46,7 +41,7 @@ function Toolbar (props) {
     return (      
       <div className="NavBar">
         <Link to="/Login">
-          <p id="Logout" onClick={handleLogout}><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
+          <p id="Logout"><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
         </Link>
 
         <Link to="/Profile">
