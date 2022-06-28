@@ -11,7 +11,7 @@ const ProfileCard =(props)=> {
 
     const createdDate = (props.thisUser.createdDate);
 
-    var userType=getUserType(props.user);
+    var userType=getUserType(props.thisUser);
 
         return (
             <div className="profileCard">

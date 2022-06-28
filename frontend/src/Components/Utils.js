@@ -33,8 +33,8 @@ export function getUserName(user){
 
 export function getUserType(user){
     
-    const isAuth = user.isAdmin;
-    const isEmp = user.isEmployee;
+    var isAuth = user.isAdmin;
+    var isEmp = user.isEmployee;
     var userType='';
 
     if(isAuth === true){
@@ -47,7 +47,6 @@ export function getUserType(user){
         userType = 'Standard User';
     }  
     
-
     return userType;
 }
 

@@ -11,17 +11,63 @@
 
 
 .RequestList, .RequestList2{
-    width: 96%;
+    width: 100%;
     height: 350px;
     color: white;
     margin: 5px;
-    margin-left: 12px;
     padding: 5px;
     background-color: #282c34;
     float: left;
     font-size: 16px;
     overflow-y: scroll;
 }
+
+.RequestList thead{
+    background-color: #55cea6;
+    color: #1d3b31;
+    font-size: 18px;
+    font-weight: bold;
+    height: 25px;
+    padding: 5px;
+}
+
+.RequestList tbody tr td{
+    font-size: 14px;
+    height: 25px;
+    padding: 5px;
+    /* border-bottom: white 1px solid; */
+}
+
+.RequestList tbody tr{
+    background-color: #c4c4c4;
+    color: #282c34;
+}
+
+.RequestList tr:nth-child(even){
+    background-color: #d0d8d5;
+    color: #282c34;
+}
+
+.RequestList tbody tr:hover {
+    background-color: #0c704f;
+    color: white;
+}
+
+.sml-col{
+    width: 10%;
+}
+.med-col{
+    width: 15%;
+}
+.lrg-col{
+    width: 20%;
+}
+
+/* <td className ="med-col">Title</td>
+                                <td className ="med-col">Author</td>
+                                <td className ="sml-col" >Year</td>
+                                <td className ="lrg-col">Date Created</td>
+                                <td className ="sml-col">Status</td> */
 
 .RequestList2{
     height: 300px;
@@ -432,3 +478,27 @@
 }
 
 
+.sortBtn{
+    width: 30px;
+    height: 20px;
+    margin: 2px;
+    color: #0b4935;
+    border: none;
+}
+.sortBtn{
+    width: 30px;
+    height: 20px;
+    margin: 2px 5px;
+    color: #0b4935;
+    border: none;
+    background-color: #55cea6;
+    transition: background-color 0.2s;
+    font-size: 20px;
+}
+
+.sortBtn:hover{
+    color: #1d3b31;
+    border: none;
+    transition: background-color 0.2s;
+    background-color: #c4c4c4;
+}
