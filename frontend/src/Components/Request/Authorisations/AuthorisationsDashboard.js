@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import axios from 'axios';
+import axios from '../../../Api/axios';
 import './authorisations.css';
 
 import AwaitingAuthorisation from './AwaitingAuthorisation';
@@ -17,8 +17,8 @@ class Authorisations extends Component {
   }
 
   componentDidMount(){
-    const url= `http://localhost:4000/requests/?status=Awaiting authorisation`; 
-    const ownUrl= `http://localhost:4000/requests/?authorisedBy=${this.state.currentUserID}`;
+    const url= `/requests/?status=Awaiting authorisation`; 
+    const ownUrl= `/requests/?authorisedBy=${this.state.currentUserID}`;
 
     //GET ALL REQUESTS AWAITING AUTHORISATION
     axios.get(url)

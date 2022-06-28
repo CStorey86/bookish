@@ -2,7 +2,7 @@ import React from 'react';
 import '../../requests.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+import axios from '../../../../Api/axios';
 
 function deleteOn(){
     document.getElementById("deleteRequest").style.display = "block";     
@@ -17,7 +17,7 @@ function deleteOff(){
 const DeleteBtn =(props) => {
 
     function deleteRequest(){
-        const url=`http://localhost:4000/requests/${props.reqID}`; 
+        const url=`/requests/${props.reqID}`; 
 
         axios.delete(url)
             .then(

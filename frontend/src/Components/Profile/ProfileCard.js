@@ -8,14 +8,14 @@ import ChangePassword from './ChangePasswordBtn';
 
 const ProfileCard =(props)=> {
 
-    const createdDate = (props.user.createdDate);
+    const createdDate = (props.thisUser.createdDate);
 
     var userType='';
 
-    if((props.user.isAdmin) === true){
+    if((props.thisUser.isAdmin) === true){
         userType = 'Authoriser';
     }
-    else if((props.user.isEmployee) === true){
+    else if((props.thisUser.isEmployee) === true){
         userType = 'Employee';
     }
     else{
@@ -31,7 +31,7 @@ const ProfileCard =(props)=> {
                     </div>
                     
                     <div className="profileRowRight">
-                        {props.user.firstName}
+                        {props.thisUser.firstName}
                         
                     </div>
                 </div>
@@ -40,7 +40,7 @@ const ProfileCard =(props)=> {
                         LAST NAME:
                     </div>
                     <div className="profileRowRight">
-                        {props.user.lastName}
+                        {props.thisUser.lastName}
                     </div>
                 </div>
                 <div className="profileRow">
@@ -48,7 +48,7 @@ const ProfileCard =(props)=> {
                         EMAIL:
                     </div>
                     <div className="profileRowRight">
-                        {props.user.email}
+                        {props.thisUser.email}
                     </div>
 
                 </div>
@@ -69,11 +69,11 @@ const ProfileCard =(props)=> {
                     </div>
                 </div>
                 {/* IF EMPLOYEE */}
-                <AuthLimitRow isEmp ={props.user.isEmployee} aLimit={props.user.authLimit}/>
+                <AuthLimitRow isEmp ={props.thisUser.isEmployee} aLimit={props.thisUser.authLimit}/>
                 
                 <div className="overlayBtnPanel-wide">
-                    <ChangePassword user={props.user}/>
-                    <EditUserBtn user={props.user}/>
+                    <ChangePassword user={props.thisUser}/>
+                    <EditUserBtn user={props.thisUser}/>
                 </div>
             </div>
         );

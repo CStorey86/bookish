@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import axios from '../../../Api/axios';
 import './authorisations.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus} from '@fortawesome/free-solid-svg-icons';
@@ -9,8 +9,8 @@ function addAuthorisation(userID, reqID){
   const newStatus ="Authorisor Assigned";
   const date = Date.now();
 
-  const updateURL=`http://localhost:4000/requests/${reqID}`;
-  const addNewURL=`http://localhost:4000/changelogs`;
+  const updateURL=`/requests/${reqID}`;
+  const addNewURL=`/changelogs`;
 
    //Update request parameters
    axios.put(updateURL,

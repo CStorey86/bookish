@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import axios from '../../../Api/axios';
 import './allocations.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus} from '@fortawesome/free-solid-svg-icons';
@@ -10,8 +10,8 @@ function allocateRequest(userID, reqID){
     const newStatus ="Allocated";
     const date = Date.now();
 
-    const updateURL=`http://localhost:4000/requests/${reqID}`;
-    const addNewURL=`http://localhost:4000/changelogs`;
+    const updateURL=`/requests/${reqID}`;
+    const addNewURL=`/changelogs`;
 
     //Update request parameters
     axios.put(updateURL,

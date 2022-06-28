@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import axios from '../../Api/axios';
 import './users.css';
 
 
@@ -21,7 +21,7 @@ class UsersDashboard extends React.Component{
     }
 
     componentDidMount(){
-        const url='http://localhost:4000/users'; 
+        const url='/users'; 
 
         axios.get(url)
         .then((Response) => {

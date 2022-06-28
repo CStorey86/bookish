@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import axios from '../../../Api/axios';
 import './allocations.css';
 
 import AwaitingAllocations from './AwaitingAllocation';
@@ -19,8 +19,8 @@ class AllocationDashboard extends React.Component {
 
   componentDidMount(){
     // TO DO: ADD SORT BY DATE - MOST RECENT FIRST - TO API URLS
-    const url= `http://localhost:4000/requests/?status=Awaiting Allocation`; 
-    const ownUrl= `http://localhost:4000/requests/?allocatedTo=${this.state.currentUserID}`;
+    const url= `/requests/?status=Awaiting Allocation`; 
+    const ownUrl= `/requests/?allocatedTo=${this.state.currentUserID}`;
 
     //GET ALL REQUESTS AWAITING ALLOCATION
     axios.get(url)

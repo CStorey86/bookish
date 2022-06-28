@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './profile.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+import axios from '../../Api/axios';
 
 function changePasswordOn(){
     document.getElementById("changeThePassword").style.display = "block";     
@@ -26,7 +26,7 @@ function ChangePasswordBtn (props) {
     async function handleSubmit(event){
         if (this.state.pass === this.state.confPass)
         {
-            const url=`http://localhost:4000/users/${props.user._id}`; 
+            const url=`users/${props.user._id}`; 
             const password = hashPassword(pass);
 
             axios.put(url,

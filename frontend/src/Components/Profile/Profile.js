@@ -6,17 +6,18 @@ import Footer from '../Footer/Footer';
 import ProfileCard from './ProfileCard';
 import {getUserWithID} from '../Utils';
 
-  /////////////////////////////// TO BE REPLACED ////////////////////////////////////
-   let user = {
-    id: "62b70ae15f1a0982a44bc2a9"
-  };     
-  //////////////////////////////////////////////////////////////////////////////////
+  // GET USER FROM STORED LOGIN TOKEN 
+  const user = localStorage.getItem('user');
+  let thisUser ={};
+  if(user != null)
+  {
+    thisUser = JSON.parse(user);
+  }
 
 function Profile (props) {
-  const thisUser = getUserWithID(user.id);
     return (
       <div className="Profile">
-            <ProfileCard user={thisUser}/>
+            <ProfileCard thisUser={thisUser}/>
       </div>
     );
   }

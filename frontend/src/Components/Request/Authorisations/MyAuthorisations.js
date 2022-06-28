@@ -1,6 +1,6 @@
 import React from 'react';
 import './authorisations.css';
-import axios from 'axios';
+import axios from '../../../Api/axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus} from '@fortawesome/free-solid-svg-icons';
 import {Link} from "react-router-dom";
@@ -12,8 +12,8 @@ function removeAllocation(userID, reqID){
   const newStatus ="Awaiting authorisation";
   const date = Date.now();
 
-  const updateURL=`http://localhost:4000/requests/${reqID}`;
-  const addNewURL=`http://localhost:4000/changelogs`;
+  const updateURL=`/requests/${reqID}`;
+  const addNewURL=`/changelogs`;
 
   //change details in request db
   axios.put(updateURL,

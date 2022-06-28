@@ -2,7 +2,7 @@ import React,{Component,useState} from 'react';
 import '../../requests.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+import axios from '../../../../Api/axios';
 
 function reqAuthOn(){
     document.getElementById("requestAuth").style.display = "block";     
@@ -20,8 +20,8 @@ const RequestAuthorisation =(props) => {
         const newStatus ="Awaiting authorisation";
         const date = Date.now();
     
-        const updateURL=`http://localhost:4000/requests/${reqID}`;
-        const addNewURL=`http://localhost:4000/changelogs`;
+        const updateURL=`/requests/${reqID}`;
+        const addNewURL=`/changelogs`;
     
         axios.put(updateURL,
             {

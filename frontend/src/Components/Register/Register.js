@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
-import axios from 'axios';
+import axios from '../../Api/axios';
 import './register.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser} from '@fortawesome/free-solid-svg-icons';
@@ -41,7 +41,7 @@ function Register () {
 
           if( validForm === true){
             
-              axios.post(`http://localhost:4000/users`,
+              axios.post(`/users`,
               {
                 firstName:firstName,
                 lastName:lastName,

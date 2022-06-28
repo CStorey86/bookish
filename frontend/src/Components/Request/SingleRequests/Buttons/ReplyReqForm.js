@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import '../../requests.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+import axios from '../../../../Api/axios';
 
 function repInfoOn(){
     document.getElementById("replyInfo").style.display = "block";     
@@ -29,9 +29,9 @@ function ReplyReqForm (props) {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const url=`http://localhost:4000/info/${infoID}`; 
-        const urlStatus=`http://localhost:4000/requests/${reqID}`; 
-        const log_url=`http://localhost:4000/changelogs`; 
+        const url=`/info/${infoID}`; 
+        const urlStatus=`/requests/${reqID}`; 
+        const log_url=`/changelogs`; 
 
         // UPDATE INFO OBJECT ATTRIBUTES
             axios.put(url, {

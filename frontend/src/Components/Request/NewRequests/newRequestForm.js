@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import './newRequests.css';
-import axios from 'axios';
+import axios from '../../../Api/axios';
 
 // If currency option added, extra function will be needed for currency conversion.
 
@@ -85,7 +85,7 @@ function NewRequest (props) {
       event.preventDefault();
       //if data = valid....
 
-          const url='http://localhost:4000/requests'; 
+          const url='/requests'; 
 
           axios.post(url,{
             title: titleChoice,
@@ -94,7 +94,7 @@ function NewRequest (props) {
             year: yearChoice,
             price: parseFloat(priceChoice).toFixed(2),  // stes as number (from string, and sets to 2 dp
             format: formatChoice,
-            userID: props.currentUser.id,
+            userID: props.currentUser._id,
             status: "Awaiting Allocation",
             dateStatusChange: Date.now(),
             allocatedTo: "",

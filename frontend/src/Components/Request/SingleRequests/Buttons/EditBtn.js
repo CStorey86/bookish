@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import '../../requests.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+import axios from '../../../../Api/axios';
 
 
 function editOn(){
@@ -24,7 +24,7 @@ const EditBtn =(props) => {
     const [priceChoice, setPrice] = useState(props.req.price);
 
     function editRequest(){
-        const url=`http://localhost:4000/requests/${props.req._id}`; 
+        const url=`/requests/${props.req._id}`; 
 
         // update changes
         axios.put(url,
@@ -48,7 +48,7 @@ const EditBtn =(props) => {
         console.log()
 
         //add changeLogEntry
-        const log_url= `http://localhost:4000/changelogs`
+        const log_url= `/changelogs`
             axios.post(log_url,
                 {
                     requestID: props.req._id,

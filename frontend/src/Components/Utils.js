@@ -1,6 +1,6 @@
 //USEFUL RE-USABLE FUNCTIONS FOR THE APPLICATION
 
-import axios from "axios";
+import axios from "../Api/axios";
 
 export function formatDate(inputDate){
 
@@ -71,7 +71,7 @@ export function isValidPasswordMatch(pass, confPass, min){
 
 export function getUserWithID(userID){
     const user = {};
-    const url=`http://localhost:4000/users/${userID}`;
+    const url=`/users/${userID}`;
     axios.get(url)
         .then((Response) => {
                 user = Response.data;
@@ -82,9 +82,8 @@ export function getUserWithID(userID){
     return user;
 }
 
-export function getUserName(user){
-    const fName = user.firstName;
-    const lName = user.lastName;
-    const fullName = fName + " " + lName;
+export function getUserName(userID){
+    const user = getUserWithID(userID);
+    const fullName = user.firstName + " " + user.lastName;
     return fullName;
 }

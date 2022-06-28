@@ -2,7 +2,7 @@ import React from 'react';
 import '../../requests.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios'
+import axios from '../../../../Api/axios';
 import {formatDate} from '../../../Utils';
 
 
@@ -25,7 +25,7 @@ class statusHistoryBtn extends React.Component {
     }
 
     componentDidMount(){
-        const logUrl=`http://localhost:4000/changelogs?requestID=${this.state.reqID}`;
+        const logUrl=`/changelogs?requestID=${this.state.reqID}`;
 
         axios.get(logUrl)
         .then((Response) => {
@@ -67,7 +67,6 @@ class statusHistoryBtn extends React.Component {
                                     {this.state.logs.map((item) => (
                                     <tbody key={item._id}>
                                         <tr>
-                                            {/* TO DO: CHANGE DATE FORMAT */}
                                             <td>{formatDate(item.dateChange)}</td>
 
                                             {/* formatDate() */}

@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import '../../requests.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+import axios from '../../../..//Api/axios';
 
 function reqInfoOn(){
     document.getElementById("requestInfo").style.display = "block";     
@@ -22,9 +22,9 @@ const RequestInfo =(props) => {
         event.preventDefault();
 
         // ADD REQUEST FOR MORE INFO
-        const url=`http://localhost:4000/info`; 
-        const changeUrl=`http://localhost:4000/requests/${props.reqID}`; 
-        const addLogUrl =`http://localhost:4000/changelogs`;
+        const url=`/info`; 
+        const changeUrl=`/requests/${props.reqID}`; 
+        const addLogUrl =`/changelogs`;
         const newStatus = "Requires further information";
     
         axios.post(url,{

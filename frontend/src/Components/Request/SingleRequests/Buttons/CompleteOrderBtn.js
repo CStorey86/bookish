@@ -2,7 +2,7 @@ import React,{Component,useState} from 'react';
 import '../../requests.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+import axios from '../../../../Api/axios';
 
 function completeOn(){
     document.getElementById("completeRequest").style.display = "block";     
@@ -21,8 +21,8 @@ const CompleteBtn =(props) => {
         const newStatus ="Complete";
         const date = Date.now();
     
-        const updateURL=`http://localhost:4000/requests/${reqID}`;
-        const addNewURL=`http://localhost:4000/changelogs`;
+        const updateURL=`/requests/${reqID}`;
+        const addNewURL=`/changelogs`;
     
         // Change request details to "complete"
         axios.put(updateURL,

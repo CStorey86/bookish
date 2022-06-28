@@ -4,10 +4,14 @@ import './home.css';
 import Dashboard from './Dashboard';
 
 const Home = (props) =>{
-  // GET USER FROM STORED LOGIN TOKEN
-  let thisUser = JSON.parse(localStorage.getItem('user'));
+  // GET USER FROM STORED LOGIN TOKEN 
+  const user = localStorage.getItem('user');
+  let thisUser ={};
+  if(user != null)
+  {
+    thisUser = JSON.parse(user);
+  }
   
-  // IF NO AUTH USER - REDIRECT TO LOGIN.
     return (
       <div className="Home">
           <Dashboard currentUser={thisUser}/>

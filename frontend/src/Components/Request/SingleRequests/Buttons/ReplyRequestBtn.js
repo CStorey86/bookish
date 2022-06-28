@@ -1,7 +1,7 @@
 import React,{Component, useState} from 'react';
 import '../../requests.css';
 
-import axios from 'axios';
+import axios from '../../../../Api/axios';
 import ReplyReqForm from './ReplyReqForm';
 
 
@@ -19,7 +19,7 @@ class ReplyInfo extends Component {
     
     componentDidMount(){
         //GET INFO OBJECT USING REQ ID.
-        const url= `http://localhost:4000/info/?requestID=${this.state.reqID}`;
+        const url= `/info/?requestID=${this.state.reqID}`;
         axios.get(url)
         .then((Response) => {
           //set requests[] as data recieved from api call

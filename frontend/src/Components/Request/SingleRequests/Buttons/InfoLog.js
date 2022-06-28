@@ -2,7 +2,7 @@ import React from 'react';
 import '../../requests.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios'
+import axios from '../../../../Api/axios';
 import {formatDate} from '../../../Utils';
 
 
@@ -28,7 +28,7 @@ class infoLogBtn extends React.Component {
     }
 
     componentDidMount(){
-        const logUrl=`http://localhost:4000/info/?requestID=${this.state.reqID}`;
+        const logUrl=`/info/?requestID=${this.state.reqID}`;
 
         axios.get(logUrl)
         .then((Response) => {

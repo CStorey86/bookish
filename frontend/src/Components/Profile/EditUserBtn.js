@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import './profile.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+import axios from '../../Api/axios';
 
 
 function editUserOn(){
@@ -22,7 +22,7 @@ const EditUserBtn =(props) => {
 
 
     function editUser(){
-        const url=`http://localhost:4000/user/${props.user.id}`; 
+        const url=`user/${props.user.id}`; 
 
         // update changes
         axios.put(url,
@@ -61,19 +61,19 @@ const EditUserBtn =(props) => {
                             <div className="formRow">
                                 <div className="formItem">
                                     <label>First Name:</label>
-                                    <input type="text" placeholder={firstNameChoice}
+                                    <input type="text" placeholder={props.user.firstName}
                                             value={firstNameChoice} onChange={(e)=>setFirstName(e.target.value)}/>
                                 </div>
                                 <div className="formItem">
                                     <label>Last Name:</label>
-                                    <input type="text" placeholder={lastNameChoice}
+                                    <input type="text" placeholder={props.user.lastName}
                                             value={lastNameChoice} onChange={(e)=>setLastName(e.target.value)} />
                                 </div>
                             </div>
                             <div className="formRow">
                                 <div className="formItem">
                                     <label>Email:</label>
-                                    <input type="text" placeholder={emailChoice}
+                                    <input type="text" placeholder={props.user.email}
                                             value={emailChoice} onChange={(e)=>setEmail(e.target.value)}/>
                                 </div>
                             </div>

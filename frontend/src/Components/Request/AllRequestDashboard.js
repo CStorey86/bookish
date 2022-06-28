@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import axios from '../../Api/axios';
 import './requests.css';
 
 import RequestList from './RequestList';
@@ -20,7 +20,7 @@ class AllRequestDashboard extends React.Component{
     }
 
     componentDidMount(){
-        const url= `http://localhost:4000/requests/`; 
+        const url= `/requests/`; 
 
         axios.get(url)
         .then((Response) => {
