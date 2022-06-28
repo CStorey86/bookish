@@ -1,7 +1,5 @@
 //USEFUL RE-USABLE FUNCTIONS FOR THE APPLICATION
 
-import axios from "../Api/axios";
-
 export function formatDate(inputDate){
 
     const newDate = new Date(inputDate);
@@ -69,21 +67,7 @@ export function isValidPasswordMatch(pass, confPass, min){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export function getUserWithID(userID){
-    const user = {};
-    const url=`/users/${userID}`;
-    axios.get(url)
-        .then((Response) => {
-                user = Response.data;
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    return user;
-}
-
-export function getUserName(userID){
-    const user = getUserWithID(userID);
+export function getUserName(user){
     const fullName = user.firstName + " " + user.lastName;
     return fullName;
 }

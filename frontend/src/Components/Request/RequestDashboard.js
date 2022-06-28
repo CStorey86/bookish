@@ -14,9 +14,9 @@ class RequestDashboard extends React.Component{
             currentRequest: {},
             currentRequestID:"",
             user: props.currentUser,
-            userID: props.currentUser.id,         //TO DO: GET FROM USER TOKEN
-            isEmp: props.currentUser.isEmployee,  //TO DO: GET WITH USERID
-            isAdmin: props.currentUser.isAdmin,   //TO DO: GET WITH USERID
+            userID: props.currentUser._id,         
+            isEmp: props.currentUser.isEmployee,  
+            isAdmin: props.currentUser.isAdmin,  
         }
         this.updateCurrentRequest = this.updateCurrentRequest.bind(this);
     }

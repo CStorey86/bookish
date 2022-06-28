@@ -129,9 +129,6 @@ export const getUserWithID = (req, res) => {
     });
 };
 
-
-
-
 // UPDATE SINGLE USER
 export const updateUser = (req, res) => {
     User.findOneAndUpdate({ _id: req.params.UserId}, req.body, {new: true}, (err, User) => {
