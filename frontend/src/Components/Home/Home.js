@@ -1,25 +1,23 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './home.css';
 
-import NavBar from '../NavBar/NavBar';
-import Footer from '../Footer/Footer';
 import Dashboard from './Dashboard';
 
-
-class Home extends Component {
-  render(){
+const Home = (props) =>{
+  // GET USER FROM STORED LOGIN TOKEN 
+  const user = localStorage.getItem('user');
+  let thisUser ={};
+  if(user != null)
+  {
+    thisUser = JSON.parse(user);
+  }
+  
     return (
       <div className="Home">
-            <NavBar/>
-
-            {/* Dashboard = landing page: shows summary of requests, and notifications */}
-            <Dashboard />
-            {/*  */}
-
-            <Footer />
+          <Dashboard currentUser={thisUser}/>
       </div>
     );
-  }
-}
+ }
+
 
 export default Home;

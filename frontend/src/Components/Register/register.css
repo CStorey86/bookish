@@ -17,11 +17,15 @@
 }
 
 .Register {
-    width: 700px;
+    width: 51%;
+    height: 500px;
     background-color: #c4c4c4;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.568);
-    margin: 40px;
-    float: right;
+    margin: 40px 300px;
+    float: left;
+    position: fixed;
+    top: 30px;
+    left: 30px;
     
 }
   
@@ -40,21 +44,21 @@
     justify-content: center;
 }
 
-.formRow{
+.regFormRow{
     float: left;
     margin: 4px;
     width: 98%;
 }
 
-.formItem{
+.regFormItem{
     float: left;
     width: 300px;
     margin: 10px 20px;
 }
 
-.formItem2{
+.regFormItem2{
     float: left;
-    width: 774px;
+    width: 640px;
     margin: 10px 20px;
 }
 
@@ -78,6 +82,9 @@
     color: black;
     background-color: #f1f1f1;
 }
+.Register form input[type="email"]{
+    width: 86.5%;
+}
 
 ::placeholder{
     color: #353434;
@@ -86,7 +93,7 @@
 
 
   .Register form input[type="submit"] {
-    width: 680px;
+    width: 650px;
     padding: 15px;
     margin-top: 20px;
     background-color: #0c704f;
@@ -110,6 +117,10 @@
     color: #353434;
     margin: 20px;
     font-weight: bold;
+  }
+
+  .ErrorMessage{
+    width: 98%;
   }
 
   

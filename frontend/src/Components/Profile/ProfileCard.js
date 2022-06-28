@@ -1,19 +1,38 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './profile.css';
+import {formatDate} from '../Utils';
+import AuthLimitRow from './AuthLimitRow';
+import EditUserBtn from './EditUserBtn';
+import ChangePassword from './ChangePasswordBtn';
 
 
-class ProfileCard extends Component {
-  render(){
-    return (
+const ProfileCard =(props)=> {
+
+    const createdDate = (props.thisUser.createdDate);
+
+    var userType='';
+
+    if((props.thisUser.isAdmin) === true){
+        userType = 'Authoriser';
+    }
+    else if((props.thisUser.isEmployee) === true){
+        userType = 'Employee';
+    }
+    else{
+        userType = 'Standard User';
+    }    
+        return (
             <div className="profileCard">
-                <h2>USER PROFILE</h2>
+                <h2>MY PROFILE</h2>
                 
                 <div className="profileRow">
                     <div className="profileRowleft">
-                        FIRST NAME:
+                        FIRST NAME: 
                     </div>
+                    
                     <div className="profileRowRight">
-                        thisName
+                        {props.thisUser.firstName}
+                        
                     </div>
                 </div>
                 <div className="profileRow">
@@ -21,7 +40,7 @@ class ProfileCard extends Component {
                         LAST NAME:
                     </div>
                     <div className="profileRowRight">
-                        thisName
+                        {props.thisUser.lastName}
                     </div>
                 </div>
                 <div className="profileRow">
@@ -29,7 +48,7 @@ class ProfileCard extends Component {
                         EMAIL:
                     </div>
                     <div className="profileRowRight">
-                        thisEmail@email.com
+                        {props.thisUser.email}
                     </div>
 
                 </div>
@@ -38,7 +57,7 @@ class ProfileCard extends Component {
                         USER TYPE:
                     </div>
                     <div className="profileRowRight">
-                        standard User
+                        {userType}
                     </div>
                 </div>
                 <div className="profileRow">
@@ -46,18 +65,19 @@ class ProfileCard extends Component {
                         DATE CREATED:
                     </div>
                     <div className="profileRowRight">
-                        day / month / year
+                        {formatDate(createdDate)}
                     </div>
                 </div>
-
-                <button className="ActionBtn-wide">Change Password</button>
-
-                {/* ON CLICK - CHANGE PROFILEEDITPANEL CSS DISPLAY TO BLOCK */}
-                <button className="ActionBtn-wide">Edit User Profile</button>
-
+                {/* IF EMPLOYEE */}
+                <AuthLimitRow isEmp ={props.thisUser.isEmployee} aLimit={props.thisUser.authLimit}/>
+                
+                <div className="overlayBtnPanel-wide">
+                    <ChangePassword user={props.thisUser}/>
+                    <EditUserBtn user={props.thisUser}/>
+                </div>
             </div>
-    );
-  }
+        );
 }
+
 
 export default ProfileCard;

@@ -1,55 +1,66 @@
-import React,{Component} from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, {useState} from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import './App.css';
 
+// ROUTER LINK IMPORTS
+import Home from './Components/Home/Home';
+import Navbar from './Components/NavBar/NavBar';
+import Footer from './Components/Footer/Footer';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
-import Home from './Components/Home/Home';
 import Requests from './Components/Request/Requests';
 import Profile from './Components/Profile/Profile';
 import NewRequest from './Components/Request/NewRequests/NewRequest';
 import Allocations from './Components/Request/Allocations/Allocations';
 import Authorisations from './Components/Request/Authorisations/Authorisations';
-import Users from './Components/Profile/Users';
+import Users from './Components/Users/Users';
+import AllRequests from './Components/Request/AllRequests';
 
 
-//DEV PROCESS - REMOVE AFTER LOGIN CONFIRMED
-let thisUser = {
-  userID: "62860fe823c9c0ba976b9ba7"
+export function handleLogout(){
+  // REMOVE TOKEN FROM LOCAL STORAGE
+  localStorage.removeItem('user');
+  // GO TO LOGIN PAGE
+  window.location = '/Login';
 }
 
-class App extends Component {
-  render(){
-    return (
-      <div className="App">
-          <BrowserRouter>
-            <Routes>
-              <Route index element={<Login />} />
-              <Route path="/Login" element={<Login />} />
-              <Route path="/Register" element={<Register />} />
+function App() {
 
-              {/* Routes below are only accessible with valid login */}
-              <Route path="/Home" element={<Home />} userID={thisUser.userID}/>
-              <Route path="/Requests" element={<Requests />} userID={thisUser.userID}/>
-              <Route path="Profile" element={<Profile />} userID={thisUser.userID}/>
-              <Route path="NewRequest" element={<NewRequest />} userID={thisUser.userID}/>
-              
+  return (
+    <div className="App">
+      <BrowserRouter>
+      
+          <Navbar />
 
-              {/* Employee */}
-              <Route path="Allocations" element={<Allocations />} userID={thisUser.userID}/>
-              
+          <Routes>
+          {/* PUBLIC ROUTES */}
+            <Route index element={<Login />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/Register" element={<Register />} />
 
-              {/* Authoriser */}
-              <Route path="Authorisations" element={<Authorisations userID={thisUser.userID}/>} /> 
-              <Route path="Users" element={<Users />} />
+          {/* ALL USER ROUTES */}
+            <Route path="/Home" element={<Home />}/>
+            <Route path="/Requests" element={<Requests />}/>
+            <Route path="/Profile" element={<Profile />} />
 
+          {/* USER ONLY ROUTES */}
+            <Route path="/NewRequest" element={<NewRequest />} />
 
-            </Routes>
-          </BrowserRouter>
+          {/* EMPLOYEE ONLY ROUTES */}
+            <Route path="/Allocations" element={<Allocations />} />
+            <Route path="/AllRequests" element={<AllRequests />} />
 
-      </div>
-    );
-  }
+          {/* AUTHORISER ONLY ROUTES */}
+            <Route path="/Authorisations" element={<Authorisations />} />
+            <Route path="/Users" element={<Users />} />
+
+          </Routes>
+
+          <Footer />
+
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;

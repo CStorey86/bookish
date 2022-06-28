@@ -1,25 +1,26 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './authorisations.css';
 
 import NavBar from '../../NavBar/NavBar';
 import Footer from '../../Footer/Footer';
-import AwaitingAuthorisation from './AwaitingAuthorisation';
-import MyAuthorisations from './MyAuthorisations';
+import AuthorisationsDashboard from './AuthorisationsDashboard';
 
-class Authorisations extends Component {
-  render(){
+   // GET USER FROM STORED LOGIN TOKEN 
+   const user = localStorage.getItem('user');
+   let thisUser ={};
+   if(user != null)
+   {
+     thisUser = JSON.parse(user);
+   }
+
+
+function Authorisations (props) {
     return (
       <div className="Authorisations">
-            <NavBar />
-
-            <AwaitingAuthorisation/>
-            
-            <MyAuthorisations />
-
-            <Footer />
+            <AuthorisationsDashboard currentUser={thisUser}/>
       </div>
     );
-  }
 }
+
 
 export default Authorisations;

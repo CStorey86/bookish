@@ -1,34 +1,20 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faSort} from '@fortawesome/free-solid-svg-icons';
+import SearchBar from '../SearchBar/Searchbar';
 
 const RequestList = (props) => {
     return ( 
         <div>
-
-            
-            <div className="SearchBar">
-                <div className="Sort">
-                    <p>Sort <FontAwesomeIcon icon={faSort} /></p>
-                </div>
-                <div className="Search">
-                    <p> Search </p>
-                        <input type="text"/>
-                        <p> <FontAwesomeIcon icon={faSearch} />
-                    </p>
-                </div>
-            </div>
             <div className="RequestList" >
-            {/* TO DO: LOOK AT DIFFERENT COLOUR CSS BASED ON STATUS (E.G. COMPLETE = GREYED OUT) */}
-                <table className="RequestListTable">
-                    {props.requests.map((item) => (
-                        <tr className="requestItem">
-                            <td><a onClick={props.updateCurrentRequest.bind(this,item)}>{item.title} - {item.author}</a></td>
-                            <td className="statusCol">{item.status}</td>
-                        </tr>
-                    ))}
-                </table>
-                
+                <SearchBar/>
+                {props.requests.map((item) => (
+                    <div className ="requestItemRow" key={item._id}>
+                        <a onClick={props.updateCurrentRequest.bind(this,item)}>
+                            <div className="singleReq">
+                                {item.title} - {item.author} - {item.year}
+                            </div>
+                        </a>
+                  </div>
+                ))}                
             </div>
             
         </div>

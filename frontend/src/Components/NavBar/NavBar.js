@@ -1,85 +1,32 @@
-import React,{Component} from 'react';
-import {Link} from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faUser, faBookOpen, faPlus, faBookmark} from '@fortawesome/free-solid-svg-icons';
-import logo from '../../BookishLogo.PNG';
+import React from 'react';
 import './navbar.css';
+import Toolbar from './Toolbar';
+import PublicNav from './PublicNav';
 
-
-class NavBar extends Component {
-  render(){
-    return (
-      <div className="NavBar">
-          <Link to="/Home">
-            <img id="Logo" src={logo} alt="Logo" />
-          </Link>
-          <Link to="/Login">
-            <p id="Logout"><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
-          </Link>
-
-
-          {/* Standard User */}
-            
-            <Link to="/Profile">
-              <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
-            </Link>
-            <Link to="/Requests">
-              <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> My Requests</p>
-            </Link>
-            <Link to="/NewRequest">
-              <p className="NavBarItem"><FontAwesomeIcon icon={faPlus} /> New Request</p>
-            </Link>
-
-
-          {/* Employee */}
-                         
-            
-            {/* <Link to="/Profile">
-              <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
-            </Link>
-            <Link to="/Requests">
-              <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> My Requests</p>
-            </Link>
-            <Link to="/Allocations">
-              <p className="NavBarItem"><FontAwesomeIcon icon={faBookmark} /> Allocations</p>
-            </Link>
-            <Link to="/Requests">
-              <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> All Requests</p>
-            </Link> */}
-
-
-
-
-          {/* Authoriser */}
-                       
-            
-            {/* <Link to="/Profile">
-              <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
-            </Link>
-            <Link to="/Authorisations">
-              <p className="NavBarItem"><FontAwesomeIcon icon={faBookmark} /> Authorisations</p>
-            </Link>
-            <Link to="/Requests">
-              <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> MyRequests</p>
-            </Link>
-
-            <Link to="/Users">
-              <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Users</p>
-            </Link>
-
-            <Link to="/Requests">
-              <p className="NavBarItem"><FontAwesomeIcon icon={faBookOpen} /> All Requests</p>
-            </Link> */}
-          
-          
-
-
-      </div>
-    );
+function NavBar () {
+  
+  // GET USER FROM STORED LOGIN TOKEN 
+  const user = localStorage.getItem('user');
+  let thisUser ={};
+  if(user != null)
+  {
+    thisUser = JSON.parse(user);
   }
+ 
+
+  // IF USER EXISTS - SHOW FULL NAVBAR WITH LOGOUT BUTTON - ELSE SHOW BRAND LOGO ONLY
+  if (thisUser._id === undefined){
+    return(
+      <PublicNav />
+    )
+  }
+  else{
+    return(
+      <Toolbar isAuth={thisUser.isAdmin} isEmp={thisUser.isEmployee} 
+        userID={thisUser._id}/>
+    )
+  }
+  
 }
 
 export default NavBar;
-
-
-//<Link to="/about">About</Link>
