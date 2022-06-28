@@ -18,25 +18,26 @@ function AuthLimitOff(){
 const AuthLimit = (props) => { 
 
     const [AuthLimitChoice, setAuthLimitChoice] = useState(props.user.authLimit);
-    const userID = props.user._id;
+    const userID = useState(props.user._id);
     const userName = getUserName(props.user);
 
-    function changeAuthLimit(){
-        const url=`/user/${userID}`;
+    function changeAuthLimit(event){
+        event.preventDefault();
+        const url=`/users/${userID}`;
+        const value = Number(AuthLimitChoice);
 
         axios.put(url,
             {
-                authLimit: AuthLimitChoice
+                "authLimit": value
             })
             .then(res => {
-                alert("success");
-                // alert(`Authorisation Limit increased to ${AuthLimitChoice} for ${userName}`)
+                alert(`Authorisation Limit increased to ${value} for ${userName}`)
+                AuthLimitOff();
             }
             )
             .catch((error) => {
                 console.log(error);
             });
-
     }
 
     if(props.user.isEmployee === true){
