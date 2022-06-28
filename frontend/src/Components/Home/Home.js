@@ -6,9 +6,6 @@ import Dashboard from './Dashboard';
 const Home = (props) =>{
   // GET USER FROM STORED LOGIN TOKEN
   let thisUser = JSON.parse(localStorage.getItem('user'));
-
-  
-
   
   // IF NO AUTH USER - REDIRECT TO LOGIN.
     return (

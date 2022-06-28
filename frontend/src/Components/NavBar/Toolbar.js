@@ -5,16 +5,23 @@ import { faPlus, faBookOpen, faUser, faBookmark, faSignOutAlt } from '@fortaweso
 import './navbar.css';
 import BrandLogo from './Logo';
 
+function handleLogout(){
+  // DELETE TOKEN FROM LOCAL STORAGE
+  localStorage.setItem('user', '');
+  // REDIRECT BACK TO LOGIN PAGE
+  window.location = '/Login';
+}
+
 function Toolbar (props) {
-  
-  
+
   if(props.isAuth === true){
     // USER IS AUTHORISER
     return (
       <div className="NavBar">
         <Link to="/Login">
-          <p id="Logout"><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
+          <p id="Logout" onClick={handleLogout}><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
         </Link>
+
         <Link to="/Profile">
           <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
         </Link>
@@ -39,8 +46,9 @@ function Toolbar (props) {
     return (      
       <div className="NavBar">
         <Link to="/Login">
-          <p id="Logout"><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
+          <p id="Logout" onClick={handleLogout}><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
         </Link>
+
         <Link to="/Profile">
           <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
         </Link>
@@ -63,8 +71,9 @@ function Toolbar (props) {
     return (
       <div className="NavBar">
         <Link to="/Login">
-          <p id="Logout"><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
+          <p id="Logout" onClick={handleLogout}><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
         </Link>
+        
         <Link to="/Profile">
           <p className="NavBarItem"><FontAwesomeIcon icon={faUser} /> Profile</p>
         </Link>
