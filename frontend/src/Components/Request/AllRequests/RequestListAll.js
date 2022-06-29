@@ -5,6 +5,7 @@ import { faSort, faSearch} from '@fortawesome/free-solid-svg-icons';
 import '../requests.css';
 import '../../SearchBar/searchBar.css';
 
+
 // FILTER BY COMPLETE/NOT COMPLETE BASED ON TICK BOX
 
 
@@ -19,14 +20,15 @@ const RequestList = (props) => {
 
     const requests = props.requests;
 
-    const [search, setSearchChoice] = useState();
-
     const [showComplete, setShowComplete] = useState(false); 
-    const handleClick = () => setShowComplete(!showComplete);    
-
-    const reqList = useState(props.activeRequests);
-
     
+    const [search, setSearch]= useState("");
+    const reqList = useState([]); 
+ 
+    const handleClick = () => setShowComplete(!showComplete); 
+
+    const [sortKey, setSortKey] = useState();
+    const [sortOrder, setSortOrder] = useState();
 
 
     return ( 
@@ -38,7 +40,7 @@ const RequestList = (props) => {
                         <div className="searchBar">
                             <label>Search:</label> 
                             <input type="text"
-                                value={search} onChange={(e)=>setSearchChoice(e.target.value)}/>
+                                value={search} onChange={(e)=>setSearch(e.target.value)}/>
                             <FontAwesomeIcon icon={faSearch} size="lg" />
                         </div>
                     </div>
@@ -46,7 +48,6 @@ const RequestList = (props) => {
                         <div className="checkBox">
                             <input id="complete" type="checkbox" 
                                 onClick={handleClick} checked={showComplete}
-                                value={showComplete} onChange={(e)=>setShowComplete(e.target.value)}
                             />
                             <label>Show completed requests</label>  
                         </div>
@@ -91,7 +92,7 @@ const RequestList = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.requests.map((item) => (
+                    {props.activeRequests.map((item) => (
                         <tr key={item._id} onClick={props.updateCurrentRequest.bind(this,item)}>
                             <td className ="med-col">{item.title}</td>
                             <td className ="med-col">{item.author}</td>
