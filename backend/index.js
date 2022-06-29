@@ -22,6 +22,28 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
+
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000",
+	methods: ['GET', 'POST']
+  }
+});
+
+// start the in-memory MongoDB instance
+io.on('connection', (socket) => {
+	socket.on("message", (msg) => {
+		console.log(msg);
+		io.emit('message', msg)
+	})
+})
+
+
+
 // CORS setup
 app.use(cors());
 

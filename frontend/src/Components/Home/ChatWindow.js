@@ -1,6 +1,17 @@
 import React, {useState} from 'react';
 import './home.css';
+// import ChatBox from './ChatBox';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
 
+
+function chatOn(){
+  document.getElementById("ChatOverlay").style.display = "block";     
+}
+
+function chatOff(){
+  document.getElementById("ChatOverlay").style.display = "none";     
+}
 
 function ChatWindow (props){
 
@@ -24,14 +35,22 @@ function ChatWindow (props){
                 </select>                 
             </div>
             <div className="FormRow">
-              <button>Start Chat</button>
+              <button onClick={chatOn}>Start Chat</button>
               {/* ON CLICK - OPEN CHAT WINDOW (OVERLAY) */}
             </div>               
           </form>
         </div>
 
-        <div id="ChatOverlay"></div>
-
+        <div id="ChatOverlay"> 
+          <div className="message2">
+            <div className="topClose">
+                <FontAwesomeIcon icon={faWindowClose} onClick={chatOff} /> 
+            </div>
+            {/* <ChatBox requestChoice={this.state.requestChoice} user={props.curerntUser}
+            /> */}
+          </div>
+           
+        </div>
       </div>
     );
   
