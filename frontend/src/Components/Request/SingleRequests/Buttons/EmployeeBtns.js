@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../requests.css'
 
-import StatusHistoryBtn from './statusHistoryBtn';
+import ViewStatusHistory from './ViewStatusHistory';
 import RequestInfo from './RequestInfoBtn';
 import RequestAuthorisation from './RequestAuthBtn';
 import CompleteOrder from './CompleteOrderBtn';
@@ -15,7 +15,7 @@ const EmployeeBtns =(props) => {
                     {/*  Request more information */}
                         <RequestInfo reqID={props.req._id} userID={props.user._id}/>
                     {/* View Status History */}
-                        <StatusHistoryBtn reqID={props.req._id} />  
+                        <ViewStatusHistory reqID={props.req._id} />  
                     {/* Complete */}
                         <CompleteOrder reqID={props.req._id} userID={props.user._id}/>                    
                 </div>
@@ -24,7 +24,7 @@ const EmployeeBtns =(props) => {
             return(
                 <div className="btnPanel">
                     {/* View Status History */}
-                        <StatusHistoryBtn reqID={props.req._id}/> 
+                        <v reqID={props.req._id}/> 
                 </div>
             )
         }
@@ -34,7 +34,7 @@ const EmployeeBtns =(props) => {
                     {/*  Request more information */}
                         <RequestInfo reqID={props.req._id} userID={props.user._id}/>
                     {/* View Status History */}
-                        <StatusHistoryBtn reqID={props.req._id}/> 
+                        <ViewStatusHistory reqID={props.req._id}/> 
                     {/* Ask for Authorisation */} 
                         <RequestAuthorisation reqID={props.req._id} userID={props.user._id}/>
                 </div>

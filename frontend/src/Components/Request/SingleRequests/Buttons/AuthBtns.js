@@ -2,7 +2,7 @@ import React from 'react';
 import '../../requests.css'
 
 import RequestInfo from './RequestInfoBtn';
-import StatusHistoryBtn from './statusHistoryBtn';
+import ViewStatusHistory from './ViewStatusHistory';
 import AuthoriseOrderBtn from './AuthoriseOrderBtn';
 
 const AuthBtns =(props) => {
@@ -11,7 +11,7 @@ const AuthBtns =(props) => {
     return(
         <div className="btnPanel">
             {/* View Status History */}
-                <StatusHistoryBtn reqID={props.req._id} />  
+                <ViewStatusHistory reqID={props.req._id} />  
             {/* Complete */}
                 <AuthoriseOrderBtn  reqID={props.req._id} userID={props.user._id} isAdmin={props.user.isAdmin}/>                    
         </div>

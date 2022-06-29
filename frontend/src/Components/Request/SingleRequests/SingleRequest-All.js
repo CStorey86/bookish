@@ -48,12 +48,12 @@ const SingleRequest =(props) => {
               <tr>
                 <td className="cardHeader">Last Status Update:</td>
                 <td className="cardDetails">{date}</td>
-                                                                                  {/* TO DO: CSS TO CHANGE FORMAT OF DATE */}
+                                                                                  
               </tr>
             </tbody>
           </table>
 
-          <ButtonChoice />
+          <ButtonChoice reqID={props.request._id}/>
 
         </div>
     );

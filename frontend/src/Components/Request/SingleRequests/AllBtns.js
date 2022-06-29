@@ -1,11 +1,11 @@
 import React from 'react';
 import '../requests.css';
-import ViewStatusHistory from './Buttons/statusHistoryBtn';
+import ViewStatusHistory from './Buttons/ViewStatusHistory';
 
 const ButtonChoice = (props) => {
   const userName = "";
 
-  if(props.requestID == ""){
+  if(props.reqID == ""){
     return(
       <div></div>
     )
@@ -13,7 +13,7 @@ const ButtonChoice = (props) => {
   else{
     return(
       <div className="btnPanel">
-          <ViewStatusHistory />
+          <ViewStatusHistory reqID={props.reqID}/>
       </div>
     )
   }

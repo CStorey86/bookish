@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import DeleteBtn from './DeleteBtn';
 import EditBtn from './EditBtn';
-import StatusHistoryBtn from './statusHistoryBtn';
+import ViewStatusHistory from './ViewStatusHistory';
 import GiveMoreInfo from './ReplyRequestBtn';
 import InfoLogBtn from './InfoLog';
 
@@ -46,7 +46,7 @@ const UserBtns =(props) => {
         return(
             <div className="btnPanel">
                 {/* View Status History */}
-                    <StatusHistoryBtn reqID={props.req._id} userName={props.userName}/>  
+                    <ViewStatusHistory reqID={props.req._id} userName={props.userName}/>  
             </div>
         )           
     }
