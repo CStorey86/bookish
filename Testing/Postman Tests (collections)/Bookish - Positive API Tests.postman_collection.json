@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "415813d6-afa4-499c-b625-521d971725c8",
+		"name": "Bookish - Positive API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register A New User Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonBody = pm.response.json();\r",
+							"pm.collectionVariables.set(\"clientUserID\", jsonBody._id);\r",
+							"\r",
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response format JSON test\", function () {\r",
+							"    pm.response.to.be.withBody;\r",
+							"    pm.response.to.be.json;\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Contains new user data\", function() {\r",
+							"    pm.expect(jsonBody).have.property('firstName', 'George');\r",
+							"    pm.expect(jsonBody).have.property('lastName', 'Weasley');\r",
+							"    pm.expect(jsonBody).have.property('email', 'george@email.com');\r",
+							"    pm.expect(jsonBody).have.property('password', 'password');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"{{firstName}}\",\r\n    \"lastName\": \"{{lastName}}\",\r\n    \"email\": \"{{username}}\",\r\n    \"password\": \"{{password}}\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login with Client account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonBody = pm.response.json();\r",
+							"pm.collectionVariables.set(\"clientUserID\", jsonBody._id);\r",
+							"pm.collectionVariables.set(\"token\", jsonBody.token);\r",
+							"\r",
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response format JSON test\", function () {\r",
+							"    pm.response.to.be.ok;\r",
+							"    pm.response.to.be.withBody;\r",
+							"    pm.response.to.be.json;\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Contains Valid User Information\", function() {\r",
+							"    pm.expect(jsonBody).have.property('email', pm.collectionVariables.get('email'));\r",
+							"    pm.expect(jsonBody).have.property('password', pm.collectionVariables.get('password'));\r",
+				
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create A Book Request As Client",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonBody = pm.response.json();\r",
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response format JSON test\", function () {\r",
+							"    pm.response.to.be.withBody;\r",
+							"    pm.response.to.be.json;\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Contains expected book request data\", function() {\r",
+							"    pm.expect(jsonBody).have.property('title', pm.collectionVariables.get('title'));\r",
+							"    pm.expect(jsonBody).have.property('author', pm.collectionVariables.get('author'));\r",
+							"    pm.expect(jsonBody).have.property('format', pm.collectionVariables.get('format'));\r",
+							"    pm.expect(jsonBody).have.property('year', pm.collectionVariables.get('year'));\r",
+							"    pm.expect(jsonBody).have.property('price', pm.collectionVariables.get('price'));\r",
+							"    pm.expect(jsonBody).have.property('publisher', pm.collectionVariables.get('publisher'));\r",
+							"    pm.expect(jsonBody).have.property('dateStatusChange');\r",
+							"    pm.expect(jsonBody).have.property('userId');\r",
+							"    pm.expect(jsonBody).have.property('status', 'Awaiting Allocation');\r",
+							"    pm.expect(jsonBody).have.property('allocatedTo', '');\r",
+							"    pm.expect(jsonBody).have.property('authorisedBy', '');\r",
+							"    pm.expect(jsonBody).have.property('isComplete', false);\r",
+							"    pm.expect(jsonBody).have.property('_id');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"{{title}}\",\r\n    \"author\": \"{{author}}\",\r\n    \"year\": \"{{year}}\",\r\n    \"price\": \"{{year}}\"\r\n    \"format\": \"{{format}}\"\r\n \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/requests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"requests"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
