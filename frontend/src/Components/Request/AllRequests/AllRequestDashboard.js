@@ -1,9 +1,9 @@
 import React from 'react';
-import axios from '../../Api/axios';
-import './requests.css';
+import axios from '../../../Api/axios';
+import '../requests.css';
 
-import RequestList from './RequestList';
-import SingleRequestAll from './SingleRequests/SingleRequest-All';
+import RequestListAll from './RequestListAll';
+import SingleRequestAll from '../SingleRequests/SingleRequest-All';
 
 class AllRequestDashboard extends React.Component{
 
@@ -11,6 +11,7 @@ class AllRequestDashboard extends React.Component{
         super(props);
         this.state={
             requests: [],
+            notCompRequests: [],
             currentRequest: {},
             currentRequestID:"",
             userID: props.currentUser._id,   
@@ -21,12 +22,24 @@ class AllRequestDashboard extends React.Component{
 
     componentDidMount(){
         const url= `/requests/`; 
+        const notCompUrl = `/requests/?status!=${"Complete"}`;
 
         axios.get(url)
         .then((Response) => {
           //set requests[] as data recieved from api call
           this.setState({
             requests: Response.data     
+          })
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+        axios.get(notCompUrl)
+        .then((Response) => {
+          //set notCompRequests[] as data recieved from api call
+          this.setState({
+            notCompRequests: Response.data     
           })
         })
         .catch((error) => {
@@ -48,7 +61,7 @@ class AllRequestDashboard extends React.Component{
             <div>
                 <div className="LeftPanel">
                     <h2>ALL REQUESTS </h2>
-                    <RequestList requests={this.state.requests} updateCurrentRequest={this.updateCurrentRequest} />
+                    <RequestListAll activeRequests={this.state.notCompRequests} requests={this.state.requests} updateCurrentRequest={this.updateCurrentRequest} />
                 </div>
 
                 <div className="RightPanel">

@@ -14,7 +14,7 @@ import NewRequest from './Components/Request/NewRequests/NewRequest';
 import Allocations from './Components/Request/Allocations/Allocations';
 import Authorisations from './Components/Request/Authorisations/Authorisations';
 import Users from './Components/Users/Users';
-import AllRequests from './Components/Request/AllRequests';
+import AllRequests from './Components/Request/AllRequests/AllRequests';
 
 
 export function handleLogout(){

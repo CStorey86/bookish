@@ -1,8 +1,8 @@
 import React from 'react';
-import './requests.css';
+import '../requests.css';
 
-import NavBar from '../NavBar/NavBar';
-import Footer from '../Footer/Footer';
+import NavBar from '../../NavBar/NavBar';
+import Footer from '../../Footer/Footer';
 import AllRequestDashboard from './AllRequestDashboard';
 
   // GET USER FROM STORED LOGIN TOKEN 
