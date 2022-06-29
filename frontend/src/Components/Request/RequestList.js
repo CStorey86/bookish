@@ -3,34 +3,11 @@ import SearchBar from '../SearchBar/Searchbar';
 import {formatDate} from '../Utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort} from '@fortawesome/free-solid-svg-icons';
+import {useSortableData} from '../Utils';
 
 const RequestList = (props) => {
 
-    const { requests } = props.requests;
-    const [sortedField, setSortedField] = React.useState(null);
-  
-    // let sortedRequests = [...requests];
-    // if (sortedField !== null) {
-    //     sortedProducts.sort((a, b) => {
-    //     if (a[sortedField] < b[sortedField]) {
-    //         return -1;
-    //     }
-    //     if (a[sortedField] > b[sortedField]) {
-    //         return 1;
-    //     }
-    //     return 0;
-    //     });
-    // }
-
-    // sortedProducts.sort((a, b) => {
-    //     if (a[sortConfig.key] < b[sortConfig.key]) {
-    //       return sortConfig.direction === 'ascending' ? -1 : 1;
-    //     }
-    //     if (a[sortConfig.key] > b[sortConfig.key]) {
-    //       return sortConfig.direction === 'ascending' ? 1 : -1;
-    //     }
-    //     return 0;
-    //   });
+    
     
     return ( 
         <div className="RequestList" >
@@ -39,27 +16,27 @@ const RequestList = (props) => {
                 <thead>
                     <tr>
                         <td className ="med-col">Title 
-                            <button className="sortBtn" onClick={() => setSortedField('title')}>
+                            <button className="sortBtn" >
                                 <FontAwesomeIcon icon={faSort} />
                             </button>
                         </td>
                         <td className ="med-col">Author 
-                            <button className="sortBtn" onClick={() => setSortedField('autor')}>
+                            <button className="sortBtn" >
                                 <FontAwesomeIcon icon={faSort} />
                             </button>
                         </td>
                         <td className ="sml-col" >Year 
-                            <button className="sortBtn" onClick={() => setSortedField('year')}>
+                            <button className="sortBtn" >
                                 <FontAwesomeIcon icon={faSort} />
                             </button>
                         </td>
                         <td className ="lrg-col">Date Created 
-                            <button className="sortBtn" onClick={() => setSortedField('dateStatusChange')}>
+                            <button className="sortBtn" >
                                 <FontAwesomeIcon icon={faSort} />
                             </button>
                         </td>
                         <td className ="sml-col">Status
-                            <button className="sortBtn" onClick={() => setSortedField('status')}>
+                            <button className="sortBtn" >
                                 <FontAwesomeIcon icon={faSort} />
                             </button>
                         </td>
