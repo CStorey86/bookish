@@ -14,7 +14,7 @@ function Toolbar (props) {
     return (
       <div className="NavBar">
         <Link to="/Login">
-          <p id="Logout" ><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
+          <p id="Logout" onClick={handleLogout}><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
         </Link>
 
         <Link to="/Profile">
@@ -41,7 +41,7 @@ function Toolbar (props) {
     return (      
       <div className="NavBar">
         <Link to="/Login">
-          <p id="Logout"><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
+          <p id="Logout" onClick={handleLogout}><FontAwesomeIcon icon={faSignOutAlt} /> Logout</p>
         </Link>
 
         <Link to="/Profile">

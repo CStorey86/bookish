@@ -35,7 +35,6 @@
     font-size: 14px;
     height: 25px;
     padding: 5px;
-    /* border-bottom: white 1px solid; */
 }
 
 .RequestList tbody tr{
@@ -54,16 +53,10 @@
 }
 
 .sml-col{
-    width: 80px;
-    padding:2px;
+    width: 90px;
 }
 .med-col{
-    width: 15%;
-    padding:2px;
-}
-.lrg-col{
-    width: 20%;
-    padding:2px;
+    width: 150px;
 }
 
 

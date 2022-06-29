@@ -24,12 +24,12 @@ const RequestList = (props) => {
             <table className="RequestList">
                 <thead>
                     <tr>
-                        <td className ="med-col">Title 
+                        <td>Title 
                             <button className="sortBtn" >
                                 <FontAwesomeIcon icon={faSort} />
                             </button>
                         </td>
-                        <td className ="med-col">Author 
+                        <td>Author 
                             <button className="sortBtn" >
                                 <FontAwesomeIcon icon={faSort} />
                             </button>
@@ -39,7 +39,7 @@ const RequestList = (props) => {
                                 <FontAwesomeIcon icon={faSort} />
                             </button>
                         </td>
-                        <td className ="lrg-col">Date Created 
+                        <td>Date Created 
                             <button className="sortBtn" >
                                 <FontAwesomeIcon icon={faSort} />
                             </button>
@@ -54,10 +54,10 @@ const RequestList = (props) => {
                 <tbody>
                 {props.requests.map((item) => (
                     <tr key={item._id} onClick={props.updateCurrentRequest.bind(this,item)}>
-                        <td className ="med-col">{item.title}</td>
-                        <td className ="med-col">{item.author}</td>
+                        <td >{item.title}</td>
+                        <td >{item.author}</td>
                         <td className ="sml-col" >{item.year}</td>
-                        <td className ="wide-col">{formatDate(item.dateStatusChange)}</td>
+                        <td>{formatDate(item.dateStatusChange)}</td>
                         <td className ="sml-col" >{item.status}</td>
                     </tr>
                 ))} 

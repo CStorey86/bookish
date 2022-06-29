@@ -27,6 +27,10 @@ export function checkIfEmptyString(input){
     return isEmpty;
 }
 
+export function countNumberInArray(array){
+    return array.length;
+}
+
 export function getUserName(user){
     const fullName = user.firstName + " " + user.lastName; 
     return fullName;
@@ -50,6 +54,7 @@ export function getUserType(user){
     
     return userType;
 }
+
 
 /////////////////////////////////////////  VALIDATIONS - ///////////////////////////////////////////////////
 

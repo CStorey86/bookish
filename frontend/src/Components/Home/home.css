@@ -33,14 +33,6 @@
     justify-content: center;
 }
 
-#Chat{
-    background-color: #c4c4c4;
-    margin: 10px;
-    padding: 20px;
-    width: 30%;
-    height: 440px;
-    float: left;
-}
 
 .PanelItem {
     background-color: #282c34;
@@ -97,3 +89,74 @@
     font-size: 18px;
 }
 
+
+#Chat{
+    background-color: #c4c4c4;
+    margin: 10px;
+    padding: 20px;
+    width: 30%;
+    height: 440px;
+    float: left;
+}
+
+
+.chatWindow{
+    background-color: #282c34;
+    width: 99%;
+    height: 99%;
+    float: left
+}
+
+
+.chatWindow h2 {
+    font-size: 24px;
+    padding: 5px 5px 20px 5px;
+    border-bottom: solid 2px #d3fff0;
+    width: 92%;
+    color: #d3fff0;
+    margin: 5px 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+#chatEntryForm{
+    width:94.5%;
+    height: 300px;
+    padding: 20px 5px;
+    margin: 40px 5px;
+}
+
+#chatEntryForm label{
+    font-size:20px;
+    width: 270px;
+
+    float: left;
+    margin: 20px 15% 5px 15%;
+}
+
+#chatEntryForm select{
+    font-size:20px;
+    width: 250px;
+    height: 35px;
+    float: left;
+    margin: 10px 20%;
+    padding: 5px;
+}
+
+#chatEntryForm button{
+    font-size:20px;
+    width: 200px;
+    margin: 40px 25%;
+    height: 40px;
+    background-color: #0c704f;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    float: left;
+}
+
+#ChatOverlay{
+    display: none;
+}
