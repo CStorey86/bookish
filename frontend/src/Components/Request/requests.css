@@ -12,9 +12,9 @@
 
 .RequestList, .RequestList2{
     width: 100%;
-    height: 350px;
+    height: 370px;
     color: white;
-    margin: 2px;
+    margin: 5px 0;
     padding: 5px;
     background-color: #282c34;
     float: left;

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import SearchBar from '../../SearchBar/Searchbar';
 import {formatDate} from '../../Utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSort} from '@fortawesome/free-solid-svg-icons';
-
+import { faSort, faSearch} from '@fortawesome/free-solid-svg-icons';
+import '../requests.css';
+import '../../SearchBar/searchBar.css';
 
 // FILTER BY COMPLETE/NOT COMPLETE BASED ON TICK BOX
 
@@ -18,13 +18,42 @@ import { faSort} from '@fortawesome/free-solid-svg-icons';
 const RequestList = (props) => {
 
     const requests = props.requests;
-    const activeRequests = props.activeRequests;
+
+    const [search, setSearchChoice] = useState();
+
+    const [showComplete, setShowComplete] = useState(false); 
+    const handleClick = () => setShowComplete(!showComplete);    
+
+    const reqList = useState(props.activeRequests);
+
+    
 
 
     return ( 
-        <div className="RequestList" >
-
-            <SearchBar/>
+        <div className= "RequestList">
+            <div className="SearchBar">
+            <form>
+                <div className="formRow2">
+                    <div className="Search">
+                        <div className="searchBar">
+                            <label>Search:</label> 
+                            <input type="text"
+                                value={search} onChange={(e)=>setSearchChoice(e.target.value)}/>
+                            <FontAwesomeIcon icon={faSearch} size="lg" />
+                        </div>
+                    </div>
+                    <div className="completeCheckBox">
+                        <div className="checkBox">
+                            <input id="complete" type="checkbox" 
+                                onClick={handleClick} checked={showComplete}
+                                value={showComplete} onChange={(e)=>setShowComplete(e.target.value)}
+                            />
+                            <label>Show completed requests</label>  
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
 
             <table className="RequestList">
                 <thead>
@@ -61,19 +90,18 @@ const RequestList = (props) => {
                         </td>
                     </tr>
                 </thead>
-                return(
-            <tbody>
-            {props.requests.map((item) => (
-                <tr key={item._id} onClick={props.updateCurrentRequest.bind(this,item)}>
-                    <td className ="med-col">{item.title}</td>
-                    <td className ="med-col">{item.author}</td>
-                    <td className ="smlst-col" >{item.year}</td>
-                    <td className ="wide-col">{formatDate(item.dateStatusChange)}</td>
-                    <td className ="sml-col" >{item.status}</td>
-                    <td className ="sml-col" >{item.userID}</td>
-                </tr>
-            ))} 
-            </tbody>
+                <tbody>
+                    {props.requests.map((item) => (
+                        <tr key={item._id} onClick={props.updateCurrentRequest.bind(this,item)}>
+                            <td className ="med-col">{item.title}</td>
+                            <td className ="med-col">{item.author}</td>
+                            <td className ="smlst-col" >{item.year}</td>
+                            <td className ="wide-col">{formatDate(item.dateStatusChange)}</td>
+                            <td className ="sml-col" >{item.status}</td>
+                            <td className ="sml-col" >{item.userID}</td>
+                        </tr>
+                    ))} 
+                </tbody>
             </table>         
         </div>
     );
