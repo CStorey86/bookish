@@ -16,11 +16,15 @@ function chatOff(){
 function ChatWindow (props){
 
   const [requestChoice, setRequest] = useState({});
+  const isEmp = props.currentUser.isEmployee;
+  // const [userTypeString, setUserTypeString] = useState("Chat with an Employee?");
+ 
+  // if(isEmp){ setUserTypeString("Chat with a User?")};
 
     return (
       <div id="Chat">
         <div className="chatWindow">
-        <h2>Chat with an Employee?</h2>
+        <h2>Chat</h2>
           <form id="chatEntryForm">
             <div className="FormRow">
               <label>Choose the title of the request you wish to chat about</label>
