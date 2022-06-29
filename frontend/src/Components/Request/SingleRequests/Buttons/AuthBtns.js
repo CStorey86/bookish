@@ -2,7 +2,7 @@ import React from 'react';
 import '../../requests.css'
 
 import RequestInfo from './RequestInfoBtn';
-import StatusHistoryBtn from './StatusHistoryBtn';
+import StatusHistoryBtn from './statusHistoryBtn';
 import AuthoriseOrderBtn from './AuthoriseOrderBtn';
 
 const AuthBtns =(props) => {

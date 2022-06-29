@@ -91,7 +91,7 @@ const RequestList = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.requests.map((item) => (
+                    {newArray.map((item) => (
                         <tr key={item._id} onClick={props.updateCurrentRequest.bind(this,item)}>
                             <td className ="med-col">{item.title}</td>
                             <td className ="med-col">{item.author}</td>
@@ -101,6 +101,16 @@ const RequestList = (props) => {
                             <td className ="sml-col" >{item.userID}</td>
                         </tr>
                     ))} 
+                    {/* {newArray.map((item) => (
+                        <tr id="" key={item._id} onClick={props.updateCurrentRequest.bind(this,item)}>
+                            <td className ="med-col">{item.title}</td>
+                            <td className ="med-col">{item.author}</td>
+                            <td className ="smlst-col" >{item.year}</td>
+                            <td className ="wide-col">{formatDate(item.dateStatusChange)}</td>
+                            <td className ="sml-col" >{item.status}</td>
+                            <td className ="sml-col" >{item.userID}</td>
+                        </tr>
+                    ))}  */}
                 </tbody>
             </table>         
         </div>

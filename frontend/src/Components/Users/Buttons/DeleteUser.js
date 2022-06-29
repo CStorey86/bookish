@@ -1,8 +1,8 @@
 import React from 'react';
-import './users.css'
+import '../users.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+
 
 
 function deleteUserOn(){
@@ -31,7 +31,7 @@ const DeleteUserBtn = (props) => {
                     <div className="topClose">
                         <FontAwesomeIcon icon={faWindowClose} onClick={deleteUserOff}/> 
                     </div>
-                    <h3>Are you sure you wish to delete this Request?</h3>
+                    <h3>Are you sure you wish to delete this User?</h3>
 
                     <div className="overlayBtnPanel">
                         <button className="ActionBtn"  onClick={deleteUser}>Yes</button>

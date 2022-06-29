@@ -69,7 +69,7 @@ const ChangeUserType = (props) => {
                                 </select>
                             </div>
                             <div className="authFormSection">
-                                <button className="AuthBtn" >Change Authorisation Limit</button>
+                                <button className="AuthBtn" >Change User Type</button>
                             </div>
                         </form>
                 </div>                                            

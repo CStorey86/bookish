@@ -2,7 +2,7 @@ import React from 'react';
 import '../users.css';
 
 import EditUserBtn from './EditUserBtn';
-import DeleteUserBtn from '../DeleteUser';
+import DeleteUserBtn from './DeleteUser';
 import ResetPassword from './ResetPassword';
 import ChangeUserType from './ChangeUserType';
 import ChangeAuthLimit from './ChangeAuthLimit';

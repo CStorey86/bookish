@@ -22,7 +22,7 @@ class AllRequestDashboard extends React.Component{
 
     componentDidMount(){
         const url= `/requests/?status!=Complete`; 
-        const compUrl = `/requests/?status.neq=Complete`;
+        const compUrl = `/requests/?status=Complete`;
 
         axios.get(url)
         .then((Response) => {
@@ -67,7 +67,8 @@ class AllRequestDashboard extends React.Component{
                 </div>
 
                 <div className="RightPanel">
-                    <SingleRequestAll request={this.state.currentRequest} user={this.state.user}/>
+                    <SingleRequestAll request={this.state.currentRequest} requestID={this.state.currentRequestID} 
+                        user={this.state.user}/>
                 </div>
 
             </div>

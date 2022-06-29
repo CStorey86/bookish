@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import DeleteBtn from './DeleteBtn';
 import EditBtn from './EditBtn';
-import StatusHistoryBtn from './StatusHistoryBtn';
+import StatusHistoryBtn from './statusHistoryBtn';
 import GiveMoreInfo from './ReplyRequestBtn';
 import InfoLogBtn from './InfoLog';
 
