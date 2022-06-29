@@ -14,7 +14,7 @@ const ButtonChoice = (props) => {
   else{
     return(
       <div className="btnPanel">
-          {/* VIEW STATUS HISTORY */}  
+          <ViewStatusHistory reqID={props.requestID} />
       </div>
     )
   }
