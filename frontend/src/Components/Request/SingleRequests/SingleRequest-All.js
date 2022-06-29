@@ -53,7 +53,7 @@ const SingleRequest =(props) => {
             </tbody>
           </table>
 
-          <ButtonChoice />
+          <ButtonChoice requestID={props.request._id} />
 
         </div>
     );
