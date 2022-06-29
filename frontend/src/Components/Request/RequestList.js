@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import SearchBar from '../SearchBar/Searchbar';
 import {formatDate} from '../Utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort} from '@fortawesome/free-solid-svg-icons';
@@ -22,10 +21,6 @@ const RequestList = (props) => {
     return ( 
         <div className="RequestList" >
 
-
-
-
-            <SearchBar/>
             <table className="RequestList">
                 <thead>
                     <tr>
