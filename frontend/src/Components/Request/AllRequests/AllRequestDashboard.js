@@ -62,7 +62,7 @@ class AllRequestDashboard extends React.Component{
             <div>
                 <div className="LeftPanel">
                     <h2>ALL REQUESTS </h2>
-                    <RequestListAll completeRequests={this.state.compRequests} 
+                    <RequestListAll compRequests={this.state.compRequests} 
                       requests={this.state.requests} updateCurrentRequest={this.updateCurrentRequest} />
                 </div>
 

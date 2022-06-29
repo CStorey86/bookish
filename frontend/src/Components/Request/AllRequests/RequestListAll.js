@@ -18,18 +18,17 @@ import '../../SearchBar/searchBar.css';
 
 const RequestList = (props) => {
 
-    const requests = props.requests;
+    const requests = useState(props.requests);
+    const compRequests = useState(props.compRequests);
 
     const [showComplete, setShowComplete] = useState(false); 
-    
     const [search, setSearch]= useState("");
-    const reqList = useState([]); 
+    const newArray = useState(requests.filter(request => request.status != 'Complete')); // set array as active requests
  
-    const handleClick = () => setShowComplete(!showComplete); 
-
-    const [sortKey, setSortKey] = useState();
-    const [sortOrder, setSortOrder] = useState();
-
+    const handleClick = () => {
+        setShowComplete(!showComplete);     // change to true
+                                            // show completed requests
+    }
 
     return ( 
         <div className= "RequestList">
@@ -92,7 +91,7 @@ const RequestList = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.activeRequests.map((item) => (
+                    {newArray.map((item) => (
                         <tr key={item._id} onClick={props.updateCurrentRequest.bind(this,item)}>
                             <td className ="med-col">{item.title}</td>
                             <td className ="med-col">{item.author}</td>
@@ -102,6 +101,16 @@ const RequestList = (props) => {
                             <td className ="sml-col" >{item.userID}</td>
                         </tr>
                     ))} 
+                    {/* {newArray.map((item) => (
+                        <tr id="" key={item._id} onClick={props.updateCurrentRequest.bind(this,item)}>
+                            <td className ="med-col">{item.title}</td>
+                            <td className ="med-col">{item.author}</td>
+                            <td className ="smlst-col" >{item.year}</td>
+                            <td className ="wide-col">{formatDate(item.dateStatusChange)}</td>
+                            <td className ="sml-col" >{item.status}</td>
+                            <td className ="sml-col" >{item.userID}</td>
+                        </tr>
+                    ))}  */}
                 </tbody>
             </table>         
         </div>
