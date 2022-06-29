@@ -19,7 +19,6 @@ import '../../SearchBar/searchBar.css';
 const RequestList = (props) => {
 
     const requests = useState(props.requests);
-    const compRequests = useState(props.compRequests);
 
     const [showComplete, setShowComplete] = useState(false); 
     const [search, setSearch]= useState("");
@@ -91,7 +90,7 @@ const RequestList = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {newArray.map((item) => (
+                    {props.requests.map((item) => (
                         <tr key={item._id} onClick={props.updateCurrentRequest.bind(this,item)}>
                             <td className ="med-col">{item.title}</td>
                             <td className ="med-col">{item.author}</td>
@@ -101,16 +100,6 @@ const RequestList = (props) => {
                             <td className ="sml-col" >{item.userID}</td>
                         </tr>
                     ))} 
-                    {/* {newArray.map((item) => (
-                        <tr id="" key={item._id} onClick={props.updateCurrentRequest.bind(this,item)}>
-                            <td className ="med-col">{item.title}</td>
-                            <td className ="med-col">{item.author}</td>
-                            <td className ="smlst-col" >{item.year}</td>
-                            <td className ="wide-col">{formatDate(item.dateStatusChange)}</td>
-                            <td className ="sml-col" >{item.status}</td>
-                            <td className ="sml-col" >{item.userID}</td>
-                        </tr>
-                    ))}  */}
                 </tbody>
             </table>         
         </div>
