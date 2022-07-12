@@ -17,9 +17,7 @@ function dataValidation(title, author, publisher, year, price){
     // YEAR: check is whole number between 1900 and current year
       const validYr = isValidYear(year);
     // PRICE: check not empty, and is number with 2 decimal places
-      const validPrice = isValidPrice(price);
-
-    
+      const validPrice = isValidPrice(price);    
 
   return {validEntry};
 }
@@ -106,6 +104,7 @@ function NewRequest (props) {
           .then (res =>{
               console.log("New Request Added");
               alert(`New Request Added`);
+              window.location.reload(false);   
           })
           .catch((error) => {
             console.log(error);

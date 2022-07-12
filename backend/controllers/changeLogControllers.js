@@ -15,7 +15,7 @@ export const addNewChangeLog =(req,res) =>{
     });
 };
 
-//GET CHANGE LOGS 
+// GET CHANGE LOGS 
 export const getChangeLogs =(req,res) =>{
 
     //Query strings in API call

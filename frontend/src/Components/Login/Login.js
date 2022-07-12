@@ -21,9 +21,9 @@ function Login () {
         event.preventDefault();
 
         // INPUT VALIDATION - CHECKS ARE STRINGS AND CORRECT LENGTH BASED ON MODELS
-            // const validForm = true;
-            const validForm = (validEmail && validPassword)
-
+            
+            // const validForm = (validEmail && validPassword)
+            const validForm =true;
         if(validForm === true){
 
             // SUBMIT TO SERVER FOR VERIFICATION
